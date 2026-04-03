@@ -25,6 +25,7 @@ import ExamResultDetail from '../pages/ListTestExam/ExamResultDetail';
 import ListExam from '../pages/ListTestExam/ListExam';
 import Profile from '../pages/Profile/Profile';
 import LineCallback from '#/features/line-callback/pages/LinePageCallBack';
+import FacebookCallBack from '#/features/line-callback/pages/FacebookCallBack';
 
 const routesConfig = [
   {
@@ -52,6 +53,10 @@ const routesConfig = [
   {
     path: '/line/callback',
     element: <LineCallback />,
+  },
+  {
+    path: '/facebook/callback',
+    element: <FacebookCallBack />,
   },
   {
     element: <GlobalVocabulary />,

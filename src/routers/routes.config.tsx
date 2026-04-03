@@ -24,6 +24,7 @@ import Forum from '#/src/pages/Forum/Forum';
 import ExamResultDetail from '../pages/ListTestExam/ExamResultDetail';
 import ListExam from '../pages/ListTestExam/ListExam';
 import Profile from '../pages/Profile/Profile';
+import LineCallback from '#/features/line-callback/pages/LinePageCallBack';
 
 const routesConfig = [
   {
@@ -47,6 +48,10 @@ const routesConfig = [
     ],
     element: <Auth />,
     path: '/auth',
+  },
+  {
+    path: '/line/callback',
+    element: <LineCallback />,
   },
   {
     element: <GlobalVocabulary />,

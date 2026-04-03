@@ -1,0 +1,216 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.home {
+  background-color: map.get(v.$colors, accent);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 50px;
+
+  @include m.respond(md) {
+    width: 750px;
+  }
+
+  @include m.respond(lg) {
+    width: 970px;
+  }
+
+  @include m.respond(xl) {
+    width: 1300px;
+    max-width: 1200px;
+  }
+
+  @include m.respond(2xl) {
+    max-width: 1280px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+
+    .listTop {
+      display: flex;
+      align-items: center;
+      gap: map.get(v.$spacing, xs);
+      width: 100%;
+
+      .arrowIcons {
+        display: flex;
+
+        svg {
+          cursor: pointer;
+        }
+
+        path {
+          stroke: #848484;
+        }
+      }
+
+      .homeText,
+      .courseText {
+        font-size: 1rem;
+        color: var(--Gray-50, #848484);
+        font-family: 'SF Pro Display';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        cursor: pointer;
+      }
+
+      .topicText {
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'SF Pro Display';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .title {
+      color: var(--Gray-800, #3d3d3d);
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px;
+      padding: 8px;
+    }
+
+    .courseBox {
+      display: grid;
+      gap: 16px; // Giảm gap để tăng không gian
+      padding: 8px;
+
+      @include m.respond(sm) {
+        grid-template-columns: 1fr; // 1 cột trên mobile
+      }
+
+      @include m.respond(md) {
+        grid-template-columns: repeat(2, 1fr); // 2 cột trên tablet
+      }
+
+      @include m.respond(lg) {
+        grid-template-columns: repeat(3, 1fr); // 4 cột trên laptop
+      }
+
+      @include m.respond(xl) {
+        grid-template-columns: repeat(3, 1fr); // 4 cột
+      }
+
+      @include m.respond(2xl) {
+        grid-template-columns: repeat(3, 1fr); // 4 cột
+      }
+
+      .courseContent {
+        display: flex;
+        padding: 16px; // Giảm padding
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4px;
+        min-width: 240px; // Ngăn co nhỏ
+        border-radius: 16px;
+        border: 1px solid var(--Gray-100, #ddd);
+        background: var(--White, #fff);
+        box-shadow: 0px 4px 0px 0px #ddd;
+        transition:
+          box-shadow 0.2s ease,
+          border 0.2s ease;
+        cursor: pointer;
+
+        &:active {
+          box-shadow: none;
+        }
+
+        .titleBox {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .titleCourse {
+            color: var(--Gray-700, #676767);
+            align-self: stretch;
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+          }
+          .sessionBox {
+            display: flex;
+            gap: 6px;
+            .session {
+              color: var(--Gray-800, #3d3d3d);
+              align-self: stretch;
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 24px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 32px;
+            }
+          }
+
+          .contentTopic {
+            color: var(--Gray-700, #676767);
+            text-align: center;
+            max-width: 100%; // Responsive
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+          }
+        }
+      }
+
+      .boxComplete {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .contentCourse {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+
+          .textCourse {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        }
+        .boxProgress {
+          display: flex;
+          gap: 8px;
+          .progress {
+            width: 113.754px;
+            height: 8px;
+          }
+
+          .textComplete {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

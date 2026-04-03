@@ -1,0 +1,502 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.courseSlider {
+  .slider {
+    margin-top: 1.5rem;
+
+    .courseCard {
+      max-width: 36.5rem;
+      display: flex;
+      border-radius: 8px;
+      background: #fff;
+      padding: 2rem;
+      flex: 1 0 0;
+      width: 100%;
+      height: 100%;
+      align-items: flex-start;
+      flex-direction: column;
+      border: 1px solid var(--Gray-100, #ddd);
+      position: relative;
+
+      @media (min-width: 740px) {
+        width: 90%; // hoặc auto tùy thuộc vào slick
+      }
+      .courseInfo {
+        display: flex;
+        gap: 1rem;
+        flex: 1;
+        justify-content: space-between;
+        width: 100%;
+
+        .courseImage img {
+          width: 86px;
+          height: 86px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+        .courseBoxInfo {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          .courseDetails {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            .title {
+              color: var(--Gray-700, #676767);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 0.875rem;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+            }
+
+            .courseName {
+              font-size: map.get(v.$font-sizes, xl);
+              color: var(--Gray-800, #3d3d3d);
+              font-family: 'FS PF BeauSans Pro';
+              font-style: normal;
+              font-weight: 700;
+              line-height: 32px;
+              margin-top: 8px;
+            }
+          }
+          .titleProcess {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 1rem;
+
+            .progress {
+              width: 28%;
+              height: 8px;
+              background-color: #e0e0e0;
+              border-radius: 5px;
+              position: relative;
+            }
+
+            .progressBar {
+              height: 100%;
+              background-color: #f37142;
+              border-radius: 5px;
+            }
+
+            .status {
+              color: var(--Gray-700, #676767);
+              font-family: 'SF Pro Display';
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+
+      .continueBtn {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: #fff;
+        margin-top: 1.5rem;
+
+        .continue {
+          display: flex;
+          padding: 0.75rem 1.25rem;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          border-radius: 1rem;
+          border: 1px solid var(--Orange-400, #f58d68);
+          border-bottom: 4px solid var(--Orange-400, #f58d68);
+          background: var(--White, #fff);
+          box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+          cursor: pointer;
+          color: #f37142;
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px;
+
+          &:hover {
+            transition: all 0.3s ease;
+            transform: scale(1.05);
+          }
+        }
+
+        .nextLesson {
+          color: var(--Gray-700, #676767);
+          font-family: 'SF Pro Display';
+          font-size: 0.875rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          cursor: pointer;
+
+          &:hover {
+            transition: all 0.3s ease;
+            transform: scale(1.05);
+            text-decoration: underline;
+            color: map.get(v.$colors, primary);
+          }
+        }
+      }
+    }
+  }
+
+  .sliderDots {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+
+    button {
+      background-color: #d0d5dd;
+      border: none;
+      border-radius: 9999px;
+      height: 0.625rem;
+      width: 0.625rem;
+      transition: all 0.2s ease;
+
+      &[aria-selected='true'] {
+        background-color: #f37142;
+        width: 1.5rem;
+      }
+    }
+  }
+
+  .bannerBlogarrow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.125rem;
+
+    .bannerBlogarrowitem {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 1px solid #e4e7ec;
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      img {
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .slider {
+      margin-top: 1rem;
+      :global(.slick-slide) {
+        // Slick tự wrap mỗi slide trong .slick-slide, nên cần global
+        > div {
+          margin-right: 16px; // khoảng cách giữa các slide
+        }
+
+        &:last-child > div {
+          margin-right: 0; // bỏ margin ở cuối
+        }
+      }
+      .courseCard {
+        padding: 1.5rem;
+        max-width: 100%;
+
+        .courseInfo {
+          gap: 0.75rem;
+
+          .courseImage img {
+            width: 70px;
+            height: 70px;
+          }
+
+          .courseDetails {
+            .title {
+              font-size: 0.75rem;
+              line-height: 18px;
+            }
+
+            .courseName {
+              font-size: map.get(v.$font-sizes, lg);
+              line-height: 28px;
+              margin-top: 6px;
+            }
+          }
+        }
+
+        .titleProcess {
+          margin-top: 0.75rem;
+
+          .progress {
+            width: 35%;
+            height: 6px;
+          }
+
+          .status {
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+
+        .continueBtn {
+          margin-top: 1rem;
+          gap: 0.75rem;
+
+          .continue {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            line-height: 20px;
+          }
+
+          .nextLesson {
+            font-size: 0.75rem;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    .sliderDots {
+      margin-top: 0.75rem;
+      gap: 0.4rem;
+
+      button {
+        height: 0.5rem;
+        width: 0.5rem;
+
+        &[aria-selected='true'] {
+          width: 1.25rem;
+        }
+      }
+    }
+
+    .bannerBlogarrow {
+      margin-top: 0.75rem;
+      gap: 0.75rem;
+
+      .bannerBlogarrowitem {
+        width: 1.75rem;
+        height: 1.75rem;
+
+        img {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .slider {
+      margin-top: 0.75rem;
+      :global(.slick-slide) {
+        // Slick tự wrap mỗi slide trong .slick-slide, nên cần global
+        > div {
+          margin-right: 8px; // khoảng cách giữa các slide
+        }
+
+        &:last-child > div {
+          margin-right: 0; // bỏ margin ở cuối
+        }
+      }
+      .courseCard {
+        padding: 1rem;
+
+        .courseInfo {
+          flex-direction: column;
+          gap: 0.5rem;
+
+          .courseImage img {
+            width: 60px;
+            height: 60px;
+          }
+
+          .courseDetails {
+            .title {
+              font-size: 0.625rem;
+              line-height: 16px;
+            }
+
+            .courseName {
+              font-size: map.get(v.$font-sizes, md);
+              line-height: 24px;
+              margin-top: 4px;
+            }
+          }
+        }
+
+        .titleProcess {
+          flex-wrap: wrap;
+          margin-top: 0.5rem;
+
+          .progress {
+            width: 50%;
+            height: 5px;
+          }
+
+          .status {
+            font-size: 10px;
+            line-height: 16px;
+          }
+        }
+
+        .continueBtn {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 0.75rem;
+          gap: 0.5rem;
+
+          .continue {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            line-height: 18px;
+          }
+
+          .nextLesson {
+            font-size: 0.625rem;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+
+    .sliderDots {
+      margin-top: 0.5rem;
+      gap: 0.3rem;
+
+      button {
+        height: 0.4rem;
+        width: 0.4rem;
+
+        &[aria-selected='true'] {
+          width: 1rem;
+        }
+      }
+    }
+
+    .bannerBlogarrow {
+      margin-top: 0.5rem;
+
+      .bannerBlogarrowitem {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        img {
+          width: 0.875rem;
+          height: 0.875rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .slider {
+      margin-top: 2rem;
+      :global(.slick-slide) {
+        // Slick tự wrap mỗi slide trong .slick-slide, nên cần global
+        > div {
+          margin-right: 16px; // khoảng cách giữa các slide
+        }
+
+        &:last-child > div {
+          margin-right: 0; // bỏ margin ở cuối
+        }
+      }
+      .courseCard {
+        padding: 24px;
+        max-width: 40rem;
+        .courseInfo {
+          gap: 1.5rem;
+
+          .courseImage img {
+            width: 100px;
+            height: 100px;
+          }
+
+          .courseDetails {
+            .title {
+              font-size: 1rem;
+              line-height: 24px;
+            }
+
+            .courseName {
+              font-size: map.get(v.$font-sizes, xxl);
+              line-height: 36px;
+              margin-top: 10px;
+            }
+          }
+        }
+
+        .titleProcess {
+          margin-top: 1.5rem;
+
+          .progress {
+            width: 25%;
+            height: 10px;
+          }
+
+          .status {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+
+        .continueBtn {
+          margin-top: 2rem;
+          gap: 1.5rem;
+
+          .continue {
+            padding: 1rem 1.5rem;
+            font-size: 1.125rem;
+            line-height: 28px;
+          }
+
+          .nextLesson {
+            font-size: 1rem;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+
+    .sliderDots {
+      margin-top: 1rem;
+      gap: 0.75rem;
+
+      button {
+        height: 0.75rem;
+        width: 0.75rem;
+
+        &[aria-selected='true'] {
+          width: 1.75rem;
+        }
+      }
+    }
+
+    .bannerBlogarrow {
+      margin-top: 1.5rem;
+      gap: 1.5rem;
+
+      .bannerBlogarrowitem {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        img {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}

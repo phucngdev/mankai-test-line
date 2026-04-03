@@ -1,0 +1,438 @@
+{
+  "survey": {
+    "title": "Survey",
+    "description": "Just drop some quick feedback, and hit ‘Next’ when you’re done ✨",
+    "prev": "Back",
+    "next": "Continue",
+    "submit": "Submit Survey"
+  },
+  "floatButton": {
+    "tooltipButton": "Support",
+    "titleModal": "Support Center",
+    "subTitleModal": "How can we help you?",
+    "system": {
+      "title": "Technical Support",
+      "subTitle": "Software errors, connection issues, account problems"
+    },
+    "content": {
+      "title": "Content Support",
+      "subTitle": "Edit articles, data, images"
+    },
+    "advise": {
+      "title": "Course Consultation",
+      "subTitle": "Consultation about courses, registration, learning roadmap"
+    }
+  },
+  "message": {
+    "warning": {
+      "exam": {
+        "essay": {
+          "emptyFile": "Please add a document or enter a file link",
+          "linkExists": "The link already exists in the file list"
+        }
+      }
+    },
+    "error": {
+      "exam": {
+        "essay": {
+          "upload": "Upload failed"
+        }
+      }
+    },
+    "confirm": {
+      "exam": {
+        "essay": {
+          "contentDeleteFile": "Are you sure you want to delete the submitted file?",
+          "okTextDeleteFile": "Delete",
+          "cancelTextDeleteFile": "Cancel",
+          "titleDeleteFile": "Confirm deletion"
+        }
+      }
+    }
+  },
+  "header": {
+    "logoAlt": "logo",
+    "nav": {
+      "dailyTest": "Daily Mock Test",
+      "topics": "Topics",
+      "learning": "Learning",
+      "forum": "Forum",
+      "myClass": "My Classes"
+    },
+    "language": {
+      "vi": "VI"
+    },
+    "login": "Login",
+    "profile": "Profile",
+    "class": "My Classes",
+    "list-exam": "Mock Test History",
+    "logout": "Logout",
+    "notifications": "Notifications",
+    "markAllAsRead": "Mark all as read",
+    "viewAll": "View all",
+    "viewMore": "View more",
+    "notificationPopup": "You received new notification"
+  },
+  "teacher": {
+    "ceremony": "Opening Ceremony",
+    "end": "End",
+    "sensei": "Instructor"
+  },
+  "class": {
+    "room": "Class Schedule",
+    "result": "Learning Results",
+    "session": "Session",
+    "date": "Date",
+    "status": "Status",
+    "completedLate": "Completed Late",
+    "doneTask": "Completed",
+    "late": "Late",
+    "notDone": "Not Completed",
+    "noLesson": "No Lessons Yet",
+    "noResult": "No Result Data"
+  },
+  "banner": {
+    "homeText": "Home",
+    "courseText": "Online Courses",
+    "streaks": "Streaks",
+    "ranking": "Ranking Board",
+    "experiencePoints": "Experience Points",
+    "userName": "Nguyen C",
+    "userEmail": "Hoangbaohs22@gmail.com",
+    "userLocation": "Dong Anh, Ha Noi",
+    "course": "Courses",
+    "topic": "Japanese by Topic",
+    "mocktest": "Mock Test with Mankai",
+    "examTest": "Test",
+    "loading": "Loading",
+    "btnSub": "Submit",
+    "dateExam": "Exam Date",
+    "point": "Points",
+    "part": "Section",
+    "audio": "Your browser does not support audio playback."
+  },
+  "mocktest": {
+    "exam": "Exam",
+    "examTest": "Test Paper",
+    "participants": "participants",
+    "btnSub": "Join Now",
+    "time": "minutes",
+    "btnTestExam": "Start Test",
+    "structure": "Test Structure",
+    "timeTitle": "Time Limit",
+    "numberQuestion": "Number of Questions",
+    "number": "questions",
+    "back": "Back",
+    "btnSubmitNow": "Start Exam",
+    "contentQuestion": "Group Question Content",
+    "groupQuestion": "Question Group",
+    "listQuestion": "Question List",
+    "noneExplain": "Hide Explanation",
+    "showExplain": "Show Explanation",
+    "explain": "Explanation",
+    "timer": "Time Remaining",
+    "timeRunningOut": "You are running out of time for this section",
+    "exit": "Exit",
+    "btnExit": "Cancel",
+    "btnDone": "Confirm",
+    "next": "Next",
+    "view": "Review",
+    "home": "Go Home",
+    "point": "Your Score",
+    "backNavigate": "Continue Exam",
+    "changeNext": "Switch Section",
+    "titleWaringNext": "Confirm to switch section?",
+    "textMess": "Make sure you have completed all questions in this section for the best results!",
+    "titleWaringExam": "Confirm to exit the exam?",
+    "textMessExam": "Your test progress will be saved automatically.",
+    "titleWaringSub": "Confirm to submit your test?",
+    "textMessSub": "Please ensure you have completed all sections before submitting for the best result!",
+    "resetMatchingPairs": "Reset",
+    "essayYourAnswer": "Your answer",
+    "essayPlaceholder": "Type your answer...",
+    "essayAttachFile": "Attach file",
+    "essayRemoveFile": "Remove file",
+    "essayFileHint": "Images, PDF, Word (.doc, .docx), Excel (.xls, .xlsx). Not uploaded yet — preview is local only.",
+    "essaySubmitQuestion": "Submit this question",
+    "essaySubmitOk": "Essay answer saved.",
+    "essaySubmittedNote": "You have submitted this question.",
+    "essayNeedContent": "Please enter text or choose at least one file.",
+    "essayInvalidFile": "This file type is not supported.",
+    "essayOfficePreviewHint": "Word/Excel cannot be previewed inline — file is selected locally only.",
+    "essayAttachedLabel": "Attached",
+    "recordingInstructions": "Tap Record to answer. Stop to listen back and submit (nothing is uploaded to the server).",
+    "recordingStart": "Record",
+    "recordingStop": "Stop",
+    "recordingInProgress": "Recording…",
+    "recordingDuration": "Duration",
+    "recordingPlayback": "Playback",
+    "recordingClear": "Re-record",
+    "recordingSubmitQuestion": "Submit this question",
+    "recordingSubmitOk": "Recording saved for this question.",
+    "recordingSubmittedNote": "You have submitted this recording.",
+    "recordingLocalHint": "Audio stays in your browser only; it is not uploaded.",
+    "recordingMicDenied": "Microphone access denied. Please allow it in your browser settings.",
+    "recordingNotSupported": "Your browser does not support recording.",
+    "recordingNeedAudio": "Record for a few seconds, then stop before submitting.",
+    "recordingReviewNote": "Recording submitted. No playback in review because audio was not stored on the server.",
+    "confirmCancel": "Cancel",
+    "confirmSubmit": "Confirm",
+    "submittedLabel": "Submitted",
+    "essayConfirmTitle": "Confirm essay submission",
+    "essayConfirmBody": "Are you sure you want to submit this essay answer? You cannot edit it after submission.",
+    "essayUploadFail": "Essay submission failed. Please try again.",
+    "essaySubmittedFiles": "Submitted files",
+    "essayNoFile": "No attached file",
+    "recordConfirmTitle": "Confirm recording submission",
+    "recordConfirmBody": "Are you sure you want to submit this recording? You cannot edit it after submission.",
+    "recordUploadFail": "Recording submission failed. Please try again.",
+    "recordSubmittedAudio": "Submitted recording",
+    "dropdownPlaceholder": "Select",
+    "dropdownNoBlanks": "This question has no dropdown blanks configured.",
+    "handwritingExamHint": "Same as lesson practice: green when a stroke is done, dashed blue is the active stroke. Still snaps to the guide; stroke order is free.",
+    "handwritingUndo": "Undo stroke",
+    "handwritingClear": "Clear all",
+    "handwritingKindHiragana": "Hiragana",
+    "handwritingKindKatakana": "Katakana",
+    "handwritingKindKanji": "Kanji",
+    "handwritingNoTarget": "No target character configured.",
+    "handwritingNetLabel": "Stroke {{current}}/{{total}}",
+    "handwritingGuideHint": "Touch the blue dot and follow the dashed stroke →",
+    "handwritingFeedbackGreat": "Great!",
+    "handwritingNoData": "no stroke data",
+    "noSelection": "—",
+    "questionType": {
+      "MULTIPLE_CHOICE": "Multiple choice",
+      "SORTING": "Ordering",
+      "MATCHING": "Matching",
+      "MULTIPLE_CHOICE_HORIZONTAL": "Multiple choice (row)",
+      "FILL_IN_BLANK": "Fill in the blank",
+      "CHOOSE_ANSWER_IN_BLANK": "Choose in blank",
+      "DROP_DOWN_ANSWER": "Dropdown in blank",
+      "ESSAY": "Essay",
+      "RECORD": "Recording",
+      "HANDWRITING": "Handwriting"
+    }
+  },
+  "courses": {
+    "title": "Your Courses",
+    "viewAll": "View All",
+    "titleCourse": "Courses"
+  },
+  "historyExam": {
+    "titleHistoryExam": "Exam History",
+    "numberExam": "Question",
+    "answer": "Your Answer:",
+    "answerDone": "Correct Answer:",
+    "titleHistory": "Test History",
+    "noTitleHistory": "No Test History",
+    "noAnswer": "No Answer",
+    "point": "points"
+  },
+  "footer": {
+    "title": "MANKAI ACADEMY FOR PRACTICAL JAPANESE TRAINING & DEVELOPMENT",
+    "contactInfo": {
+      "title": "CONTACT INFORMATION",
+      "address": "Address:",
+      "addressText": "Song Da Building, Pham Hung Street, My Dinh, Nam Tu Liem, Hanoi",
+      "hotline": "Hotline:",
+      "hotlineText": "0835 662 538",
+      "email": "Email:",
+      "emailText": "support@mankai.edu.vn"
+    },
+    "quickLinks": {
+      "title": "QUICK LINKS",
+      "links": [
+        "About Us",
+        "JLPT",
+        "Kaiwa",
+        "Beginner",
+        "IT Talk",
+        "Tokutei",
+        "Corporate Training",
+        "Mankai Hall of Fame",
+        "News",
+        "Contact"
+      ]
+    },
+    "followUs": {
+      "title": "FOLLOW US ON",
+      "socialMedia": ["Facebook", "Youtube"]
+    },
+    "copyright": {
+      "text": "Copyright 2024 By Mankai Academy - All rights reserved"
+    }
+  },
+  "coursesSlider": {
+    "title": "Your Courses",
+    "viewAll": "View All",
+    "status": "Completed",
+    "nextLesson": "Next Lesson",
+    "courseDetails": {
+      "textCourse": "lessons",
+      "name": "Course",
+      "progress": "Completed",
+      "lessonStatus": "16 lessons remaining",
+      "contentOne": "Remaining",
+      "contentTwo": "lessons"
+    },
+    "button": {
+      "continue": "Continue Learning"
+    },
+    "slider": {
+      "dots": {
+        "inactive": "#D0D5DD",
+        "active": "#F37142"
+      }
+    }
+  },
+  "specialRanking": {
+    "title": "Learn with Mankai",
+    "kaiwa": "Kaiwa AI",
+    "minna": "Minna Vocabulary",
+    "testMankai": "Mock Test with Mankai",
+    "kanji": "Kanji Mnemonic",
+    "button": "Explore Now",
+    "listDesc": {
+      "kaiwa": "Practice Japanese conversations anytime, anywhere with AI.",
+      "minna": "Learn Japanese through diverse topics — from daily conversations to specialized fields.",
+      "testMankai": "Test your Japanese level with realistic mock exams.",
+      "kanji": "Learn Kanji effectively with mnemonic techniques."
+    },
+    "description": "Explore multi-level Japanese courses from beginner to advanced.",
+    "ranking": {
+      "title": "Ranking Board",
+      "imageAlt": "trophy",
+      "text": "Ranking Board",
+      "crownAlt": "Crown",
+      "avatarAlt": "Avatar",
+      "starAlt": "Star"
+    }
+  },
+  "startJourney": {
+    "title": "Start Your Journey",
+    "description": "Begin your journey today to discover your potential and achieve your goals.",
+    "contact": "Contact",
+    "sales": {
+      "text": "Get Consultation",
+      "iconAlt": "ArrowUpRight"
+    }
+  },
+  "streak": {
+    "text": "Streaks",
+    "textDate": "April 2025",
+    "week": "Week 3/4",
+    "fireAlt": "Streak Flame"
+  },
+  "profile": {
+    "textAccount": "Account Information",
+    "contentAccount": "You can edit your personal details here.",
+    "filterProfile": "Personal Information",
+    "changePass": "Change Password",
+    "btnSubmit": "Save"
+  },
+  "weekDays": {
+    "T2": "Mon",
+    "T3": "Tue",
+    "T4": "Wed",
+    "T5": "Thu",
+    "T6": "Fri",
+    "T7": "Sat",
+    "CN": "Sun"
+  },
+  "topic": {
+    "title": "Topic",
+    "vocabulary": "Vocabulary",
+    "resultVoice": "Voice Result:",
+    "voiceRun": "Listening to you...",
+    "voiceFasle": "Could not hear.",
+    "titleVocabulary": "Vocabulary",
+    "retry": "Try Again"
+  },
+  "detailCourse": {
+    "nameCourse": "Course",
+    "list": "Lesson List",
+    "listEle": "Lesson List",
+    "video": "videos",
+    "time": "minutes",
+    "session": "Test Lesson",
+    "complete": "Completed"
+  },
+  "vocabulary": {
+    "placeholderComment": "What would you like to discuss?",
+    "comment": "Comment",
+    "feedback": "Feedback",
+    "filter": {
+      "describe": "Description",
+      "document": "Document",
+      "discuss": "Discussion"
+    },
+    "formVideo": {
+      "textTitle": "Lessons standardized by top experts.",
+      "textSession": "Next Lesson",
+      "textTitleWarring": "You cannot fast-forward this video!",
+      "textPing": "You must finish watching the lesson completely on your first attempt.",
+      "btnSession": "Exit",
+      "btnSessionNext": "Continue",
+      "progress": "Progress"
+    }
+  },
+  "titleVocabulary": {
+    "descriptionFl": "Listen and read together — learn faster, remember longer.",
+    "descriptionPdf": "Read slowly, understand deeply — grasp knowledge your own way.",
+    "descriptionExam": "Listen and read together — learn faster, remember longer.",
+    "descriptionVideo": "Lessons standardized by top experts.",
+    "booknew": "Learn New Words",
+    "game": "Review Games",
+    "cardmerge": "Card Matching Game",
+    "examNew": "New Word Quiz",
+    "errorVideo": "An error occurred while loading the video. Please check your YouTube login."
+  },
+  "exam": {
+    "contentTitle": "Test Content",
+    "trueLabel": "True",
+    "falseLabel": "False",
+    "contentTitleAudio": "Select the word for the blank",
+    "reload": "Retry",
+    "previous": "Previous",
+    "check": "Check",
+    "textSuccess": "Correct! Great job!",
+    "contentSuccess": "Keep it up!",
+    "continue": "Continue",
+    "textSuccessFasle": "Incorrect!",
+    "modalTitle": "Lesson Completed!",
+    "modalText": "Your Score",
+    "continueStudying": "Continue Learning",
+    "essay": {
+      "submitted": "Submitted",
+      "comment": "Comment",
+      "tooltipSubmit": "Submit",
+      "tooltipSubmiting": "Submitting..."
+    }
+  },
+  "flashCard": {
+    "cardMergeTitle": "Test Time",
+    "second": "seconds"
+  },
+  "file": {
+    "upload": "Download File",
+    "btnUpload": "Submit Assignment",
+    "timeUpload": "Submission Time",
+    "uploadDone": "Submitted",
+    "addUpload": "Add Document",
+    "clickUpload": "Click to Upload",
+    "textUpload": "add and edit here.",
+    "textUploadLink": "Enter file link",
+    "note": "Note:",
+    "textNote": "Updating a file will replace the old one.",
+    "viewFile": "View File"
+  },
+  "dictionary": {
+    "kanjiLookupLabel": "Kanji Lookup",
+    "searchLabel": "Search",
+    "vocabularySearchLabel": "Search Vocabulary",
+    "meaningLabel": "Meaning",
+    "suggestionLabel": "Suggestions",
+    "vocabularyLabel": "Vocabulary"
+  }
+}

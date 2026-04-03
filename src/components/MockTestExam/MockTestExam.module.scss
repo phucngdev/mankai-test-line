@@ -1,0 +1,1244 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.home {
+  background-color: map.get(v.$colors, accent);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  flex-direction: column;
+  width: 100%; // mobile full width
+  padding: 12px;
+
+  @include m.respond(md) {
+    width: 750px;
+    padding: 16px; // Viền 16px cho tablet
+  }
+
+  @include m.respond(lg) {
+    width: 970px;
+    padding: 16px; // Viền 16px cho laptop
+  }
+
+  @include m.respond(xl) {
+    width: 1300px;
+    max-width: 1200px;
+    padding: 16px;
+  }
+
+  @include m.respond(2xl) {
+    max-width: 1280px;
+    padding: 16px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-bottom: 1px solid var(--Gray-100, #ddd);
+    padding: 24px 0px 24px 0px;
+    .filterWrapper {
+      display: flex;
+      position: relative;
+      gap: 8px;
+      .scrollBtn {
+        display: flex;
+        margin-top: 4px;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--Gray-200, #ccc);
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+          background: var(--Gray-50, #f8f8f8);
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+    .filterExam {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding-bottom: 8px;
+      flex: 1;
+
+      max-width: 100%;
+      box-sizing: border-box;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        height: 6px;
+        display: none;
+      }
+
+      &:hover::-webkit-scrollbar {
+        display: block;
+      }
+
+      &:hover {
+        scrollbar-width: thin;
+      }
+      .boxExam {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .examIcon {
+          display: flex;
+          padding: 8px 16px;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          gap: 4px;
+          border-radius: 8px;
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--Gray-25, #fafafa);
+          .examText {
+            display: block;
+            white-space: nowrap;
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+          }
+        }
+
+        .borderBlue {
+          border: 1px solid #2f80ed;
+          background: #e8f1fd;
+          .examText {
+            color: #2f80ed;
+          }
+        }
+
+        .borderGreen {
+          border: 1px solid var(--Success-500, #12b76a);
+          background: var(--Success-50, #ecfdf3);
+          .examText {
+            color: var(--Success-500, #12b76a);
+          }
+        }
+
+        .iconArrow {
+          display: flex;
+          width: 24px;
+          height: 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border-radius: 50px;
+          border: 1px solid var(--Success-500, #12b76a);
+          background: var(--Success-25, #f6fef9);
+        }
+      }
+    }
+    .listBox {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+      .titleBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        align-self: stretch;
+        .title {
+          color: var(--Gray-800, #3d3d3d);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 40px;
+        }
+        .btnCom {
+          display: flex;
+          padding: 12px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 16px;
+          border: 1px solid var(--Orange-600, #ad502f);
+          background: #f37142;
+          cursor: pointer;
+          box-shadow: 0 2px 0 0 var(--Orange-600, #ad502f);
+          background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+          background-size: 72%;
+          background-repeat: no-repeat;
+          background-position: 24%;
+          user-select: none;
+          &:active {
+            box-shadow: none;
+            transform: translateY(1px);
+          }
+          .textBtn {
+            color: var(--White, #fff);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+          }
+        }
+      }
+      .listTop {
+        display: flex;
+        align-items: center;
+        gap: map.get(v.$spacing, xs);
+        width: 100%;
+        margin-bottom: 16px;
+        .arrowIcons {
+          display: flex;
+          svg {
+            cursor: pointer;
+          }
+          path {
+            stroke: #848484;
+          }
+        }
+
+        .homeText,
+        .courseText {
+          font-size: 1rem;
+          color: var(--Gray-50, #848484);
+          font-family: 'SF Pro Display';
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          cursor: pointer;
+        }
+        .topicText {
+          color: var(--Gray-800, #3d3d3d);
+          font-family: 'SF Pro Display';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .contentMockTest {
+    padding: 32px 0px;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column; // Default to column for mobile
+
+    .mockTestRight {
+      order: -1;
+      position: static;
+      margin: 0 auto;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .mockTestLeft {
+      order: 1;
+      width: 100%;
+    }
+
+    @include m.respond(md) {
+      flex-direction: column;
+      .mockTestRight {
+        order: -1;
+        position: static;
+        margin: 0 auto;
+        margin-bottom: 16px;
+      }
+      .mockTestLeft {
+        order: 1;
+        width: 100%;
+      }
+    }
+
+    @include m.respond(lg) {
+      flex-direction: row; // Side-by-side layout for laptop
+      display: flex;
+      .mockTestRight {
+        order: 1; // mockTestRight on the right
+        width: 40%; // Set width to 40%
+        position: sticky;
+        top: 110px;
+      }
+      .mockTestLeft {
+        order: 0; // mockTestLeft on the left
+        width: 60%; // Adjusted to fill remaining space
+      }
+    }
+
+    @include m.respond(xl) {
+      flex-direction: row;
+      display: flex;
+      .mockTestRight {
+        order: 1; // mockTestRight on the right
+        width: 50%; // Set width to 40%
+        position: sticky;
+        top: 110px;
+      }
+      .mockTestLeft {
+        order: 0; // mockTestLeft on the left
+        width: 60%; // Adjusted to fill remaining space
+      }
+    }
+
+    @include m.respond(2xl) {
+      flex-direction: row;
+      display: flex;
+      .mockTestRight {
+        order: 1; // mockTestRight on the right
+        width: 50%; // Set width to 40%
+        position: sticky;
+        top: 110px;
+      }
+      .mockTestLeft {
+        order: 0; // mockTestLeft on the left
+        width: 60%; // Adjusted to fill remaining space
+      }
+    }
+    .boxMockTest {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+
+      .mockTestLeft {
+        display: flex;
+        width: 100%;
+        padding: 24px;
+        flex-direction: column;
+        gap: 24px;
+        border-radius: 16px;
+        border: 1px solid var(--Gray-100, #ddd);
+        background: #fff;
+        margin-bottom: 16px;
+        .mockTestTitle {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          width: 100%;
+
+          hr {
+            display: none;
+          }
+
+          .mockTestFormat {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+
+            .iconListen {
+              display: flex;
+              width: 80px;
+              height: 80px;
+              padding: 5px;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              flex-shrink: 0;
+              aspect-ratio: 1/1;
+              border-radius: 20px;
+              border: 1.25px solid #ad502f;
+              border-bottom: 5px solid #ad502f;
+              background: var(--Orange-500, #f37142);
+              cursor: pointer;
+              &:active {
+                border: 1.25px solid #ad502f;
+              }
+            }
+            .contentImg {
+              width: 100%;
+              max-width: 640px;
+              height: 286.983px;
+              border-radius: 8px;
+              background: #d9d9d9;
+
+              @media (max-width: 768px) {
+                min-width: 0;
+                width: 100%;
+                height: auto;
+              }
+              @media (max-width: 480px) {
+                min-width: 0;
+                width: 100%;
+                height: auto;
+              }
+              // Ensure the image inside scales properly
+              img {
+                width: 100%;
+                height: auto;
+                object-fit: contain; // or cover, depending on desired behavior
+              }
+            }
+          }
+          .title {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+          }
+          .text {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        }
+        .boxQuestion {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          .titleQuestion {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+          }
+          .questionVoice {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            .iconListen {
+              display: flex;
+              width: 80px;
+              height: 80px;
+              padding: 5px;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              flex-shrink: 0;
+              aspect-ratio: 1/1;
+              border-radius: 20px;
+              border: 1.25px solid #ad502f;
+              border-bottom: 5px solid #ad502f;
+              background: var(--Orange-500, #f37142);
+              cursor: pointer;
+            }
+            .boxImg {
+              width: 100%;
+              max-width: 640px;
+              height: 286.983px;
+              border-radius: 8px;
+              background: #d9d9d9;
+            }
+          }
+        }
+        .boxContent {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          align-self: stretch;
+          .questionContent {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px;
+            align-self: stretch;
+            border-radius: 8px;
+            border: 1px solid var(--Gray-100, #ddd);
+            background: transparent;
+            .boxQuestionContent {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 16px;
+              align-self: stretch;
+
+              .questionHeading {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+              }
+
+              .questionIndex {
+                color: var(--Gray-800, #3d3d3d);
+                font-family: 'SF Pro Display', sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+              }
+
+              .questionTypeBadge {
+                display: inline-flex;
+                align-items: center;
+                padding: 4px 12px;
+                border-radius: 5px;
+                border: 1px solid var(--Blue-light-300, #7cd4fd);
+                background: linear-gradient(
+                  180deg,
+                  var(--Blue-light-50, #f0f9ff) 0%,
+                  #e0f2fe 100%
+                );
+                color: var(--Blue-light-700, #026aa2);
+                font-family: 'SF Pro Display', sans-serif;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 18px;
+                letter-spacing: 0.02em;
+                white-space: nowrap;
+              }
+
+              .questionTitle {
+                flex: 1;
+                min-width: 0;
+                color: var(--Gray-700, #676767);
+                font-family: 'SF Pro Display';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px;
+                figure {
+                  width: 100% !important;
+                }
+                img {
+                  max-width: 100%; // Không tràn khỏi vùng cha
+                }
+              }
+              .boxArrow {
+                display: flex;
+                width: 32px;
+                height: 32px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                aspect-ratio: 1/1;
+                border-radius: 8px;
+                border: 1px solid var(--Gray-100, #ddd);
+                background: var(--Gray-25, #fafafa);
+              }
+            }
+            .expandWrapper {
+              max-height: none;
+              overflow: visible;
+              opacity: 1;
+              transition: opacity 0.3s ease;
+              margin-top: 24px;
+            }
+            .collapseWrapper {
+              max-height: 0;
+              opacity: 0;
+              overflow: hidden;
+              transition:
+                max-height 0.3s ease,
+                opacity 0.3s ease;
+              margin-top: 0;
+            }
+            .answer {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+              align-self: stretch;
+              min-height: 0;
+              transform: scaleY(0.95);
+              transform-origin: top;
+              transition:
+                opacity 0.4s ease,
+                margin-top 0.4s ease,
+                transform 0.4s ease;
+              &.expand {
+                max-height: none;
+                overflow: visible;
+                opacity: 1;
+                margin-top: 24px;
+              }
+              &.collapse {
+                max-height: 0;
+                opacity: 0;
+                display: none;
+                margin-top: 0;
+                overflow: hidden;
+              }
+              .answerBox {
+                display: flex;
+                height: 56px;
+                padding: 8px;
+                align-items: center;
+                gap: 16px;
+                flex: 1;
+                align-self: stretch;
+                border-radius: 8px;
+                border: 1px solid var(--Gray-100, #ddd);
+                background: var(--Gray-25, #fafafa);
+                box-shadow: 0px 4px 0px 0px #ddd;
+                cursor: pointer;
+                &.correct {
+                  border: 2px solid #12b76a;
+                  background-color: #e6f9f0;
+                }
+
+                &.incorrect {
+                  border: 2px solid #e53935;
+                  background-color: #fdecea;
+                }
+                &:active {
+                  transform: scale(0.98);
+                  box-shadow: none;
+                }
+                .contentBox {
+                  display: flex;
+                  width: 40px;
+                  height: 40px;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                  border-radius: 8px;
+                  border: 1px solid var(--Gray-100, #ddd);
+                  background: #fff;
+                  .text {
+                    color: var(--Gray-800, #3d3d3d);
+                    transition: color 0.2s ease-in-out;
+                    font-family: 'SF Pro Display';
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 24px;
+                  }
+                }
+                .contentText {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                  flex: 1 0 0;
+                  align-self: stretch;
+                  .text {
+                    color: var(--Gray-800, #3d3d3d);
+                    transition: color 0.2s ease-in-out;
+                    font-family: 'SF Pro Display';
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 24px;
+                  }
+                }
+                &.active {
+                  border: 1px solid var(--Blue-light-500, #0ba5ec);
+                  background: var(--Blue-light-50, #f0f9ff);
+                  box-shadow: 0px 4px 0px 0px #0ba5ec;
+                  .contentBox {
+                    border: 1px solid var(--Blue-light-500, #0ba5ec);
+                    background: var(--White, #fff);
+                    .text {
+                      color: var(--Blue-light-500, #0ba5ec);
+                    }
+                  }
+                  .text {
+                    color: var(--Blue-light-500, #0ba5ec);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mockTestRight {
+      display: flex;
+      padding: 24px;
+      flex-direction: column;
+      gap: 24px;
+      border-radius: 16px;
+      border: 1px solid var(--Gray-100, #ddd);
+      background: #fff;
+      top: 110px;
+      z-index: 10;
+      background-color: white;
+      overflow-y: auto;
+
+      .titleMockTest {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        align-self: stretch;
+        .title {
+          color: var(--Gray-800, #3d3d3d);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 32px;
+        }
+        .timeMockTest {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          .text {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+          }
+          .time {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+          }
+        }
+      }
+      .listMockTest {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        .title {
+          color: var(--Gray-800, #3d3d3d);
+          font-family: 'SF Pro Display';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+        }
+        .boxList {
+          padding: 16px;
+          flex-direction: column;
+          align-items: flex-start;
+
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--Gray-25, #fafafa);
+          .boxNumber {
+            margin-top: 6px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
+            gap: 8px;
+
+            .number {
+              display: flex;
+              width: 34px;
+              height: 34px;
+              padding: 4px 12px;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 4px;
+              border-radius: 4px;
+              border: 1px solid var(--Gray-50, #f4f4f4);
+              background: var(--White, #fff);
+              cursor: pointer;
+
+              .text {
+                color: var(--Gray-700, #676767);
+                font-family: 'SF Pro Display';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+              }
+
+              &.isActive {
+                border-radius: 4px;
+                border: 1px solid var(--Orange-500, #f37142);
+                background: var(--Orange-25, #fff7f4);
+
+                .text {
+                  color: var(--Orange-500, #f37142);
+                }
+              }
+              &.correctNumber {
+                border: 1px solid var(--Success-500, #12b76a);
+                background: var(--Success-50, #ecfdf3);
+
+                .text {
+                  color: var(--Success-500, #12b76a);
+                  font-weight: 600;
+                }
+              }
+
+              &.incorrectNumber {
+                border: 1px solid var(--Error-500, #e53935);
+                background: #fdecea;
+
+                .text {
+                  color: var(--Error-500, #e53935);
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+      }
+      .boxBtn {
+        display: flex;
+        justify-content: end;
+        gap: 8px;
+        .btnQuit {
+          display: flex;
+          padding: 12px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 16px;
+          border: 1px solid var(--Gray-300, #b5b5b5);
+          background: var(--White, #fff);
+          box-shadow: 0px 3px 0px 0px #ddd;
+          user-select: none;
+          &:active {
+            transform: translateY(1px);
+            box-shadow: none;
+          }
+          cursor: pointer;
+          .textQuit {
+            color: var(--Gray-300, #b5b5b5);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+          }
+        }
+        .btnNext {
+          display: flex;
+          padding: 12px 20px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 16px;
+          border: 1px solid var(--Orange-400, #f58d68);
+          background: var(--White, #fff);
+          cursor: pointer;
+          box-shadow: 0px 3px 0px 0px #f37142;
+          user-select: none;
+          &:active {
+            transform: translateY(1px);
+            box-shadow: none;
+          }
+          .textNext {
+            color: #f37142;
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.boxModal {
+  padding-top: 64px;
+  .boxMess {
+    display: flex;
+    padding: 24px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    .iconModal {
+      display: flex;
+      width: 72px;
+      height: 72px;
+      padding: var(--Spacing-P_16, 16px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 380px;
+      background: var(--Yellow-100, #fbe3b9);
+    }
+    .messModal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      .textTitle {
+        color: var(--Yellow-400, #f5b64a);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+      }
+      .textMess {
+        width: 297.361px;
+        color: var(--Yellow-400, #f5b64a);
+        text-align: center;
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+      }
+    }
+  }
+  .boxBtn {
+    display: flex;
+    padding: 40px 64px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    justify-content: space-between;
+    border-top: 1px solid var(--Gray-100, #ddd);
+    background: #fff;
+    .btnQuit {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      border: 1px solid var(--Gray-300, #b5b5b5);
+      background: var(--White, #fff);
+      box-shadow: 0px 3px 0px 0px #ddd;
+      cursor: pointer;
+      user-select: none;
+      &:active {
+        transform: translateY(1px);
+        box-shadow: none;
+      }
+      .textQuit {
+        color: var(--Gray-300, #b5b5b5);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+    }
+    .btnNext {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      border: 1px solid var(--Yellow-400, #ad7415);
+      background: var(--Yellow-400, #f5b64a);
+      background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+      background-position: 40%;
+      background-size: 76%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0px 3px 0px 0px #ad7415;
+      &:active {
+        transform: translateY(1px);
+        box-shadow: none;
+      }
+      .textNext {
+        color: var(--White, #fff);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.modalBox {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-bottom: 30px;
+  .modalTitle {
+    color: var(--Yellow-400, #f5b64a);
+    font-family: 'FS PF BeauSans Pro';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .modalScore {
+    color: var(--Yellow-400, #f5b64a);
+    font-family: 'FS PF BeauSans Pro';
+    font-size: 24px;
+    font-style: normal;
+    line-height: 32px;
+    font-weight: 700;
+  }
+  .contentBox {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: flex-start;
+    gap: 24px;
+    .modalContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      .modalPoint {
+        display: flex;
+        width: 108px;
+        height: 85px;
+        padding: 2px;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        border-radius: 8px;
+        background: var(--Success-400, #32d583);
+        .modalText {
+          color: var(--White, #fff);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 18px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+        }
+        .modalNumber {
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-radius: 6px;
+          background: #fff;
+          color: var(--Success-400, #32d583);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 21.6px;
+        }
+      }
+    }
+  }
+}
+
+.modalBtn {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 64px;
+  border-top: 1px solid var(--Gray-100, #ddd);
+  background: #fff;
+  .boxSubmit {
+    display: flex;
+    gap: 20px;
+  }
+  .btnContent {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 12px 20px;
+    border: 1px solid var(--Gray-300, #b5b5b5);
+    border-bottom: 4px solid var(--Gray-300, #b5b5b5);
+    background: var(--White, #fff);
+    cursor: pointer;
+    user-select: none;
+    &:active {
+      border: 1px solid var(--Gray-300, #b5b5b5);
+    }
+    .textContent {
+      color: var(--Gray-300, #b5b5b5);
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    &:nth-child(2) {
+      border: 1px solid var(--Yellow-400, #a8741b);
+      border-bottom: 4px solid var(--Gray-300, #946c26);
+      background: var(--Yellow-400, #f5b64a);
+      background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+      background-position: 40%;
+      background-size: 76%;
+      background-repeat: no-repeat;
+      user-select: none;
+      .textContent {
+        color: var(--White, #fff);
+      }
+      &:active {
+        border: 1px solid var(--Yellow-400, #a8741b);
+      }
+    }
+  }
+}
+.explainBox {
+  margin-top: 8px;
+}
+
+.explainBtn {
+  background: #2f80ed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: #1c60b3;
+  }
+}
+
+.explainContent {
+  margin-top: 8px;
+  padding: 10px;
+  background: #f5f7fa;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.embeddedExam {
+  width: 100%;
+  height: fit-content;
+  min-height: 0;
+  flex: 0 0 auto;
+  align-self: stretch;
+
+  hr {
+    display: none;
+  }
+}
+
+.hiddenAudioPlayer {
+  display: none;
+}
+
+.sortingWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.sortingResultBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sortingResultRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.sortingPool {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.sortingLabel {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--Gray-800, #3d3d3d);
+}
+
+.sortingPoolSelected {
+  border: 1px solid var(--Blue-light-500, #0ba5ec) !important;
+  background: var(--Blue-light-50, #f0f9ff) !important;
+  box-shadow: 0px 4px 0px 0px #0ba5ec;
+
+  .contentBox {
+    border: 1px solid var(--Blue-light-500, #0ba5ec);
+    background: var(--White, #fff);
+
+    .text {
+      color: var(--Blue-light-500, #0ba5ec);
+    }
+  }
+
+  .text {
+    color: var(--Blue-light-500, #0ba5ec);
+  }
+}
+
+.tfChoiceRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.tfChoiceBtn {
+  flex: 1;
+  min-width: 120px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: 2px solid #d9d9d9;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.tfChoiceActive {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.tfCorrect {
+  border-color: #22c55e;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.tfWrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+  color: #b91c1c;
+}

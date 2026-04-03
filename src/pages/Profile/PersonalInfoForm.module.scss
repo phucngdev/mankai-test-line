@@ -1,0 +1,48 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.inputControl {
+  min-height: 44px !important;
+  color: #464444 !important;
+
+  input,
+  .ant-select-selection-item,
+  .ant-picker-input > input {
+    color: #7a7979 !important;
+  }
+
+  .ant-select-selection-placeholder,
+  .ant-select-selection-item {
+    color: #7c7979 !important;
+  }
+
+  .ant-picker-input > input::placeholder,
+  input::placeholder {
+    color: #888888;
+  }
+}
+
+:global(.ant-form-item-label > label) {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1b1d29 !important;
+}
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+
+  :global(.ant-btn) {
+    border-radius: 8px;
+    height: 44px;
+    font-weight: 500;
+  }
+  :global(.ant-btn-primary) {
+    background: #f37142;
+  }
+  :global(.ant-btn-default) {
+    color: #f37142;
+    border-color: #f37142;
+  }
+}

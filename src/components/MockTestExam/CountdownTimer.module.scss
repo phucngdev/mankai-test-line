@@ -1,0 +1,33 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.time {
+  color: var(--Gray-700, #676767);
+
+  /* Text md/Bold */
+  font-family: 'SF Pro Display';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+}
+
+.warning {
+  color: #eb5757;
+}
+
+.warningText {
+  margin: 0;
+  color: #eb5757;
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}

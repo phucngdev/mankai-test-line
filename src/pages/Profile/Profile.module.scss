@@ -1,0 +1,179 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.home {
+  background-color: map.get(v.$colors, accent);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5fbff;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  padding-bottom: 40px;
+
+  .listTop {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: map.get(v.$spacing, xs);
+    width: 100%;
+
+    .arrowIcons {
+      display: flex;
+      gap: 8px;
+
+      svg {
+        cursor: pointer;
+      }
+
+      path {
+        stroke: #848484;
+      }
+
+      &:hover {
+        color: rgb(33, 166, 255);
+      }
+    }
+
+    .homeText,
+    .courseText {
+      font-size: 1rem;
+      color: var(--Gray-50, #848484);
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(33, 166, 255);
+      }
+    }
+
+    .topicText {
+      color: var(--Gray-800, #3d3d3d);
+      font-family: 'SF Pro Display';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(33, 166, 255);
+      }
+    }
+  }
+
+  .boxClass {
+    width: 100%;
+    padding: 40px 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    background: linear-gradient(to left, #f37142, #fff0e6);
+    box-sizing: border-box;
+    gap: 24px;
+
+    .content {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: space-between;
+      align-self: stretch;
+
+      .contentClass {
+        font-size: large;
+        font-weight: 600;
+        color: #8a8787;
+
+        // Reduce font size on mobile screens (e.g., max-width: 768px)
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+      }
+
+      .imgAvt {
+        position: relative;
+        max-width: 80px;
+        max-height: 80px;
+        cursor: pointer;
+
+        img {
+          border-radius: 100%;
+          min-height: 80px;
+          border: 5px solid #919090;
+          background: #a0a0a0;
+          position: absolute;
+          top: -6px;
+          left: 10px;
+          min-width: 80px;
+          height: 100px;
+          width: 100px;
+        }
+      }
+
+      .titleClass {
+        font-size: 24px;
+        font-weight: 600;
+        color: #f37142;
+      }
+
+      .formClass {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .iconClass {
+          display: flex;
+          gap: 8px;
+
+          .contentClass {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            .title {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    .imgClass {
+      flex: 0 0 auto;
+      max-width: 250px;
+      position: absolute;
+      right: 0;
+      bottom: -16px;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        width: 200px;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  .boxTab {
+    padding-top: 20px;
+  }
+}

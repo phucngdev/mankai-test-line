@@ -1,0 +1,284 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.header {
+  padding: map.get(v.$spacing, sm) 0;
+  background-color: #fff;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Thay backdrop-filter
+
+  .inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+
+    @include m.respond(xs) {
+      width: 100%;
+      padding: 0 0.5rem;
+    }
+
+    @include m.respond(md) {
+      width: 750px;
+      padding: 0 1rem;
+    }
+
+    @include m.respond(lg) {
+      width: 970px;
+    }
+
+    @include m.respond(xl) {
+      width: 1200px;
+    }
+
+    @include m.respond(2xl) {
+      max-width: 1280px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 44px;
+      object-fit: cover;
+      cursor: pointer;
+
+      @include m.respond(md) {
+        width: 140px;
+        height: 50px;
+      }
+
+      @include m.respond(lg) {
+        width: 163.75px;
+        height: 60px;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      @include m.respond(lg) {
+        gap: 4rem;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1100;
+
+        span {
+          width: 100%;
+          height: 3px;
+          background: map.get(v.$colors, secondary);
+          transition: all 0.3s ease;
+        }
+
+        &.active {
+          span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+          }
+
+          span:nth-child(2) {
+            opacity: 0;
+          }
+
+          span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+          }
+        }
+
+        // Ẩn hamburger trên laptop
+        @include m.respond(lg) {
+          display: none;
+        }
+      }
+
+      .nav {
+        display: none; // Ẩn mặc định trên mobile và tablet
+
+        &.navOpen {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #fff;
+          width: 100%;
+          padding: 1rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+        }
+
+        // Hiển thị nav trên laptop
+        @include m.respond(lg) {
+          display: flex;
+          flex-direction: row;
+          position: static;
+          background: transparent;
+          box-shadow: none;
+          padding: 0;
+          align-items: center;
+          gap: 2.5rem;
+        }
+
+        a {
+          color: map.get(v.$colors, secondary);
+          font-family: 'FS PFBeauSansPro', sans-serif;
+          font-size: 1.25rem;
+          font-weight: 600;
+          line-height: 1.875rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          text-decoration: none !important;
+          padding: 0.5rem 0;
+
+          svg {
+            stroke: currentColor;
+            transition: stroke 0.3s ease;
+          }
+
+          &:hover {
+            color: map.get(v.$colors, primary);
+          }
+
+          @include m.respond(lg) {
+            padding: 0;
+          }
+        }
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+
+        .loginButton {
+          border: 1px solid;
+          border-radius: 8px;
+          color: #1d2939;
+          user-select: none;
+          cursor: pointer;
+          font-weight: 600;
+          padding: 8px;
+
+          &:hover {
+            color: #f37142;
+          }
+
+          &:active {
+            color: #0ba5ec;
+          }
+        }
+
+        &_left {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+
+            @include m.respond(md) {
+              width: 28px;
+              height: 28px;
+            }
+
+            @include m.respond(lg) {
+              width: 32px;
+              height: 32px;
+            }
+          }
+
+          p {
+            color: map.get(v.$colors, secondary);
+            font-family: 'FS PFBeauSansPro', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+
+            @include m.respond(md) {
+              font-size: 1.125rem;
+            }
+
+            @include m.respond(lg) {
+              font-size: 1.25rem;
+              line-height: 1.875rem;
+            }
+          }
+          .languageSelector {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            gap: 6px;
+
+            p {
+              margin: 0;
+              font-weight: 500;
+            }
+
+            .languageFlag {
+              border: 2px solid rgb(122, 117, 117);
+              border-radius: 50px;
+              width: 32px;
+              height: 32px;
+              object-fit: cover;
+            }
+          }
+        }
+
+        > img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          object-fit: cover;
+
+          @include m.respond(md) {
+            width: 36px;
+            height: 36px;
+          }
+
+          @include m.respond(lg) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    .notification {
+      color: black;
+      font-size: 20px;
+    }
+  }
+}
+
+._customDropdown_1k77w_234 {
+  .ant-dropdown-menu-item {
+    padding: 0px;
+
+    span {
+      padding: 5px 12px;
+    }
+  }
+}

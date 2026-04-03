@@ -1,0 +1,236 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.startJourney {
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    padding: 2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 16px;
+    border: 1px solid var(--Gray-100, #DDD);
+    background: var(--White, #FFF);
+    box-sizing: border-box;
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        max-width: 50%;
+
+        .title {
+            color: var(--Gray-900, #101828);
+            font-family: "FS PF BeauSans Pro";
+            font-size: 1.5rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 32px;
+        }
+
+        .description {
+            color: var(--Gray-700, #344054);
+            font-family: "FS PF BeauSans Pro";
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            margin-top: 0.5rem;
+        }
+    }
+
+    .right {
+        display: flex;
+        gap: 1rem;
+
+        .contact {
+            display: flex;
+            padding: 12px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: #F37142;
+            font-family: "FS PF BeauSans Pro";
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            border: 1px solid var(--Orange-400, #F58D68);
+            border-bottom: 4px solid #DD673C;
+            border-radius: 16px;
+            background: var(--White, #FFF);
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s ease-in-out;
+            }
+        }
+
+        .sales {
+            display: flex;
+            padding: 12px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 16px;
+            border: 1px solid var(--Orange-600, #DD673C);
+            background: #F37142;
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+            background-image: url("/src/assets/images/specialRanking/bgbutton.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: "FS PF BeauSans Pro";
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            border-bottom: 4px solid #AD502F;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: transform 0.3s ease-in-out;
+            }
+        }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        margin-bottom: 32px;
+
+        .left {
+            max-width: 100%;
+            margin-bottom: 1rem;
+
+            .title {
+                font-size: 1.25rem;
+                line-height: 28px;
+            }
+
+            .description {
+                font-size: 0.875rem;
+                line-height: 20px;
+                margin-top: 0.4rem;
+            }
+        }
+
+        .right {
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+            align-items: flex-start;
+
+            .contact {
+                padding: 10px 16px;
+                font-size: 0.875rem;
+                line-height: 20px;
+                border-bottom: 3px solid #DD673C;
+                border-radius: 12px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .sales {
+                padding: 10px 16px;
+                font-size: 0.875rem;
+                line-height: 20px;
+                border-bottom: 3px solid #AD502F;
+                border-radius: 12px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+
+    @media (max-width: 375px) {
+        padding: 1rem 0.5rem;
+        border-radius: 10px;
+        margin-bottom: 24px;
+
+        .left {
+            .title {
+                font-size: 1rem;
+                line-height: 24px;
+            }
+
+            .description {
+                font-size: 0.75rem;
+                line-height: 18px;
+                margin-top: 0.3rem;
+            }
+        }
+
+        .right {
+           -гap: 0.5rem;
+
+            .contact {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                line-height: 18px;
+                border-bottom: 2.5px solid #DD673C;
+                border-radius: 10px;
+                width: 100%;
+            }
+
+            .sales {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                line-height: 18px;
+                border-bottom: 2.5px solid #AD502F;
+                border-radius: 10px;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        margin-bottom: 48px;
+
+        .left {
+            max-width: 55%;
+
+            .title {
+                font-size: 1.75rem;
+                line-height: 36px;
+            }
+
+            .description {
+                font-size: 1.125rem;
+                line-height: 28px;
+                margin-top: 0.75rem;
+            }
+        }
+
+        .right {
+            gap: 1.25rem;
+
+            .contact {
+                padding: 14px 24px;
+                font-size: 1.125rem;
+                line-height: 28px;
+                border-bottom: 4.5px solid #DD673C;
+                border-radius: 20px;
+            }
+
+            .sales {
+                padding: 14px 24px;
+                font-size: 1.125rem;
+                line-height: 28px;
+                border-bottom: 4.5px solid #AD502F;
+                border-radius: 20px;
+            }
+        }
+    }
+}

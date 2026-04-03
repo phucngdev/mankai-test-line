@@ -1,0 +1,370 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.footer {
+  width: 100%;
+  background: var(--Orange-700, #AD502F);
+  background-image: url('/src/assets/images/footer/bgfooter.png');
+  background-position: 0%;
+  background-size: cover;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  .inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    // Mobile (375px)
+    @include m.respond(xs) {
+      width: 100%;
+      padding: 0 0.5rem;
+    }
+
+    // Tablet (768px)
+    @include m.respond(md) {
+      width: 750px;
+    }
+
+    // Laptop (1440px)
+    @include m.respond(lg) {
+      width: 970px;
+    }
+
+    @include m.respond(xl) {
+      width: 1200px;
+    }
+
+    @include m.respond(2xl) {
+      max-width: 1280px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      .image {
+        width: 100px;
+        height: 40px;
+        flex-shrink: 0;
+
+        @include m.respond(md) {
+          width: 120px;
+          height: 50px;
+        }
+
+        @include m.respond(lg) {
+          width: 146px;
+          height: 60px;
+        }
+      }
+
+      .line {
+        width: 1px;
+        height: 16px;
+        background: #FFF;
+
+        @include m.respond(md) {
+          height: 18px;
+        }
+
+        @include m.respond(lg) {
+          height: 20px;
+        }
+      }
+
+      .text {
+        color: var(--White, #FFF);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+
+        @include m.respond(md) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        @include m.respond(lg) {
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+    }
+
+    .flex {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      @include m.respond(lg) {
+        flex-direction: row;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .title {
+          color: var(--White, #FFF);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 20px;
+
+          @include m.respond(md) {
+            font-size: 0.9375rem;
+            line-height: 22px;
+          }
+
+          @include m.respond(lg) {
+            font-size: 1rem;
+            line-height: 24px;
+          }
+        }
+
+        .infor {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.5rem;
+
+          svg {
+            width: 20px;
+            height: 20px;
+
+            @include m.respond(md) {
+              width: 22px;
+              height: 22px;
+            }
+
+            @include m.respond(lg) {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .address {
+            color: var(--White, #FFF);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 0.875rem;
+            font-weight: 700;
+            line-height: 20px;
+
+            @include m.respond(md) {
+              font-size: 0.9375rem;
+              line-height: 22px;
+            }
+
+            @include m.respond(lg) {
+              font-size: 1rem;
+              line-height: 24px;
+            }
+          }
+
+          .text {
+            max-width: 100%;
+            color: var(--White, #FFF);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 20px;
+
+            @include m.respond(md) {
+              font-size: 0.9375rem;
+              line-height: 22px;
+            }
+
+            @include m.respond(lg) {
+              max-width: 17.75rem;
+              font-size: 1rem;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+
+      .mid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .title {
+          color: var(--White, #FFF);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 20px;
+
+          @include m.respond(md) {
+            font-size: 0.9375rem;
+            line-height: 22px;
+          }
+
+          @include m.respond(lg) {
+            font-size: 1rem;
+            line-height: 24px;
+          }
+        }
+
+        .flexContainer {
+          margin-top: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+
+          @include m.respond(md) {
+            flex-direction: row;
+            gap: 1.5rem;
+          }
+
+          @include m.respond(lg) {
+            margin-top: 1rem;
+            gap: 2rem;
+          }
+
+          .left,
+          .right {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .text {
+              color: var(--White, #FFF);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 0.875rem;
+              font-weight: 400;
+              line-height: 20px;
+
+              @include m.respond(md) {
+                font-size: 0.9375rem;
+                line-height: 22px;
+              }
+
+              @include m.respond(lg) {
+                font-size: 1rem;
+                line-height: 24px;
+              }
+
+              &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .title {
+          color: var(--White, #FFF);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 20px;
+
+          @include m.respond(md) {
+            font-size: 0.9375rem;
+            line-height: 22px;
+          }
+
+          @include m.respond(lg) {
+            font-size: 1rem;
+            line-height: 24px;
+          }
+        }
+
+        .flexContainerRight {
+          margin-top: 0.5rem;
+          display: flex;
+          gap: 0.75rem;
+
+          @include m.respond(lg) {
+            margin-top: 1rem;
+            gap: 1rem;
+          }
+
+          svg {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+
+            @include m.respond(md) {
+              width: 28px;
+              height: 28px;
+            }
+
+            @include m.respond(lg) {
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.copyright {
+  display: flex;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  background: #F5B64A;
+
+  .inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 0.5rem;
+
+    @include m.respond(md) {
+      width: 750px;
+    }
+
+    @include m.respond(lg) {
+      width: 970px;
+    }
+
+    @include m.respond(xl) {
+      width: 1200px;
+    }
+
+    @include m.respond(2xl) {
+      max-width: 1280px;
+    }
+
+    .text {
+      color: var(--White, #FFF);
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 16px;
+
+      @include m.respond(md) {
+        font-size: 11px;
+        line-height: 17px;
+      }
+
+      @include m.respond(lg) {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}

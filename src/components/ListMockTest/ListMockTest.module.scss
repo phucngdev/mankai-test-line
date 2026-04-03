@@ -1,0 +1,210 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.home {
+  padding-top: 24px;
+  background-color: map.get(v.$colors, accent);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 24px;
+
+  @include m.respond(md) {
+    width: 750px;
+  }
+
+  @include m.respond(lg) {
+    width: 970px;
+  }
+
+  @include m.respond(xl) {
+    width: 1300px;
+    max-width: 1200px;
+  }
+
+  @include m.respond(2xl) {
+    max-width: 1280px;
+  }
+  .listTop {
+    display: flex;
+    align-items: center;
+    gap: map.get(v.$spacing, xs);
+    width: 100%;
+
+    .arrowIcons {
+      display: flex;
+      svg {
+        cursor: pointer;
+      }
+      path {
+        stroke: #848484;
+      }
+    }
+
+    .homeText,
+    .courseText {
+      font-size: 1rem; // 18px
+      color: var(--Gray-50, #848484);
+      /* Text md/Medium */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      /* 150% */
+      cursor: pointer;
+    }
+    .topicText {
+      color: var(--Gray-800, #3d3d3d);
+
+      /* Text md/Medium */
+      font-family: 'SF Pro Display';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px; /* 150% */
+      cursor: pointer;
+    }
+  }
+  .title {
+    color: var(--Gray-800, #3d3d3d);
+
+    /* Display sm/Semibold */
+    font-family: 'FS PF BeauSans Pro';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: space-between;
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+    .courseCard {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      background: #fff;
+      border-radius: 8px;
+      position: relative; // To make the position absolute of child elements relative to this container
+      border: 1px solid var(--Gray-100, #ddd);
+      gap: 24px;
+      .courseInfo {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        .courseImage {
+          width: 86px;
+          height: 86px;
+          flex-shrink: 0;
+          border-radius: 16px;
+          border: 7px solid rgba(251, 211, 196, 0.2);
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 40%; // Bạn có thể chỉnh theo ý muốn
+          }
+        }
+        .courseBox {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          justify-content: space-between;
+          flex: 1;
+          min-width: 0;
+          .boxTitle {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .text {
+              color: var(--Gray-700, #676767);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 0.875rem;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+            }
+
+            .courseName {
+              color: var(--Gray-800, #3d3d3d);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 24px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 32px;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              word-break: break-all;
+            }
+          }
+
+          .boxLesson {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .allLessons {
+              color: var(--Gray-700, #676767);
+              font-family: 'SF Pro Display';
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+
+      .cardButton {
+        max-width: 200px;
+        display: flex;
+        padding: 12px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 16px;
+        border: 1px solid var(--Orange-600, #ad502f);
+        background: #f37142;
+        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+        border-bottom: 4px solid #ad502f;
+        cursor: pointer;
+        background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+        background-size: 48%;
+        background-repeat: no-repeat;
+        background-position: 28%;
+        p {
+          color: var(--White, #fff);
+
+          /* Text md/Bold */
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px; /* 150% */
+        }
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}

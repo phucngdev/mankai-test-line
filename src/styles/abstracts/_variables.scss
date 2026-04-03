@@ -1,0 +1,50 @@
+// ✅ BREAKPOINTS
+$breakpoints: (
+  'xs': 375px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  // <-- Đảm bảo dòng này có!
+  '2xl': 1440px, // <-- Đảm bảo dòng này có!
+);
+
+// ✅ COLORS
+$colors: (
+  'primary': #f37142,
+  'secondary': #1d2939,
+  'third': #3d3d3d,
+  'accent': #f5fbff,
+  'text': #676767,
+  'light': #fef8ee,
+  'white': #ffffff,
+  'black': #000000,
+  'danger': #e74c3c,
+  'success': #2ecc71,
+  'warning': #f1c40f,
+);
+
+// ✅ SPACING SYSTEM (tuỳ chọn)
+$spacing: (
+  'xs': 0.5rem,
+  // 8px
+  'sm': 1rem,
+  // 16px
+  'md': 1.5rem,
+  // 24px
+  'lg': 2rem,
+  // 32px
+  'xl': 3rem,
+  // 48px
+  '2xl': 4rem, // 64px
+);
+
+// ✅ FONT SIZES
+$font-sizes: (
+  'sm': 0.875rem,
+  // 14px
+  'base': 1rem,
+  // 16px
+  'lg': 1.25rem,
+  // 20px
+  'xl': 2rem, // 32px
+);

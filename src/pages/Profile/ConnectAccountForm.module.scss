@@ -1,0 +1,36 @@
+.connectBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid #f37142;
+  background: transparent;
+  color: #f37142;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    color 0.2s;
+
+  &:hover:not(:disabled) {
+    background: #f37142;
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.connected {
+  border-color: #52c41a;
+  color: #52c41a;
+  background: #f6ffed;
+
+  &:hover:not(:disabled) {
+    background: #f6ffed;
+    color: #52c41a;
+  }
+}

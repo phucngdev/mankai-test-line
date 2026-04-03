@@ -1,0 +1,112 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.streaksBox {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: #fff;
+
+  .contentBox {
+    display: flex;
+    justify-content: space-between;
+
+    .iconStreak {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      .text {
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21.6px; /* 120% */
+      }
+    }
+    .textDate {
+      color: var(--Gray-700, #676767);
+
+      /* Text sm/Regular */
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+    }
+  }
+  .dateTime {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .text {
+      color: var(--Gray-700, #676767);
+
+      /* Text sm/Regular */
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+    }
+    .btnDate {
+      display: flex;
+      gap: 8px;
+      .btn{
+        cursor: pointer;
+       
+      }
+    }
+  }
+  .dateBox {
+    display: flex;
+    justify-content: space-between;
+   gap: 1px;
+    .date {
+      display: flex;
+      width: 40px;
+      height: 58px;
+      padding: 4px 8px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &.active {
+        border-radius: 8px;
+        border: 1px solid var(--Yellow-700, #ad7415);
+        background: var(--Yellow-400, #f5b64a);
+
+        background-image: url('src/assets/images/specialStreaks/bgBtn.png');
+        background-repeat: no-repeat;
+
+        .textWeek,
+        .textNumber {
+          color: #fff;
+        }
+      }
+      .textWeek {
+        text-align: center;
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+      .textNumber {
+        color: var(--Gray-800, #3d3d3d);
+        text-align: center;
+        /* Text xl/Bold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px; /* 150% */
+      }
+    }
+  }
+}

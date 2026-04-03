@@ -1,0 +1,381 @@
+.parentDic {
+    background: var(--Blue-light-25, #F5FBFF);
+
+    .containerListTopic {
+        max-width: 1160px;
+        margin: auto;
+
+        .banner {
+            background-image: url('/src/assets/images/banner/bannerMankai.png');
+            background-size: cover;
+            width: 100%;
+            padding: 64px 0px;
+            border-radius: 0px 0px 16px 16px;
+            margin-bottom: 40px;
+
+            .searchCenter {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 30px;
+
+                h1 {
+                    color: var(--Gray-800, #3D3D3D);
+                    font-size: 36px;
+                    line-height: 44px;
+                    letter-spacing: -0.72px;
+                    font-weight: 700;
+                }
+
+                .parentsSearch {
+                    padding: 16px 24px;
+                    border-radius: 16px;
+                    background: rgba(255, 255, 255, 0.80);
+                    width: 65%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    input {
+                        border-color: transparent;
+                        background-color: transparent;
+                        width: 80%;
+                        color: var(--Gray-700, #676767);
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 30px;
+
+                        &:focus-visible {
+                            outline: transparent;
+                        }
+
+                        &::placeholder {
+                            color: var(--Gray-700, #676767);
+                            font-size: 20px;
+                            font-weight: 400;
+                            line-height: 30px;
+                        }
+                    }
+
+                    button {
+                        width: 112px;
+                        display: flex;
+                        padding: 12px 20px;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 16px;
+                        border: 1px solid var(--Orange-600, #DD673C);
+                        background: #F37142;
+                        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+                        color: var(--White, #FFF);
+                        font-size: 16px;
+                        line-height: 24px;
+                        cursor: pointer;
+                        font-weight: 700;
+
+                        .decorButton {
+                            position: absolute;
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+
+        .listTopicCarousel {
+            background-color: #FFF;
+            border-radius: 16px;
+            border: 1px solid var(--Gray-100, #DDD);
+            margin-bottom: 46px;
+            width: 100%;
+            overflow: hidden;
+
+            .topicParent {
+
+                .topicTitle {
+                    padding: 40px 0px;
+                    display: flex !important;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 16px;
+                    border-bottom: 1px solid var(--Gray-100, #DDD);
+
+
+                    .pageination {
+                        color: var(--Gray-700, #676767);
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
+
+                    .vocabulary {
+                        color: var(--Gray-800, #3D3D3D);
+                        font-size: 60px;
+                        font-style: normal;
+                        font-weight: 800;
+                        line-height: 72px;
+                        letter-spacing: -1.2px;
+                        display: flex;
+                        justify-content: center;
+                        gap: 16px;
+
+                        span {
+                            color: var(--Orange-500, #F37142);
+                            font-size: 48px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 60px;
+                            letter-spacing: -0.96px;
+                        }
+                    }
+
+                    .vocabularyConnect {
+                        color: var(--Orange-500, #F37142);
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 30px;
+
+                        span {
+                            color: var(--Gray-700, #676767);
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 30px;
+                        }
+                    }
+                }
+
+                .topicsDetail {
+                    padding: 0px 24px;
+                    border-bottom: none;
+
+                    .topicDetail {
+                        padding: 16px 0 24px 0;
+
+                        h1 {
+                            color: var(--Orange-500, #F37142);
+                            font-size: 32px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 40px;
+                            margin-bottom: 16px;
+                        }
+
+                        p {
+                            color: var(--Gray-700, #676767);
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 28px;
+                            display: flex;
+                            align-items: center;
+                            flex-wrap: wrap;
+                            gap: 16px;
+
+                            strong {
+                                font-weight: 600;
+                            }
+                        }
+
+                        .kunyomi {
+                            .kunyomi-sino {
+                                color: var(--Gray-700, #676767);
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: 28px;
+                            }
+
+                            .kunyomi-english {
+                                color: var(--Gray-700, #676767);
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 28px;
+                            }
+                        }
+
+                        .tableTopic {
+                            color: var(--Gray-700, #676767);
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 28px;
+                            display: flex;
+                            align-items: center;
+                            gap: 16px;
+
+                            strong {
+                                font-weight: 600;
+                                font-size: 18px;
+                            }
+
+                            .specialTopic {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: start;
+                                gap: 4px;
+
+                                span {
+
+                                    strong {
+                                        color: var(--Blue-light-400, #36BFFA);
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+                        }
+
+                        .tableAttention {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 18px;
+
+                            p {
+                                color: var(--Gray-700, #676767);
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 140%;
+                            }
+                        }
+
+                        .Jukugo-english {
+                            color: var(--Gray-700, #676767);
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 28px;
+                        }
+
+                        .Jukugo-texts-english {
+                            font-size: 18px;
+                        }
+
+                        .flex-gap-16-column {
+                            display: flex;
+                            gap: 16px;
+                            flex-direction: column;
+
+                            .end-text {
+                                p {
+                                    &:first-child {
+                                        color: var(--Blue-light-400, #36BFFA);
+                                        font-size: 20px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 30px;
+                                        margin-bottom: 4px;
+                                    }
+
+                                    &:last-child {
+                                        color: var(--Gray-700, #676767);
+                                        font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .custom-table-antd {
+            border: 1px solid var(--Gray-100, #DDD) !important;
+            border-radius: 8px;
+            margin-bottom: 16px;
+
+            table {
+                border-collapse: collapse;
+            }
+
+            .ant-table-thead tr {
+                border-bottom: 1px solid var(--Gray-200, #CCC);
+
+                th {
+                    background: var(--Gray-50, #F4F4F4) !important;
+                    color: var(--Gray-800, #3D3D3D);
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 28px;
+                    border-bottom: none;
+                }
+            }
+
+            .ant-table-tbody tr {
+                td {
+                    border-bottom: 1px solid var(--Gray-200, #CCC);
+                    transition: none;
+                    background: white !important;
+                }
+
+                &:last-child {
+                    td {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .first-css-col {
+                color: var(--Blue-light-400, #36BFFA);
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 28px;
+            }
+
+            .seccond-css-col {
+                color: var(--Gray-800, #3D3D3D);
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 28px;
+            }
+        }
+
+        .slick-next::before,
+        .slick-prev::before {
+            display: none !important;
+        }
+
+        .slick-next::after,
+        .slick-prev::after {
+            display: none !important;
+        }
+    }
+
+    .slick-slide {
+        display: flex !important;
+        align-items: flex-start;
+        justify-content: center;
+        height: auto !important;
+    }
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+    .specialTopic {
+        width: 100% !important;
+    }
+
+    .tableTopic {
+        flex-wrap: wrap;
+    }
+
+    .vocabulary {
+        flex-wrap: wrap;
+    }
+
+    .parentsSearch {
+        width: 90% !important;
+    }
+}

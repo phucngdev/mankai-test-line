@@ -1,0 +1,4 @@
+// ✅ Import các file SCSS chung (không chứa class cụ thể)
+@use './abstracts/variables' as *;
+@use './abstracts/mixins' as *;
+@use './base/base';

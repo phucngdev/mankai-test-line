@@ -1,0 +1,44 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.home {
+    background-color: map.get(v.$colors, accent);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: map.get(v.$spacing, xl);
+
+    padding-left: map.get(v.$spacing, sm);
+    padding-right: map.get(v.$spacing, sm);
+    width: 100%;
+
+    @include m.respond(sm) {
+        max-width: 540px;
+    }
+
+    @include m.respond(md) {
+        max-width: 720px;
+        gap: map.get(v.$spacing, xl);
+    }
+
+    @include m.respond(lg) {
+        max-width: 960px;
+        gap: map.get(v.$spacing, 2xl);
+    }
+
+    @include m.respond(xl) {
+        max-width: 1200px;
+    }
+
+    @include m.respond(2xl) {
+        max-width: 1280px;
+    }
+}

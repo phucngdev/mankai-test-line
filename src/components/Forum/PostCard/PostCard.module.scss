@@ -1,0 +1,242 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.postCard {
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(226, 232, 240, 1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .postCard_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .postCard_header_left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .postCard_header_info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            .authorInfo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .authorName {
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(15, 23, 42, 1);
+                line-height: 22px;
+            }
+
+            .authorRole {
+                font-size: 12px;
+                font-weight: 500;
+                color: rgba(148, 163, 184, 1);
+                line-height: 18px;
+            }
+
+            .meta {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 6px;
+                font-size: 12px;
+                color: rgba(148, 163, 184, 1);
+                line-height: 18px;
+
+                .postTime {
+                    font-weight: 500;
+                }
+
+                .dot {
+                    color: rgba(148, 163, 184, 1);
+                }
+
+                .metaTags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 4px;
+                }
+
+                .metaTag {
+                    padding: 2px 8px;
+                    border-radius: 999px;
+                    background-color: map.get(v.$colors, 'white');
+                    color: #f57617;
+                    border: 1px solid #f57617;
+                    font-size: 11px;
+                    font-weight: 500;
+                    max-width: 140px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        .moreBtn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 20px;
+            color: rgba(100, 116, 139, 1);
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: rgba(241, 245, 249, 1);
+            }
+        }
+    }
+
+    .postCard_actions_metrics {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        line-height: 20px;
+        color: rgba(148, 163, 184, 1);
+        margin-top: 4px;
+
+        .postCard_actions_metric {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .likeIcon {
+            color: rgba(59, 130, 246, 1);
+        }
+
+        .likeText {
+            color: rgba(59, 130, 246, 1);
+            font-weight: 500;
+        }
+
+        .flowerIcon,
+        .flowerText {
+            color: rgba(244, 63, 94, 1);
+            font-weight: 500;
+        }
+
+        .commentMetric {
+            color: rgba(71, 85, 105, 1);
+        }
+    }
+
+    .postCard_content {
+        .richContent {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(51, 65, 85, 1);
+            line-height: 24px;
+            word-break: break-word;
+
+            p {
+                margin: 0;
+            }
+
+            strong {
+                font-weight: 700;
+            }
+
+            em {
+                font-style: italic;
+            }
+
+            u {
+                text-decoration: underline;
+            }
+        }
+
+        .tagsLine {
+            margin-top: 8px;
+        }
+
+        .hashtag {
+            color: rgba(51, 65, 85, 1);
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    .postCard_actions {
+        display: flex;
+        align-items: center;
+        padding: 12px 10px 0px 10px;
+        gap: 8px;
+        border-top: 1px solid rgb(226, 232, 240);
+        padding-top: 12px;
+        justify-content: space-between;
+
+        .actionBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(100, 116, 139, 1);
+            transition: all 0.2s;
+
+            :global(.anticon) {
+                font-size: 18px;
+            }
+
+            &:hover {
+                background-color: rgba(241, 245, 249, 1);
+                color: rgba(71, 85, 105, 1);
+            }
+
+            &.likeCountOnly {
+                cursor: default;
+                pointer-events: none;
+
+                &:hover {
+                    background: transparent;
+                    color: inherit;
+                }
+            }
+
+            &.flower {
+                color: rgba(236, 72, 153, 1);
+
+                &:hover {
+                    background-color: rgba(253, 242, 248, 1);
+                    color: rgba(190, 24, 93, 1);
+                }
+            }
+
+            &.liked {
+                color: rgba(243, 112, 33, 1);
+
+                &:hover {
+                    background-color: rgba(255, 237, 225, 0.5);
+                    color: rgba(234, 88, 12, 1);
+                }
+            }
+
+
+        }
+    }
+
+}

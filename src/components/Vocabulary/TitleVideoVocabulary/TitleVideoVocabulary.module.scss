@@ -1,0 +1,404 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.boxContent {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+
+  .formVideo {
+    padding: 16px;
+    background-color: #f4f4f5;
+    position: relative;
+    overflow: hidden;
+
+    .customControls {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px;
+      padding-left: 32px;
+      padding-right: 32px;
+      background: rgba(255, 247, 244, 0.2);
+
+      :global(.ant-progress) {
+        display: flex;
+        align-items: center;
+        width: 100%; // Ensure it takes full available width
+      }
+      :global(.ant-progress-line) {
+        display: flex;
+        align-items: center;
+      }
+      :global(.ant-progress-outer) {
+        display: flex;
+        align-items: center;
+      }
+      :global(.ant-progress-bg) {
+        height: 4px !important; // Keep the height as specified
+      }
+    }
+
+    .playButton {
+      background-color: #f37142;
+      color: #fff;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 12px;
+      min-width: 48px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .fullscreenButton {
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .playButton:hover {
+      background-color: #d75c2e;
+    }
+    .fullscreenButton:hover {
+      color: #d75c2e;
+    }
+    .timeDisplay {
+      font-size: 14px;
+      color: #fff;
+      min-width: 100px;
+    }
+
+    .volumeControl {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      input[type='range'] {
+        width: 100px;
+        height: 4px;
+        appearance: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &::-webkit-slider-runnable-track {
+          height: 4px;
+          border-radius: 4px;
+        }
+
+        &::-moz-range-track {
+          height: 4px;
+          border-radius: 4px;
+        }
+
+        &::-webkit-slider-thumb {
+          appearance: none;
+          width: 12px;
+          height: 12px;
+          background: #f97316;
+          border-radius: 50%;
+          margin-top: -4px;
+        }
+
+        &::-moz-range-thumb {
+          width: 12px;
+          height: 12px;
+          background: #f97316;
+          border-radius: 50%;
+          border: none;
+        }
+      }
+    }
+
+    .frameVideo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 5px solid var(--Gray-800, #3d3d3d);
+      background: #3f3f3f;
+      z-index: 10;
+      overflow: hidden;
+      pointer-events: none;
+
+      video {
+        object-fit: contain;
+      }
+
+      .videoContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 789.735px;
+        height: 526.49px;
+        position: relative;
+      }
+    }
+
+    .frameVideo:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000; /* Đảm bảo nền đen để không có khoảng trống */
+    }
+
+    .frameVideo video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Hoặc cover tùy thuộc vào nhu cầu */
+    }
+
+    .playVideo {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      padding: 0px 16px;
+      align-items: center;
+      gap: 16px;
+      bottom: 0;
+      left: 0;
+      height: 76px;
+      background: rgba(255, 247, 244, 0.2);
+      border-radius: 0px 0px 2px 2px;
+
+      .timeVideo {
+        display: flex;
+        gap: 4px;
+        color: #fff;
+      }
+    }
+  }
+
+  .content {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    .btnSession {
+      display: flex;
+      padding: 10px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+
+      .textSession {
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20px;
+      }
+
+      .iconSession {
+        display: flex;
+        align-items: center;
+      }
+
+      &.activeBtn {
+        border-radius: 12px;
+        border: 1px solid var(--Orange-700, #f37142);
+        border-bottom: 3px solid var(--Orange-700, #f37142);
+
+        &:active {
+          border: 1px solid #f37142;
+          background: #fff6f0;
+        }
+
+        .textSession {
+          color: #f37142;
+        }
+
+        .iconSession {
+          color: #f37142;
+        }
+      }
+    }
+
+    .boxTitle {
+      display: flex;
+      gap: 14px;
+      .iconVideo {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background: var(--Orange-25, #fff7f4);
+      }
+
+      .contentVideo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        flex: 1 0 0;
+
+        .nameTitle {
+          color: var(--Gray-800, #3d3d3d);
+          align-self: stretch;
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 28px;
+        }
+
+        .textTitle {
+          color: var(--Gray-700, #676767);
+          font-family: 'SF Pro Display';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  /* Tablet screens (max-width: 768px) */
+  @media (max-width: 768px) {
+    .content {
+      padding: 12px;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .btnSession {
+        padding: 8px 12px;
+
+        .textSession {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+
+      .iconVideo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .contentVideo {
+        .nameTitle {
+          font-size: 18px;
+          line-height: 24px;
+        }
+
+        .textTitle {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .formVideo {
+      padding: 12px;
+
+      .customControls {
+        gap: 6px;
+        padding: 6px 12px;
+      }
+
+      .playButton {
+        min-width: 36px;
+        height: 28px;
+        font-size: 12px;
+      }
+
+      .fullscreenButton {
+        font-size: 12px;
+      }
+
+      .timeDisplay {
+        font-size: 10px;
+        min-width: 60px;
+      }
+
+      .volumeControl {
+        input[type='range'] {
+          width: 60px;
+        }
+      }
+
+      .frameVideo {
+        border: 2px solid var(--Gray-800, #3d3d3d);
+      }
+    }
+  }
+
+  /* Mobile screens (max-width: 480px) */
+  @media (max-width: 480px) {
+    .content {
+      padding: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .btnSession {
+        padding: 8px 10px;
+        width: 100%;
+
+        .textSession {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+
+      .iconVideo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .contentVideo {
+        .nameTitle {
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        .textTitle {
+          font-size: 11px;
+          line-height: 14px;
+        }
+      }
+    }
+
+    .formVideo {
+      .frameVideo {
+        .videoContainer {
+          width: 100%;
+          height: 200px; /* Giảm chiều cao để tạo hình chữ nhật */
+        }
+      }
+
+      .customControls {
+        .volumeControl {
+          display: none; /* Ẩn điều khiển âm lượng */
+        }
+
+        gap: 8px; /* Giảm khoảng cách giữa các phần tử để tối ưu không gian */
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+    }
+  }
+}

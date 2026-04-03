@@ -1,0 +1,685 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxContent {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+
+  .formVideo {
+    padding: 16px;
+    background-color: #f4f4f5;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+
+    &:fullscreen,
+    &.manualFullscreen {
+      padding: 0;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .frameVideo {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+
+        .videoContainer {
+          width: 100% !important;
+          height: 100% !important;
+          max-width: none;
+        }
+      }
+
+      .customControls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 15%; // 15% of screen height as hit zone
+        min-height: 80px;
+        background: transparent;
+        z-index: 2147483647;
+
+        // Flex to center the content at the bottom
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        transform: none; // Reset transform from previous style
+        opacity: 1; // Always visible for hit testing
+        visibility: visible;
+
+        .controlsContent {
+          background: rgba(
+            0,
+            0,
+            0,
+            0.6
+          ); // Semi-transparent black for fullscreen
+          width: 90%;
+          border-radius: 16px;
+          opacity: 0; // Hide content by default
+          visibility: hidden;
+          transition:
+            opacity 0.3s,
+            visibility 0.3s;
+        }
+
+        &:hover,
+        &.paused {
+          .controlsContent {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    .customControls {
+      bottom: 14px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      pointer-events: auto;
+      z-index: 20;
+
+      .controlsContent {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 16px;
+        padding: 12px 32px;
+        background: rgb(126, 125, 125);
+        border-radius: 8px;
+        transition: opacity 0.3s;
+      }
+
+      .seekButton {
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+
+      :global(.ant-progress) {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      :global(.ant-progress-line) {
+        display: flex;
+        align-items: center;
+      }
+
+      :global(.ant-progress-outer) {
+        display: flex;
+        align-items: center;
+      }
+
+      :global(.ant-progress-bg) {
+        height: 4px !important;
+      }
+    }
+
+    .playButton {
+      background-color: #f37142;
+      color: #fff;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 12px;
+      min-width: 48px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .fullscreenButton {
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .playButton:hover {
+      background-color: #d75c2e;
+    }
+
+    .fullscreenButton:hover {
+      color: #d75c2e;
+    }
+
+    .ccButton {
+      cursor: pointer;
+      color: #fff;
+      font-weight: bold;
+      border: 1.5px solid #fff;
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-size: 10px;
+      line-height: 1;
+      height: fit-content;
+      transition: all 0.2s;
+      user-select: none;
+
+      &.inactive {
+        color: #999;
+        border-color: #999;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .timeDisplay {
+      font-size: 14px;
+      color: #fff;
+      min-width: 100px;
+    }
+
+    .timeSpeed {
+      color: wheat;
+      cursor: pointer;
+      padding: 4px 12px;
+
+      select {
+        background: transparent;
+        border: 1px solid #f97316;
+        border-radius: 4px;
+        color: #fff;
+        padding: 4px;
+        font-size: 16px;
+
+        option {
+          color: #000;
+        }
+      }
+    }
+
+    .volumeControl {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      gap: 6px;
+      height: 60px;
+      justify-content: center;
+      cursor: pointer;
+
+      .verticalSlider {
+        position: absolute;
+        bottom: 90px;
+        left: 44%;
+        transform: translateX(-50%) rotate(-90deg);
+        width: 80px;
+        height: 8px;
+        background: transparent;
+        -webkit-appearance: none;
+        appearance: none;
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #f97316;
+          cursor: pointer;
+          border: none;
+        }
+
+        &::-moz-range-thumb {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #f97316;
+          cursor: pointer;
+          border: none;
+        }
+
+        &::-moz-range-track {
+          height: 4px;
+          background: #fff;
+          border-radius: 2px;
+        }
+      }
+    }
+
+    .frameVideo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 5px solid var(--Gray-800, #3d3d3d);
+      background: #3f3f3f;
+      z-index: 10;
+      overflow: hidden;
+      flex: 1;
+      min-width: 0;
+
+      video {
+        object-fit: contain;
+      }
+
+      .videoContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 789.735px;
+        height: 526.49px;
+        pointer-events: auto;
+        position: relative;
+        cursor: pointer;
+
+        * {
+          pointer-events: none !important;
+        }
+
+        user-select: none;
+        -webkit-user-select: none;
+
+        .feedbackOverlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          padding: 16px 24px;
+          border-radius: 50%;
+          font-size: 24px;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          pointer-events: none;
+          animation: fadeOut 0.8s ease-out forwards;
+          z-index: 20;
+
+          svg {
+            width: 32px;
+            height: 32px;
+          }
+        }
+
+        .closeFullscreenButton {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 30;
+          background: rgba(0, 0, 0, 0.5);
+          border: none;
+          color: white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          pointer-events: auto !important;
+          transition: background 0.3s;
+          font-size: 20px;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .frameVideo.mobileLandscape {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+
+    .frameVideo video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .playVideo {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      padding: 0px 16px;
+      align-items: center;
+      gap: 16px;
+      bottom: 0;
+      left: 0;
+      height: 76px;
+      background: rgba(255, 247, 244, 0.2);
+      border-radius: 0px 0px 2px 2px;
+
+      .timeVideo {
+        display: flex;
+        gap: 4px;
+        color: #fff;
+      }
+    }
+
+    .videoLayout {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+      width: 100%;
+      margin-bottom: 10px; // Space for controls
+    }
+  }
+
+  .contentTitle {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .subtitleSection {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--Gray-200, #e5e7eb);
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: auto;
+
+    .subtitleHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--Gray-200, #e5e7eb);
+
+      .title {
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--Gray-800, #374151);
+      }
+
+      .langSwitch {
+        display: flex;
+        gap: 8px;
+
+        button {
+          padding: 4px 12px;
+          border-radius: 4px;
+          border: 1px solid var(--Gray-300, #d1d5db);
+          background: #fff;
+          cursor: pointer;
+          font-weight: 500;
+          color: var(--Gray-600, #4b5563);
+          transition: all 0.2s;
+
+          &.active {
+            background: #f37142;
+            color: #fff;
+            border-color: #f37142;
+          }
+        }
+      }
+    }
+
+    .subtitleContainer {
+      max-height: 500px;
+      overflow-y: auto;
+      padding: 8px 0;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+
+      .subtitleItem {
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 15px;
+        color: var(--Gray-700, #374151);
+        border-left: 3px solid transparent;
+
+        &:hover {
+          background-color: var(--Gray-50, #f9fafb);
+        }
+
+        &.activeSubtitleItem {
+          background-color: #fff7ed;
+          border-left-color: #f37142;
+          font-weight: 500;
+          color: #c2410c;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .formVideo {
+      padding: 8px;
+
+      .frameVideo {
+        .videoContainer {
+          width: 100%;
+          height: 180px;
+        }
+
+        border-width: 3px;
+      }
+
+      .videoLayout {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 0;
+      }
+
+      .subtitleSection {
+        width: 100% !important;
+        margin: 16px 0 0 0 !important;
+      }
+
+      .customControls {
+        position: static;
+        padding: 8px;
+        background: transparent;
+
+        .controlsContent {
+          background: #000;
+          /* Use black background as requested */
+          gap: 4px;
+          padding: 8px;
+          border-radius: 8px;
+        }
+
+        .timeDisplay {
+          display: block;
+          font-size: 10px;
+          min-width: unset;
+        }
+      }
+
+      .playButton,
+      .fullscreenButton,
+      .volumeControl {
+        min-width: 32px;
+        height: 28px;
+        font-size: 12px;
+        padding: 4px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .volumeControl {
+        display: none;
+      }
+
+      .timeSpeed {
+        padding: 2px 4px;
+        font-size: 12px;
+
+        select {
+          font-size: 12px;
+          padding: 2px 4px;
+          max-width: 48px;
+        }
+      }
+
+      .volumeControl {
+        flex-direction: column;
+        gap: 2px;
+        height: 32px;
+
+        .verticalSlider {
+          width: 60px;
+          height: 6px;
+          bottom: 50px;
+        }
+      }
+
+      /* Mobile Landscape Mode (Zoomed) */
+      &.mobileLandscape {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vh;
+        height: 100vw;
+        z-index: 9999;
+        transform: rotate(90deg);
+        transform-origin: top left;
+        /* Center after rotation */
+        margin-left: 100vw;
+        padding: 0;
+        background: #000;
+
+        .frameVideo {
+          width: 100%;
+          height: 100%;
+          background: #000;
+          border: none;
+
+          .videoContainer {
+            width: 100%;
+            height: 100%;
+
+            /* Fix Exit Button Position in Rotated View */
+            .closeFullscreenButton {
+              top: 20px;
+              right: 20px;
+              /* Physically top-right relative to rotated view, which is top-left of phone */
+              left: auto;
+              transform: rotate(-90deg);
+              /* Rotate icon back */
+              opacity: 1 !important;
+              visibility: visible !important;
+              display: flex !important;
+              z-index: 10001 !important;
+              /* Ensure it is above controls */
+            }
+
+            /* Hide feedback overlay in zoomed mode as requested */
+            .feedbackOverlay {
+              display: none !important;
+            }
+          }
+        }
+
+        .customControls {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 16px;
+          z-index: 10000;
+          background: transparent;
+
+          // Override hover to ensure strict pause-only visibility
+          &:hover .controlsContent {
+            opacity: 0;
+            visibility: hidden;
+          }
+
+          // Show only when paused
+          &.paused .controlsContent {
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+
+          .controlsContent {
+            background: rgba(0, 0, 0, 0.8);
+            flex-direction: row;
+          }
+        }
+      }
+
+      @keyframes fadeOutRotated {
+        0% {
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(-90deg) scale(0.8);
+        }
+
+        50% {
+          transform: translate(-50%, -50%) rotate(-90deg) scale(1.1);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -50%) rotate(-90deg) scale(1);
+        }
+      }
+    }
+  }
+}

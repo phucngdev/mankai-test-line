@@ -1,0 +1,18 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  flex: 1;
+  width: 100%;
+  .right {
+    padding: 16px;
+    flex: 1;
+    width: 100%;
+    min-height: 95vh;
+    background-color: #f7f9ff;
+  }
+}

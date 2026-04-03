@@ -1,0 +1,183 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  .commentBox {
+    display: flex;
+    width: 100%;
+    align-self: start;
+    gap: 16px;
+    .iconAvt {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 200px;
+      background: var(--Brand-50, #f9f5ff);
+    }
+    .boxComment {
+      display: flex;
+      padding: 8px;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 0 0;
+      border-radius: 8px;
+      background: var(--Gray-25, #fafafa);
+      position: relative;
+      width: 100%;
+      .textComment {
+        display: flex;
+        padding: 8px;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 0 0;
+        border-radius: 8px;
+        background: var(--Gray-25, #fafafa);
+        border: none;
+        outline: none;
+        margin-right: 48px;
+        resize: none; /* Không cho người dùng resize thủ công */
+        height: auto;
+        min-height: 40px;
+        overflow: hidden;
+        line-height: 1.5;
+      }
+
+      .btnSubmit {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        display: flex;
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        border: 1px solid #ad502f;
+        border-bottom: 4px solid #ad502f;
+        background: var(--Orange-500, #f37142);
+        &:active {
+          border: 1px solid #ad502f;
+        }
+      }
+    }
+  }
+  .numberComment {
+    color: var(--Gray-800, #3d3d3d);
+
+    /* Text md/Medium */
+    font-family: 'SF Pro Display';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+  }
+  .boxChat {
+    display: flex;
+    align-self: start;
+    gap: 16px;
+    .iconAvt {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 200px;
+      background: var(--Brand-50, #f9f5ff);
+    }
+    .commentChat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .contentChat {
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        border-radius: 8px;
+        background: var(--Gray-25, #fafafa);
+        .name {
+          color: var(--Gray-800, #3d3d3d);
+
+          /* Text sm/Medium */
+          font-family: 'SF Pro Display';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 20px; /* 142.857% */
+        }
+        .textComment {
+          color: var(--Gray-700, #676767);
+
+          /* Text sm/Regular */
+          font-family: 'SF Pro Display';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+        }
+      }
+      .timeChat {
+        display: flex;
+        gap: 8px;
+        .date {
+          color: var(--Gray-700, #676767);
+
+          /* Text xs/Regular */
+          font-family: 'SF Pro Display';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px; /* 150% */
+        }
+        .feedback {
+          color: var(--Gray-700, #676767);
+
+          /* Text xs/Regular */
+          font-family: 'SF Pro Display';
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px; /* 150% */
+        }
+      }
+    }
+  }
+  .commentList {
+    max-height: 300px; // hoặc 40vh tùy bạn muốn
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; // tùy spacing giữa bình luận
+    padding-right: 4px; // để tránh bị che bởi scrollbar
+
+    /* Optional: thanh cuộn gọn gàng */
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+}

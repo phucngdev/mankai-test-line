@@ -1,0 +1,26 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.wrapper {
+    padding: 2rem;
+    background-color: map.get(v.$colors, light);
+
+    @include m.respond(lg) {
+        background-color: #cce5ff;
+    }
+
+    @include m.respond(xl) {
+        background-color: #b2f2bb;
+    }
+
+    @include m.respond(2xl) {
+        background-color: red;
+    }
+
+    @include m.respond(2xl) {
+        border: 3px solid red !important;
+        background-color: yellow !important;
+    }
+
+}

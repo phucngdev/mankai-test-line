@@ -1,0 +1,438 @@
+{
+  "survey": {
+    "title": "アンケート",
+    "description": "「気軽にフィードバックしてね〜。答えたら『次へ』を押してね！」✨",
+    "prev": "戻る",
+    "next": "続ける",
+    "submit": "アンケートを送信"
+  },
+  "floatButton": {
+    "tooltipButton": "サポート",
+    "titleModal": "サポートセンター",
+    "subTitleModal": "どのようなサポートが必要ですか？",
+    "system": {
+      "title": "技術サポート",
+      "subTitle": "ソフトウェアのエラー、接続問題、アカウント問題"
+    },
+    "content": {
+      "title": "コンテンツサポート",
+      "subTitle": "記事・データ・画像の編集"
+    },
+    "advise": {
+      "title": "コース相談",
+      "subTitle": "コース、登録、学習ロードマップの相談"
+    }
+  },
+  "message": {
+    "warning": {
+      "exam": {
+        "essay": {
+          "emptyFile": "資料を追加するか、ファイルリンクを入力してください",
+          "linkExists": "このリンクはすでにファイル一覧に存在します"
+        }
+      }
+    },
+    "error": {
+      "exam": {
+        "essay": {
+          "upload": "アップロードに失敗しました"
+        }
+      }
+    },
+    "confirm": {
+      "exam": {
+        "essay": {
+          "contentDeleteFile": "提出したファイルを削除してもよろしいですか？",
+          "okTextDeleteFile": "削除",
+          "cancelTextDeleteFile": "キャンセル",
+          "titleDeleteFile": "削除の確認"
+        }
+      }
+    }
+  },
+  "header": {
+    "logoAlt": "ロゴ",
+    "nav": {
+      "dailyTest": "毎日の模擬試験",
+      "topics": "トピック",
+      "learning": "学習",
+      "forum": "フォーラム",
+      "myClass": "マイクラス"
+    },
+    "language": {
+      "vi": "VI"
+    },
+    "login": "ログイン",
+    "profile": "プロフィール",
+    "class": "マイクラス",
+    "list-exam": "模擬試験履歴",
+    "logout": "ログアウト",
+    "notifications": "通知",
+    "markAllAsRead": "すべて既読にする",
+    "viewAll": "すべて見る",
+    "viewMore": "もっと見る",
+    "notificationPopup": "新しい通知を受け取りました。"
+  },
+  "teacher": {
+    "ceremony": "開講日",
+    "end": "終了日",
+    "sensei": "講師"
+  },
+  "class": {
+    "room": "授業スケジュール",
+    "result": "学習結果",
+    "session": "セッション",
+    "date": "日付",
+    "status": "ステータス",
+    "completedLate": "遅れて完了",
+    "doneTask": "完了",
+    "late": "遅延",
+    "notDone": "未完了",
+    "noLesson": "まだ授業がありません",
+    "noResult": "結果データがありません"
+  },
+  "banner": {
+    "homeText": "ホーム",
+    "courseText": "オンライン講座",
+    "streaks": "連続学習",
+    "ranking": "ランキング",
+    "experiencePoints": "経験ポイント",
+    "userName": "Nguyen C",
+    "userEmail": "Hoangbaohs22@gmail.com",
+    "userLocation": "ハノイ・ドンアイン区",
+    "course": "コース",
+    "topic": "トピック別日本語",
+    "mocktest": "マンカイ模擬試験",
+    "examTest": "試験",
+    "loading": "読み込み中...",
+    "btnSub": "提出",
+    "dateExam": "試験日",
+    "point": "得点",
+    "part": "セクション",
+    "audio": "このブラウザでは音声再生がサポートされていません。"
+  },
+  "mocktest": {
+    "exam": "試験",
+    "examTest": "テスト",
+    "participants": "参加者",
+    "btnSub": "受験開始",
+    "time": "分",
+    "btnTestExam": "スタート",
+    "structure": "試験構成",
+    "timeTitle": "制限時間",
+    "numberQuestion": "問題数",
+    "number": "問",
+    "back": "戻る",
+    "btnSubmitNow": "スタート",
+    "contentQuestion": "問題グループ内容",
+    "groupQuestion": "問題グループ",
+    "listQuestion": "問題一覧",
+    "noneExplain": "解説を隠す",
+    "showExplain": "解説を表示",
+    "explain": "解説",
+    "timer": "残り時間",
+    "timeRunningOut": "このセクションの残り時間が少なくなっています",
+    "exit": "終了",
+    "btnExit": "キャンセル",
+    "btnDone": "確認",
+    "next": "次へ",
+    "view": "復習",
+    "home": "ホームへ",
+    "point": "あなたの得点",
+    "backNavigate": "試験を続ける",
+    "changeNext": "セクションを切り替え",
+    "titleWaringNext": "セクションを切り替えますか？",
+    "textMess": "すべての問題を解答済みにしてから進むことをおすすめします。",
+    "titleWaringExam": "試験を終了しますか？",
+    "textMessExam": "進行状況は自動的に保存されます。",
+    "titleWaringSub": "試験を提出しますか？",
+    "textMessSub": "全てのセクションを完了してから提出してください。",
+    "resetMatchingPairs": "リセット",
+    "essayYourAnswer": "あなたの回答",
+    "essayPlaceholder": "回答を入力してください…",
+    "essayAttachFile": "ファイルを添付",
+    "essayRemoveFile": "ファイルを削除",
+    "essayFileHint": "画像、PDF、Word（.doc/.docx）、Excel（.xls/.xlsx）。サーバー未アップロード — プレビューはローカルのみです。",
+    "essaySubmitQuestion": "この問題を提出",
+    "essaySubmitOk": "記述式の回答を保存しました。",
+    "essaySubmittedNote": "この問題は提出済みです。",
+    "essayNeedContent": "テキストを入力するか、ファイルを1つ以上選んでください。",
+    "essayInvalidFile": "このファイル形式は対応していません。",
+    "essayOfficePreviewHint": "Word/Excelはブラウザ内プレビュー不可 — ローカルで選択したファイルです。",
+    "essayAttachedLabel": "添付",
+    "recordingInstructions": "「録音」で回答を録音し、「停止」で再生・提出できます（サーバーにはアップロードされません）。",
+    "recordingStart": "録音",
+    "recordingStop": "停止",
+    "recordingInProgress": "録音中…",
+    "recordingDuration": "時間",
+    "recordingPlayback": "再生",
+    "recordingClear": "最初から録り直す",
+    "recordingSubmitQuestion": "この問題を提出",
+    "recordingSubmitOk": "録音を記録しました。",
+    "recordingSubmittedNote": "この問題は提出済みです。",
+    "recordingLocalHint": "音声はブラウザ内のみに保存され、サーバーには送信されません。",
+    "recordingMicDenied": "マイクにアクセスできません。ブラウザの設定で許可してください。",
+    "recordingNotSupported": "このブラウザは録音に対応していません。",
+    "recordingNeedAudio": "数秒録音してから停止してから提出してください。",
+    "recordingReviewNote": "録音を提出しました。サーバーに保存しないため、見直しでは再生できません。",
+    "confirmCancel": "キャンセル",
+    "confirmSubmit": "提出する",
+    "submittedLabel": "提出済み",
+    "essayConfirmTitle": "記述回答を提出しますか",
+    "essayConfirmBody": "この記述回答を提出しますか？提出後は編集できません。",
+    "essayUploadFail": "記述回答の提出に失敗しました。再度お試しください。",
+    "essaySubmittedFiles": "提出済みファイル",
+    "essayNoFile": "添付ファイルなし",
+    "recordConfirmTitle": "録音回答を提出しますか",
+    "recordConfirmBody": "この録音回答を提出しますか？提出後は編集できません。",
+    "recordUploadFail": "録音回答の提出に失敗しました。再度お試しください。",
+    "recordSubmittedAudio": "提出済み録音",
+    "dropdownPlaceholder": "選択",
+    "dropdownNoBlanks": "この問題にはドロップダウンが設定されていません。",
+    "handwritingExamHint": "レッスンと同じ見た目：完成は緑、破線は今の画。ガイドに沿って書けます。画の順番は自由です。",
+    "handwritingUndo": "線を戻す",
+    "handwritingClear": "すべて消去",
+    "handwritingKindHiragana": "ひらがな",
+    "handwritingKindKatakana": "カタカナ",
+    "handwritingKindKanji": "漢字",
+    "handwritingNoTarget": "目標の文字が設定されていません。",
+    "handwritingNetLabel": "画 {{current}}/{{total}}",
+    "handwritingGuideHint": "青い点に触れ、破線に沿って引く →",
+    "handwritingFeedbackGreat": "よくできました！",
+    "handwritingNoData": "ストロークデータがありません",
+    "noSelection": "—",
+    "questionType": {
+      "MULTIPLE_CHOICE": "選択式",
+      "SORTING": "並べ替え",
+      "MATCHING": "マッチング",
+      "MULTIPLE_CHOICE_HORIZONTAL": "選択式（横）",
+      "FILL_IN_BLANK": "穴埋め",
+      "CHOOSE_ANSWER_IN_BLANK": "空所選択",
+      "DROP_DOWN_ANSWER": "空所ドロップダウン",
+      "ESSAY": "記述",
+      "RECORD": "録音",
+      "HANDWRITING": "手書き"
+    }
+  },
+  "courses": {
+    "title": "受講中の講座",
+    "viewAll": "すべて見る",
+    "titleCourse": "講座"
+  },
+  "historyExam": {
+    "titleHistoryExam": "試験履歴",
+    "numberExam": "問題",
+    "answer": "あなたの解答：",
+    "answerDone": "正解：",
+    "titleHistory": "テスト履歴",
+    "noTitleHistory": "履歴がありません",
+    "noAnswer": "未解答",
+    "point": "点"
+  },
+  "footer": {
+    "title": "MANKAI日本語実践学院",
+    "contactInfo": {
+      "title": "お問い合わせ",
+      "address": "住所：",
+      "addressText": "ハノイ市ナムトゥリエム区ミーディン・ファムフン通りソンダービル",
+      "hotline": "ホットライン：",
+      "hotlineText": "0835 662 538",
+      "email": "メール：",
+      "emailText": "support@mankai.edu.vn"
+    },
+    "quickLinks": {
+      "title": "クイックリンク",
+      "links": [
+        "私たちについて",
+        "JLPT",
+        "会話",
+        "初級",
+        "ITトーク",
+        "特定技能",
+        "企業研修",
+        "マンカイ殿堂",
+        "ニュース",
+        "お問い合わせ"
+      ]
+    },
+    "followUs": {
+      "title": "フォローする",
+      "socialMedia": ["Facebook", "YouTube"]
+    },
+    "copyright": {
+      "text": "Copyright 2024 Mankai Academy - 無断転載を禁ず"
+    }
+  },
+  "coursesSlider": {
+    "title": "受講中の講座",
+    "viewAll": "すべて見る",
+    "status": "完了",
+    "nextLesson": "次のレッスン",
+    "courseDetails": {
+      "textCourse": "レッスン",
+      "name": "コース",
+      "progress": "完了",
+      "lessonStatus": "残り16レッスン",
+      "contentOne": "残り",
+      "contentTwo": "レッスン"
+    },
+    "button": {
+      "continue": "学習を続ける"
+    },
+    "slider": {
+      "dots": {
+        "inactive": "#D0D5DD",
+        "active": "#F37142"
+      }
+    }
+  },
+  "specialRanking": {
+    "title": "マンカイと一緒に学ぼう",
+    "kaiwa": "AI会話",
+    "minna": "みんなの単語",
+    "testMankai": "マンカイ模擬試験",
+    "kanji": "漢字記憶法",
+    "button": "今すぐ体験",
+    "listDesc": {
+      "kaiwa": "AIと一緒にいつでもどこでも日本語会話を練習。",
+      "minna": "日常会話から専門分野まで、多彩なトピックで学ぼう。",
+      "testMankai": "本番に近い模擬試験で実力をチェック。",
+      "kanji": "覚えやすい記憶法で効果的に漢字を習得。"
+    },
+    "description": "初級から上級まで、多レベルの日本語講座を体験。",
+    "ranking": {
+      "title": "ランキングボード",
+      "imageAlt": "トロフィー",
+      "text": "ランキングボード",
+      "crownAlt": "クラウン",
+      "avatarAlt": "アバター",
+      "starAlt": "スター"
+    }
+  },
+  "startJourney": {
+    "title": "新しい旅を始めよう",
+    "description": "今日から自分の可能性を広げ、目標を達成しよう！",
+    "contact": "お問い合わせ",
+    "sales": {
+      "text": "無料相談",
+      "iconAlt": "矢印"
+    }
+  },
+  "streak": {
+    "text": "連続学習",
+    "textDate": "2025年4月",
+    "week": "第3週 / 第4週",
+    "fireAlt": "連続アイコン"
+  },
+  "profile": {
+    "textAccount": "アカウント情報",
+    "contentAccount": "ここで個人情報を編集できます。",
+    "filterProfile": "個人情報",
+    "changePass": "パスワード変更",
+    "btnSubmit": "保存"
+  },
+  "weekDays": {
+    "T2": "月",
+    "T3": "火",
+    "T4": "水",
+    "T5": "木",
+    "T6": "金",
+    "T7": "土",
+    "CN": "日"
+  },
+  "topic": {
+    "title": "トピック",
+    "vocabulary": "単語",
+    "resultVoice": "音声結果：",
+    "voiceRun": "聞いています…",
+    "voiceFasle": "聞き取れませんでした。",
+    "titleVocabulary": "単語",
+    "retry": "もう一度"
+  },
+  "detailCourse": {
+    "nameCourse": "講座",
+    "list": "レッスン一覧",
+    "listEle": "レッスン一覧",
+    "video": "ビデオ",
+    "time": "分",
+    "session": "テストレッスン",
+    "complete": "完了"
+  },
+  "vocabulary": {
+    "placeholderComment": "コメントを入力してください",
+    "comment": "コメント",
+    "feedback": "フィードバック",
+    "filter": {
+      "describe": "説明",
+      "document": "資料",
+      "discuss": "ディスカッション"
+    },
+    "formVideo": {
+      "textTitle": "専門家が監修した標準化されたレッスン。",
+      "textSession": "次のレッスン",
+      "textTitleWarring": "この動画を早送りすることはできません！",
+      "textPing": "初回視聴時は最後まで視聴する必要があります。",
+      "btnSession": "終了",
+      "btnSessionNext": "続ける",
+      "progress": "進捗"
+    }
+  },
+  "titleVocabulary": {
+    "descriptionFl": "聞いて読んで、早く覚える・長く覚える。",
+    "descriptionPdf": "ゆっくり読んで、深く理解しよう。",
+    "descriptionExam": "聞いて読んで、早く覚える・長く覚える。",
+    "descriptionVideo": "専門家が監修した標準化されたレッスン。",
+    "booknew": "新しい単語を学ぶ",
+    "game": "復習ゲーム",
+    "cardmerge": "カード合わせゲーム",
+    "examNew": "単語クイズ",
+    "errorVideo": "ビデオの読み込み中にエラーが発生しました。YouTubeでログインしていることを確認してください。"
+  },
+  "exam": {
+    "contentTitle": "テスト内容",
+    "trueLabel": "正しい",
+    "falseLabel": "誤り",
+    "contentTitleAudio": "空欄に合う単語を選んでください",
+    "reload": "再試行",
+    "previous": "前へ",
+    "check": "チェック",
+    "textSuccess": "正解！よくできました！",
+    "contentSuccess": "その調子！",
+    "continue": "続ける",
+    "textSuccessFasle": "不正解！",
+    "modalTitle": "レッスン完了！",
+    "modalText": "あなたの得点",
+    "continueStudying": "学習を続ける",
+    "essay": {
+      "submitted": "提出済み",
+      "comment": "コメント",
+      "tooltipSubmit": "提出",
+      "tooltipSubmiting": "提出中..."
+    }
+  },
+  "flashCard": {
+    "cardMergeTitle": "テストタイム",
+    "second": "秒"
+  },
+  "file": {
+    "upload": "ファイルをダウンロード",
+    "btnUpload": "課題を提出",
+    "timeUpload": "提出時間",
+    "uploadDone": "提出済み",
+    "addUpload": "資料を追加",
+    "clickUpload": "クリックしてアップロード",
+    "textUpload": "ここで追加・編集できます。",
+    "textUploadLink": "ファイルリンクを入力",
+    "note": "注意：",
+    "textNote": "ファイルを更新すると、以前のファイルが上書きされます。",
+    "viewFile": "ファイルを見る"
+  },
+  "dictionary": {
+    "kanjiLookupLabel": "漢字検索",
+    "searchLabel": "検索",
+    "vocabularySearchLabel": "単語検索",
+    "meaningLabel": "意味",
+    "suggestionLabel": "おすすめ",
+    "vocabularyLabel": "単語"
+  }
+}

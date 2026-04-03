@@ -1,0 +1,287 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.menu {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  background: #fff;
+
+  .listTop {
+    display: flex;
+    height: 82px;
+    padding: 16px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    align-self: stretch;
+    border-bottom: 6px solid #fff;
+    background: var(--Orange-500, #f37142);
+    background-image: url('/src/assets/images/m.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    .titleBox {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .titleCourse {
+        color: var(--White, #fff);
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        /* 100% */
+      }
+
+      .contentCourse {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .textCourse {
+          color: var(--Gray-25, #fafafa);
+          font-family: 'SF Pro Display';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+          /* 142.857% */
+        }
+      }
+
+      .contentTopic {
+        color: var(--Gray-700, #676767);
+        text-align: center;
+        width: 180px;
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px;
+        /* 150% */
+      }
+    }
+
+    .toggleButton {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      display: none; // Hidden by default, shown on mobile
+      align-self: flex-start;
+    }
+
+    .sessionText {
+      color: #696868;
+      font-family: Inter;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+
+  .boxMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 8px;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+
+    &.open {
+      max-height: 80vh;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .contentMenu {
+      display: flex;
+      height: 48px;
+      padding: 12px 16px;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: var(--Gray-25, #fafafa);
+
+      .contentVideo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .textVideo {
+          color: var(--Gray-800, #3d3d3d);
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+
+          line-height: 20px;
+          transition: color 0.3s ease;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-word;
+        }
+
+        .icon {
+          fill: #3d3d3d;
+          transition: fill 0.3s ease;
+        }
+      }
+
+      &.activeMenu {
+        border: 1px solid var(--Orange-500, #f37142);
+        background: var(--Orange-25, #fff7f4);
+
+        .textVideo {
+          color: var(--Orange-500, #f37142);
+        }
+
+        .icon {
+          color: #f37142;
+        }
+      }
+    }
+  }
+
+  // Media query cho mobile (< 768px)
+  @media (max-width: 767px) {
+    width: 100%;
+    border-right: none;
+
+    .listTop {
+      .toggleButton {
+        display: block;
+      }
+    }
+
+    .boxMenu {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      justify-content: center;
+
+      .contentMenu {
+        flex: 0 0 calc(100% - 12px);
+        max-width: calc(100% - 12px);
+        height: auto;
+        padding: 8px 12px;
+        justify-content: space-between;
+        align-items: center;
+
+        .contentVideo {
+          flex: 1;
+          flex: 1;
+          overflow: hidden;
+        }
+
+        .progress {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  // Media query cho tablet (768px - 1024px)
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+    border-right: none;
+
+    .listTop {
+      .toggleButton {
+        display: block; // Show toggle button on tablet
+      }
+    }
+
+    .boxMenu {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      .contentMenu {
+        flex: 0 0 calc(33.333% - 8px);
+        max-width: calc(33.333% - 8px);
+        height: auto;
+        padding: 8px 12px;
+        justify-content: space-between;
+        align-items: center;
+
+        .contentVideo {
+          flex: 1;
+          flex: 1;
+          overflow: hidden;
+        }
+
+        .progress {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  // Media query cho desktop (> 1024px)
+  @media (min-width: 1025px) {
+    z-index: 99;
+    width: 300px;
+    padding: 16px;
+
+    .boxMenu {
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(100vh - 140px);
+      opacity: 1; // Always visible
+      visibility: visible; // Always visible
+
+      &::-webkit-scrollbar {
+        width: 6px; // 👈 chỉnh chiều rộng thanh cuộn dọc
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent; // hoặc đặt màu track nếu muốn
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3); // màu thanh cuộn
+        border-radius: 4px; // bo góc
+      }
+    }
+
+    .listTop {
+      border-radius: 6px;
+
+      .toggleButton {
+        display: none; // Hide toggle button on desktop
+      }
+    }
+  }
+}

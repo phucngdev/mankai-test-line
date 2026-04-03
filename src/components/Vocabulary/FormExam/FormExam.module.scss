@@ -1,0 +1,297 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxContent {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+  .boxTimeEstimate {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+  }
+  .content {
+    padding: 16px;
+    border-bottom: 1px solid var(--Gray-100, #ddd);
+    display: flex;
+    gap: 16px;
+    .btnSession {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      .textSession {
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+
+      .iconSession {
+        display: flex;
+        align-items: center;
+      }
+
+      &.disabledBtn {
+        border: 1px solid var(--Gray-100, #ddd);
+        background: var(--White, #fff);
+        cursor: not-allowed;
+
+        .textSession {
+          color: var(--Gray-100, #ddd);
+        }
+
+        .iconSession {
+          color: #dddddd;
+        }
+      }
+
+      &.activeBtn {
+        border-radius: 16px;
+        border: 1px solid var(--Orange-700, #f58d68);
+        border-bottom: 4px solid var(--Orange-700, #f58d68);
+        border-radius: 16px;
+        box-shadow: 0px 2px 0px 0px #f58d68;
+
+        .textSession {
+          color: #f37142;
+        }
+
+        .iconSession {
+          color: #f37142;
+        }
+      }
+    }
+    .iconText {
+      display: flex;
+      width: 56px;
+      height: 56px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: var(--Orange-25, #fff7f4);
+    }
+    .contentText {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      flex: 1 0 0;
+      .nameTitle {
+        color: var(--Gray-800, #3d3d3d);
+        align-self: stretch;
+        /* Display xs/ Semibold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px; /* 133.333% */
+      }
+      .textTitle {
+        color: var(--Gray-700, #676767);
+
+        /* Text sm/Regular */
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+      }
+    }
+  }
+  .formAudio {
+    padding: 32px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .boxAudio {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .headerAudio {
+        color: var(--Gray-700, #676767);
+        text-align: center;
+        /* Text sm/Regular */
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+      }
+      .contentAudio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        .answer {
+          width: 800px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+
+          .answerBox {
+            display: flex;
+            height: 56px;
+            padding: 8px;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+            align-self: stretch;
+            border-radius: 8px;
+            border: 1px solid var(--Gray-100, #ddd);
+            background: var(--Gray-25, #fafafa);
+            box-shadow: 0px 4px 0px 0px #ddd;
+            cursor: pointer;
+
+            .contentBox {
+              display: flex;
+              width: 40px;
+              height: 40px;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              border-radius: 8px;
+              border: 1px solid var(--Gray-100, #ddd);
+              background: #fff;
+              .text {
+                color: var(--Gray-800, #3d3d3d);
+
+                /* Text md/Semibold */
+                font-family: 'SF Pro Display';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px; /* 150% */
+              }
+            }
+            .contentText {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              flex: 1 0 0;
+              align-self: stretch;
+              .text {
+                color: var(--Gray-800, #3d3d3d);
+
+                /* Text md/Semibold */
+                font-family: 'SF Pro Display';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 24px; /* 150% */
+              }
+            }
+            &.active {
+              border: 1px solid var(--Blue-light-500, #0ba5ec);
+              background: var(--Blue-light-50, #f0f9ff);
+              box-shadow: 0px 4px 0px 0px #0ba5ec;
+
+              .contentBox {
+                border: 1px solid var(--Blue-light-500, #0ba5ec);
+                background: var(--White, #fff);
+                .text {
+                  color: var(--Blue-light-500, #0ba5ec);
+                }
+              }
+
+              .text {
+                color: var(--Blue-light-500, #0ba5ec);
+              }
+            }
+          }
+        }
+        .textListen {
+          color: var(--Gray-800, #3d3d3d);
+          /* Text 2xl/Medium */
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          font-size: 24px;
+          line-height: 48px;
+          max-width: 1000px;
+          .highlightReading {
+            background-color: yellow;
+            transition: background-color 0.2s ease;
+          }
+
+          .inputListen {
+            width: 150px !important;
+            height: 40px;
+            padding: 8px 12px;
+            gap: 10px;
+            flex-shrink: 0;
+            &::placeholder {
+              color: var(--Gray-700, #9e9c9c);
+              /* Text sm/Regular */
+              font-family: 'SF Pro Display';
+              font-size: 14px;
+              padding-left: 8px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 20px; /* 142.857% */
+            }
+          }
+        }
+        .audioListen {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          align-items: center;
+          .contentImg {
+            width: 640px;
+            height: 286.983px;
+            border-radius: 8px;
+            background: #d9d9d9;
+          }
+          .contentTitleAudio {
+            color: var(--Gray-800, #3d3d3d);
+            text-align: center;
+
+            /* Display sm/Semibold */
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px; /* 125% */
+          }
+          .iconListen {
+            display: flex;
+            width: 80px;
+            height: 80px;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            aspect-ratio: 1/1;
+            border-radius: 20px;
+            border: 1.25px solid #ad502f;
+            border-bottom: 5px solid #ad502f;
+            background: var(--Orange-500, #f37142);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

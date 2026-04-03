@@ -1,0 +1,101 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.bgDoc {
+  background: white;
+  width: 100%;
+  min-height: 300px;
+  max-width: 100%; // tránh bị co lại
+
+  .document {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 cột đều nhau
+    gap: 16px;
+    box-sizing: border-box;
+    align-items: stretch;
+
+    .boxDoc {
+      display: flex;
+      padding: 16px;
+      justify-content: space-between;
+      gap: 10px;
+      border-radius: 8px;
+      background: var(--Gray-25, #fafafa);
+      width: 100%; // rất quan trọng
+      box-sizing: border-box;
+      align-items: center;
+
+      .downloadButton {
+        cursor: pointer;
+        &:hover {
+          color: rgb(255, 94, 0);
+        }
+      }
+
+      .docFile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        .boxFile {
+          display: flex;
+          width: 48px;
+          height: 48px;
+          padding: 12px;
+          justify-content: center;
+          align-items: center;
+          aspect-ratio: 1/1;
+          border-radius: 8px;
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--White, #fff);
+        }
+
+        .contentFile {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .fileTitle {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'SF Pro Display';
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+          }
+
+          .textFile {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+
+            .fileMB,
+            .fileDown {
+              font-family: 'SF Pro Display';
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 18px;
+            }
+
+            .fileMB {
+              color: var(--Gray-700, #676767);
+            }
+
+            .fileDown {
+              color: var(--Blue-light-500, #0ba5ec);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Media query cho mobile (< 768px)
+  @media (max-width: 767px) {
+    .document {
+      grid-template-columns: 1fr; // Một cột duy nhất
+    }
+  }
+}

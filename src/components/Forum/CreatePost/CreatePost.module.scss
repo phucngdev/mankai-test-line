@@ -1,0 +1,192 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.createPost {
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    border: 1px solid rgba(226, 232, 240, 1);
+
+    .createPost_trigger {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+
+        :global(.ant-avatar) {
+            flex-shrink: 0;
+        }
+    }
+
+    .ModalTrigger_text {
+        padding: 10px 20px;
+        border-radius: 999px;
+        background-color: rgba(241, 245, 249, 1);
+        color: rgba(100, 116, 139, 1);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        width: 100%;
+    }
+}
+
+.modalTitle {
+    border-bottom: 1px solid rgba(226, 232, 240, 1);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+
+    p {
+        font-size: 22px;
+        font-weight: 600;
+        color: rgba(15, 23, 42, 1);
+        line-height: 24px;
+        text-align: center;
+    }
+}
+
+.modalContent {
+    .modalContent_header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-bottom: 16px;
+
+        .ModalTrigger_text {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(15, 23, 42, 1);
+            line-height: 24px;
+        }
+    }
+
+}
+
+.modalContent_footer_button {
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #F37021 0%, #EA580C 100%);
+    border: 1px solid rgba(226, 232, 240, 1);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+    }
+}
+
+.modalContent_tags {
+    margin-bottom: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(226, 232, 240, 1);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .modalContent_tags_title {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(15, 23, 42, 1);
+        line-height: 24px;
+        opacity: 0.8;
+        white-space: nowrap;
+
+        .tagRequired {
+            color: rgba(239, 68, 68, 1);
+            margin-left: 2px;
+        }
+
+        .tagHint {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(148, 163, 184, 1);
+            margin-left: 4px;
+        }
+    }
+
+    .modalContent_tags_list {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+    }
+
+    .selectedTag {
+        display: inline-flex;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+        padding: 6px 12px;
+        border-radius: 8px;
+        background-color: rgba(255, 237, 225, 1);
+        border: 1px solid rgba(243, 112, 33, 0.3);
+        color: rgba(234, 88, 12, 1);
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 20px;
+        cursor: default;
+        margin-inline-end: 0 !important;
+
+        :global(.anticon-close) {
+            color: rgba(234, 88, 12, 0.6);
+            font-size: 10px;
+            margin-left: 6px;
+
+            &:hover {
+                color: rgba(234, 88, 12, 1);
+            }
+        }
+    }
+
+    .addTagBtn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 200px;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1.5px dashed rgba(148, 163, 184, 1);
+        background: transparent;
+        color: rgba(148, 163, 184, 1);
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+            border-color: rgba(243, 112, 33, 1);
+            color: rgba(243, 112, 33, 1);
+            background-color: rgba(255, 237, 225, 0.4);
+        }
+    }
+}
+
+.tagDropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-height: 200px;
+    overflow-y: auto;
+    min-width: 140px;
+
+    .tagDropdown_item {
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        color: rgba(15, 23, 42, 1);
+        cursor: pointer;
+        transition: background-color 0.15s;
+
+        &:hover {
+            background-color: rgba(241, 245, 249, 1);
+        }
+    }
+}

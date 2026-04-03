@@ -1,0 +1,458 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.home {
+  background-color: map.get(v.$colors, accent);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 50px;
+
+  @include m.respond(md) {
+    width: 750px;
+  }
+
+  @include m.respond(lg) {
+    width: 970px;
+  }
+
+  @include m.respond(xl) {
+    width: 1300px;
+    max-width: 1200px;
+  }
+
+  @include m.respond(2xl) {
+    max-width: 1280px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+    .listTop {
+      display: flex;
+      align-items: center;
+      gap: map.get(v.$spacing, xs);
+      width: 100%;
+
+      .arrowIcons {
+        display: flex;
+        svg {
+          cursor: pointer;
+        }
+        path {
+          stroke: #848484;
+        }
+      }
+
+      .slash {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .homeText,
+      .courseText {
+        font-size: 1rem; // 18px
+        color: var(--Gray-50, #848484);
+        /* Text md/Medium */
+        font-family: 'SF Pro Display';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        /* 150% */
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .topicText {
+        color: var(--Gray-800, #3d3d3d);
+
+        /* Text md/Medium */
+        font-family: 'SF Pro Display';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 150% */
+        cursor: pointer;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        min-width: 0;
+      }
+    }
+    .title {
+      color: var(--Gray-800, #3d3d3d);
+
+      /* Display sm/Semibold */
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px; /* 125% */
+    }
+
+    .courseBox {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+
+      @include m.respond(md) {
+        grid-template-columns: repeat(2, 1fr); // Tablet (>=768px)
+      }
+
+      @include m.respond(lg) {
+        grid-template-columns: repeat(3, 1fr); // Desktop nhỏ (>=992px)
+      }
+
+      @include m.respond(xl) {
+        grid-template-columns: repeat(4, 1fr); // Desktop lớn (>=1200px)
+      }
+
+      .courseContent {
+        display: flex;
+        padding: 24px;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px;
+        min-width: 300px;
+        flex: 1 0 0;
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--Gray-100, #ddd);
+        background-color: #fff;
+        .titleBox {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          .titleCourse {
+            color: var(--Gray-700, #676767);
+            align-self: stretch;
+            /* Text sm/Regular */
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px; /* 142.857% */
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+          }
+          .session {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            color: var(--Gray-800, #3d3d3d);
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            /* Text xl/Bold */
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 30px; /* 150% */
+          }
+          .contentCourse {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .iconCouse {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              .textCourse {
+                color: var(--Gray-700, #676767);
+
+                /* Text sm/Regular */
+                font-family: 'SF Pro Display';
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px; /* 142.857% */
+              }
+            }
+          }
+          .contentTopic {
+            color: var(--Gray-700, #676767);
+            text-align: center;
+            width: 180px;
+            /* Text xl/Semibold */
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px; /* 150% */
+          }
+        }
+      }
+
+      .boxBtn {
+        display: flex;
+        padding: 12px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 16px;
+        background: #f37142;
+        background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+        background-position: 20%;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        border-radius: 16px;
+        border: 1px solid var(--Orange-700, #ad502f);
+        box-shadow: 0px 2px 0px 0px #ad502f;
+        user-select: none;
+        cursor: pointer;
+        &:active {
+          box-shadow: none;
+          transform: translateY(1px);
+        }
+        .textBtn {
+          color: var(--White, #fff);
+          /* Text md/Bold */
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px; /* 150% */
+        }
+      }
+    }
+  }
+}
+
+.boxModal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .titleModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+    .titleBox {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      .titleCourse {
+        color: var(--Gray-700, #676767);
+
+        /* Text sm/Regular */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+      }
+      .session {
+        color: var(--Gray-800, #3d3d3d);
+
+        /* Text xl/Bold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px; /* 150% */
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+      }
+    }
+
+    .contentCourse {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      .iconCouse {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        .textCourse {
+          color: var(--Gray-700, #676767);
+
+          /* Text sm/Regular */
+          font-family: 'SF Pro Display';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 142.857% */
+        }
+      }
+    }
+  }
+  .boxStructure {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--Orange-500, #f37142);
+    background: var(--Orange-25, #fff7f4);
+    .titleStructure {
+      color: var(--Orange-500, #f37142);
+
+      /* Text sm/Semibold */
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 142.857% */
+    }
+    .mainStructure {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-self: stretch;
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 2px;
+
+      // Scrollbar nhỏ hơn
+      &::-webkit-scrollbar {
+        width: 4px; // 👈 chỉnh bé lại (4px thay vì 6px)
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #bdbdbd;
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .contentStructure {
+        display: flex;
+        padding: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        align-self: stretch;
+        border-bottom: 1px solid var(--Gray-100, #ddd);
+        &:last-child {
+          border-bottom: none;
+        }
+        .textStructure {
+          color: var(--Gray-800, #3d3d3d);
+
+          /* Text sm/Semibold */
+          font-family: 'SF Pro Display';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 20px; /* 142.857% */
+        }
+        .boxLesson {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .allLessons {
+            color: var(--Gray-700, #676767);
+
+            /* Text xs/Regular */
+            font-family: 'SF Pro Display';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 150% */
+          }
+        }
+      }
+    }
+  }
+  .boxBtnModal {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 16px;
+    .btnBack {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      border: 1px solid var(--Orange-700, #b5b5b5);
+      box-shadow: 0px 2px 0px 0px #b5b5b5;
+
+      cursor: pointer;
+      &:active {
+        box-shadow: none; // Giống như ấn xuống
+        transform: translateY(1px); // Cảm giác nhấn
+      }
+      .textBack {
+        color: var(--Gray-300, #b5b5b5);
+
+        /* Text md/Bold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+      }
+    }
+    .btnNext {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      background: #f37142;
+      border: 1px solid var(--Orange-700, #ad502f);
+      box-shadow: 0px 2px 0px 0px #ad502f;
+      background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+      background-position: 20%;
+      background-size: 70%;
+      background-repeat: no-repeat;
+      user-select: none;
+      cursor: pointer;
+      &:active {
+        box-shadow: none; // Giống như ấn xuống
+        transform: translateY(1px); // Cảm giác nhấn
+      }
+      .textNext {
+        color: var(--White, #fff);
+
+        /* Text md/Bold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+      }
+    }
+  }
+}

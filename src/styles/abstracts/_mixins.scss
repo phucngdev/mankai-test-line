@@ -1,0 +1,48 @@
+@use './variables' as v;
+@use 'sass:map';
+
+// ✅ Mixin responsive breakpoint
+@mixin respond($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media (min-width: map.get(v.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "⚠️ Breakpoint '#{$breakpoint}' không tồn tại trong v.$breakpoints.";
+  }
+}
+
+// ✅ Mixin màu chữ theo tên biến trong $colors
+@mixin theme-color($color-name) {
+  @if map.has-key(v.$colors, $color-name) {
+    color: map.get(v.$colors, $color-name);
+  }
+
+  @else {
+    @warn "⚠️ Color '#{$color-name}' không tồn tại trong v.$colors.";
+  }
+}
+
+// ✅ Mixin background-color theo tên biến trong $colors
+@mixin background-color($color-name) {
+  @if map.has-key(v.$colors, $color-name) {
+    background-color: map.get(v.$colors, $color-name);
+  }
+
+  @else {
+    @warn "⚠️ Color '#{$color-name}' không tồn tại trong v.$colors.";
+  }
+}
+
+// ✅ Mixin font-size từ map $font-sizes
+@mixin font-size($size-name) {
+  @if map.has-key(v.$font-sizes, $size-name) {
+    font-size: map.get(v.$font-sizes, $size-name);
+  }
+
+  @else {
+    @warn "⚠️ Font size '#{$size-name}' không tồn tại trong v.$font-sizes.";
+  }
+}

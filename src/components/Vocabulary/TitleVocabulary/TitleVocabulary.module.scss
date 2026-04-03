@@ -1,0 +1,131 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.content {
+  padding: 16px;
+  border-bottom: 1px solid var(--Gray-100, #ddd);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  .boxVideo {
+    display: flex;
+    gap: 10px;
+    .iconVideo {
+      display: flex;
+      width: 56px;
+      height: 56px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: var(--Orange-25, #fff7f4);
+    }
+
+    .contentVideo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      flex: 1 0 0;
+
+      .nameTitle {
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+      }
+
+      .textTitle {
+        color: var(--Gray-700, #676767);
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+  }
+  .boxButton {
+    display: flex; 
+    gap: 24px;
+    .btnSession {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      cursor: pointer;
+      user-select: none;
+
+      .textSession {
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+
+      .iconSession {
+        display: flex;
+        align-items: center;
+      }
+
+      &.disabledBtn {
+        border: 1px solid var(--Gray-100, #ddd);
+        background: var(--White, #fff);
+        cursor: not-allowed;
+
+        .textSession {
+          color: var(--Gray-100, #ddd);
+        }
+
+        .iconSession {
+          color: #dddddd;
+        }
+      }
+
+      &.activeBtn {
+        border-radius: 16px;
+        border: 1px solid var(--Orange-700, #f37142);
+        border-bottom: 4px solid var(--Orange-700, #f37142);
+
+        &:active {
+          border: 1px solid #f37142;
+          background: #fff6f0;
+        }
+
+        .textSession {
+          color: #f37142;
+        }
+
+        .iconSession {
+          color: #f37142;
+        }
+      }
+    }
+  }
+
+  // Media query cho mobile (< 768px)
+  @media (max-width: 767px) {
+    flex-direction: column; /* Đảm bảo layout dọc cho toàn bộ content */
+
+    .btnSession {
+      align-items: center;
+      padding: 12px;
+      width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+      box-sizing: border-box;
+
+      .textSession {
+        font-size: 14px; /* Giảm nhẹ kích thước chữ cho mobile */
+      }
+
+      .iconSession {
+        margin-top: 4px; /* Thêm khoảng cách giữa text và icon */
+      }
+    }
+  }
+}

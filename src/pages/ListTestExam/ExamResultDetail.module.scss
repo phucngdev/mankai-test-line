@@ -1,0 +1,78 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px;
+  .boxTitle {
+    border: 4px solid rgb(255, 115, 0);
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(250, 216, 153, 0.664);
+    .title {
+      font-weight: 600;
+      font-size: xx-large;
+    }
+    .date {
+      font-weight: 600;
+      font-size: medium;
+    }
+    .point {
+      font-weight: 600;
+      font-size: medium;
+      .colorPoint {
+        color: rgb(255, 79, 79);
+      }
+    }
+  }
+
+  .boxContent {
+    border: 4px solid #ff7300;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(250, 216, 153, 0.664);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .contentTitle {
+      font-weight: 600;
+      font-size: x-large;
+    }
+    .questionGroup {
+      font-size: x-large;
+    }
+    .boxAnswer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      .answer {
+        font-size: medium;
+        .titleAnswer {
+          font-weight: 600;
+        }
+      }
+      .answerUser {
+        font-size: medium;
+        .titleAnswer {
+          font-weight: 600;
+        }
+      }
+      .answerQuestion {
+        font-size: medium;
+        .titleAnswer {
+          font-weight: 600;
+        }
+      }
+      .explain {
+        font-size: medium;
+        .titleExplain {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

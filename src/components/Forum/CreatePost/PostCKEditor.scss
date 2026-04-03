@@ -1,0 +1,49 @@
+.post-ck-editor {
+
+  .ck-placeholder {
+    font-family: 'SF Pro Display';
+    line-height: 24px;
+    color: rgba(100, 116, 139, 1);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .ck-toolbar {
+    display: none !important;
+  }
+
+  .ck-editor__editable {
+    border: none !important;
+    box-shadow: none !important;
+    min-height: 80px;
+    font-family: 'SF Pro Display';
+    line-height: 24px;
+  }
+
+  .ck-sticky-panel__content {
+    border: none !important;
+  }
+
+  .ck-editor__editable_inline {
+    font-size: 24px;
+  }
+
+  .ck-powered-by-balloon {
+    display: none !important;
+  }
+
+  .ck strong {
+    font-weight: 700 !important;
+  }
+
+  .ck u {
+    text-decoration: underline !important;
+  }
+
+  .ck-content i,
+  .ck-content em {
+    font-style: italic !important;
+  }
+
+}

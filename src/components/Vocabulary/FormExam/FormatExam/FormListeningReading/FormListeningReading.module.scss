@@ -1,0 +1,692 @@
+@use '../../../../../styles/abstracts/variables' as v;
+@use '../../../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxContent {
+  border-radius: 12px;
+  background: var(--White, #fff);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+
+  .lboxQuestion {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .title {
+      font-weight: 600;
+      font-size: large;
+      text-align: center;
+    }
+
+    .listQuestion {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+
+      .correct {
+        background-color: #32d583;
+        color: #fff;
+        border-color: #32d583;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .incorrect {
+        background-color: #f04438;
+        color: #fff;
+        border-color: #f04438;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .missed {
+        background-color: orange;
+        color: #fff;
+
+        border-color: orange;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .questionClass {
+        width: 32px;
+        height: 32px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+
+    .questionNumber {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .activeQuestion {
+      background-color: #f37142;
+      color: #fff;
+      border-color: #f37142;
+    }
+  }
+
+  .titleContent {
+    .title {
+      color: var(--Gray-800, #3d3d3d);
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 28px; /* 140% */
+    }
+
+    .text {
+      color: var(--Gray-700, #676767);
+      font-family: 'SF Pro Display';
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px; /* 150% */
+    }
+  }
+
+  .formListeningReading {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+
+    .boxListeningReading {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      flex-direction: column; /* Đặt mặc định là column để đảm bảo đồng nhất */
+
+      .formListen {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--Gray-25, #fafafa);
+        width: 100%;
+
+        .text {
+          color: var(--Gray-700, #676767);
+          font-family: 'SF Pro Display';
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px; /* 150% */
+        }
+
+        .contentListen {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          align-self: stretch;
+
+          .text {
+            font-size: 16px;
+            line-height: 24px;
+            color: black;
+          }
+
+          .titleListen {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+          }
+
+          .boxListen {
+            display: flex;
+            justify-content: center;
+
+            .iconListen {
+              display: flex;
+              width: 60px;
+              height: 60px;
+              padding: 4px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              flex-shrink: 0;
+              border-radius: 16px;
+              border: 1px solid #ad502f;
+              border-bottom: 4px solid #ad502f;
+              background: var(--Orange-500, #f37142);
+              cursor: pointer;
+
+              &:active {
+                border: 1px solid #ad502f;
+                border-bottom: 4px solid #ad502f;
+              }
+            }
+          }
+        }
+      }
+
+      .formAnswer {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        border-radius: 8px;
+        background: var(--Gray-25, #fafafa);
+        overflow-y: auto;
+        scrollbar-width: none; /* Hide scrollbar for cleaner look */
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+
+        .contentAnswer {
+          display: flex;
+          gap: 12px;
+          flex-direction: column;
+          width: 100%;
+
+          .explanationToggle {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .explainButton {
+              display: inline-block;
+              padding: 8px 16px;
+              background-color: #f37142;
+              color: #fff;
+              font-family: 'SF Pro Display';
+              font-size: 14px;
+              font-weight: 600;
+              border-radius: 8px;
+              cursor: pointer;
+              text-align: center;
+              user-select: none;
+              transition:
+                background-color 0.2s ease,
+                transform 0.1s ease;
+
+              &:hover {
+                background-color: #d85e33;
+              }
+
+              &:active {
+                background-color: #c34f2b;
+                transform: scale(0.98);
+              }
+            }
+
+            .explanationContent {
+              margin-top: 8px;
+              padding: 12px;
+              border-radius: 8px;
+              background: #fff8f3;
+              border: 1px solid #f37142;
+              color: #3d3d3d;
+              font-family: 'SF Pro Display';
+              font-size: 14px;
+              line-height: 20px;
+
+              p {
+                margin: 4px 0;
+              }
+              strong {
+                color: #f37142;
+              }
+            }
+          }
+
+          .titleAnswer {
+            display: flex;
+            gap: 4px;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .title {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              line-height: 24px;
+
+              .text {
+                line-height: 24px;
+              }
+            }
+
+            .text {
+              line-height: 24px;
+            }
+          }
+
+          .answer {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .answerBox {
+              display: flex;
+              padding: 8px;
+              gap: 12px;
+              align-self: stretch;
+              border-radius: 8px;
+              border: 1px solid var(--Gray-100, #ddd);
+              background: var(--Gray-25, #fafafa);
+              box-shadow: 0px 3px 0px 0px #ddd;
+              cursor: pointer;
+
+              .contentBox {
+                display: flex;
+                width: 32px;
+                height: 32px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                border: 1px solid var(--Gray-100, #ddd);
+                background: #fff;
+
+                .text {
+                  color: var(--Gray-800, #3d3d3d);
+                  font-family: 'SF Pro Display';
+                  font-size: 14px;
+                  font-weight: 600;
+                  line-height: 20px;
+                }
+              }
+
+              .contentText {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                flex: 1 0 0;
+                align-self: stretch;
+
+                .text {
+                  color: var(--Gray-800, #3d3d3d);
+                  font-family: 'SF Pro Display';
+                  font-size: 14px;
+                  font-weight: 600;
+                  line-height: 20px;
+                }
+              }
+
+              &.active {
+                border: 1px solid var(--Blue-light-500, #0ba5ec);
+                background: var(--Blue-light-50, #f0f9ff);
+                box-shadow: 0px 3px 0px 0px #0ba5ec;
+
+                .contentBox {
+                  border: 1px solid var(--Blue-light-500, #0ba5ec);
+                  background: #fff;
+
+                  .text {
+                    color: var(--Blue-light-500, #0ba5ec);
+                  }
+                }
+
+                .text {
+                  color: var(--Blue-light-500, #0ba5ec);
+                }
+              }
+
+              &.correct {
+                border: 1px solid #32d583;
+                background: #d1fadf;
+                box-shadow: 0px 3px 0px 0px #32d583;
+
+                .contentBox {
+                  border: 1px solid #32d583;
+                  background: #fff;
+
+                  .text {
+                    color: #32d583;
+                  }
+                }
+
+                .text {
+                  color: #32d583;
+                }
+              }
+
+              &.incorrect {
+                border: 1px solid #f04438;
+                background: #fef3f2;
+                box-shadow: 0px 3px 0px 0px #f04438;
+
+                .contentBox {
+                  border: 1px solid #f04438;
+                  background: #fff;
+
+                  .text {
+                    color: #f04438;
+                  }
+                }
+
+                .text {
+                  color: #f04438;
+                }
+              }
+              &.missed {
+                border: 1px solid orange;
+                background: #fef3f2;
+                box-shadow: 0px 3px 0px 0px orange;
+
+                .contentBox {
+                  border: 1px solid orange;
+                  background: #fff;
+
+                  .text {
+                    color: orange;
+                  }
+                }
+
+                .text {
+                  color: orange;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    border-radius: 16px;
+    padding: 24px;
+    gap: 24px;
+
+    .titleContent {
+      .title {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      .text {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    .formListeningReading {
+      .boxListeningReading {
+        flex-direction: row; /* Row cho laptop */
+        gap: 16px;
+
+        .formListen {
+          padding: 16px;
+          flex: 1;
+
+          .contentListen {
+            gap: 24px;
+
+            .text {
+              font-size: 18px;
+              line-height: 30px;
+            }
+
+            .titleListen {
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+            .boxListen {
+              .iconListen {
+                width: 80px;
+                height: 80px;
+                padding: 5px;
+                border-radius: 20px;
+                border-bottom: 5px solid #ad502f;
+              }
+            }
+          }
+        }
+
+        .formAnswer {
+          padding: 16px;
+          flex: 1;
+          max-height: 850px;
+          scrollbar-width: thin;
+          scrollbar-color: #ccc transparent;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 16px;
+    gap: 16px;
+
+    .titleContent {
+      .title {
+        font-size: 20px;
+        line-height: 28px;
+      }
+      .text {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+
+    .formListeningReading {
+      .boxListeningReading {
+        flex-direction: column; /* Column cho tablet */
+        gap: 12px;
+
+        .formListen {
+          padding: 12px;
+
+          .contentListen {
+            .text {
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+            .titleListen {
+              font-size: 14px;
+              line-height: 20px;
+            }
+
+            .boxListen {
+              .iconListen {
+                width: 60px;
+                height: 60px;
+                padding: 4px;
+                border-radius: 16px;
+                border-bottom: 4px solid #ad502f;
+              }
+            }
+          }
+        }
+
+        .formAnswer {
+          padding: 12px;
+          gap: 24px;
+          overflow-y: visible;
+          max-height: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 12px;
+    gap: 12px;
+    border-radius: 12px;
+
+    .titleContent {
+      .title {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      .text {
+        font-size: 10px;
+        line-height: 16px;
+      }
+    }
+
+    .formListeningReading {
+      position: static;
+
+      .boxListeningReading {
+        flex-direction: column; /* Column cho mobile */
+        gap: 8px;
+
+        .formListen {
+          padding: 8px;
+
+          .text {
+            font-size: 10px;
+            line-height: 16px;
+          }
+
+          .contentListen {
+            gap: 12px;
+
+            .text {
+              font-size: 14px;
+              line-height: 20px;
+            }
+
+            .titleListen {
+              font-size: 12px;
+              line-height: 18px;
+            }
+
+            .boxListen {
+              .iconListen {
+                width: 48px;
+                height: 48px;
+                padding: 3px;
+                border-radius: 12px;
+                border: 1px solid #ad502f;
+                border-bottom: 3px solid #ad502f;
+
+                &:active {
+                  border: 1px solid #ad502f;
+                  border-bottom: 3px solid #ad502f;
+                }
+
+                svg {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
+            }
+          }
+        }
+
+        .formAnswer {
+          padding: 8px;
+          gap: 16px;
+          overflow-y: visible;
+          max-height: none;
+
+          .contentAnswer {
+            gap: 8px;
+
+            .explanationToggle {
+              .explainButton {
+                font-size: 12px;
+                padding: 6px 12px;
+              }
+
+              .explanationContent {
+                font-size: 12px;
+                line-height: 18px;
+                padding: 8px;
+              }
+            }
+
+            .titleAnswer {
+              .title {
+                font-size: 16px;
+                line-height: 24px;
+
+                .text {
+                  line-height: 24px;
+                }
+              }
+
+              .text {
+                font-size: 14px;
+                line-height: 20px;
+              }
+            }
+
+            .answer {
+              gap: 8px;
+
+              .answerBox {
+                padding: 6px;
+                gap: 8px;
+                box-shadow: 0px 2px 0px 0px #ddd;
+
+                .contentBox {
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 6px;
+
+                  .text {
+                    font-size: 12px;
+                    line-height: 18px;
+                  }
+                }
+
+                .contentText {
+                  .text {
+                    font-size: 12px;
+                    line-height: 18px;
+                  }
+                }
+
+                &.active {
+                  box-shadow: 0px 2px 0px 0px #0ba5ec;
+                }
+
+                &.correct {
+                  box-shadow: 0px 2px 0px 0px #32d583;
+                }
+
+                &.incorrect {
+                  box-shadow: 0px 2px 0px 0px #f04438;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

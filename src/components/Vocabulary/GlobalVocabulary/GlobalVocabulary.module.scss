@@ -1,0 +1,89 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  width: 100%;
+  flex-direction: column;
+
+  .right {
+    padding: 16px;
+    flex: 1;
+    width: 100%;
+    background-color: #f7f9ff;
+    min-height: 90vh;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: center;
+      width: 100%;
+      padding-bottom: 24px;
+      overflow-x: auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .right {
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: column;
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      overflow-x: auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .right {
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    flex-direction: row;
+
+    .menu {
+      flex-direction: column;
+      width: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 100vh;
+    }
+
+    .right {
+      max-width: none;
+      margin: 0;
+    }
+  }
+}

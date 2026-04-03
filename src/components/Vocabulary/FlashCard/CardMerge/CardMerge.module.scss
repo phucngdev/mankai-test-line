@@ -1,0 +1,867 @@
+@use '../../../../styles/abstracts/variables' as v;
+@use '../../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.formFlashCard {
+  margin: 16px;
+  gap: 24px;
+  background-image: url('/src/assets/images/GlobalVocabulary/bgFlash.png');
+  background-size: 120% !important;
+  background-position: 0%;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+
+  .boxTimeExam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+
+    .boxTime {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+
+      .title {
+        color: var(--Yellow-700, #ad7415);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 32px; /* 133.333% */
+      }
+
+      .content {
+        display: flex;
+        padding: 4px 16px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+        gap: 10px;
+        border-radius: 24px;
+        background: var(--Yellow-700, #ad7415);
+
+        .text {
+          width: 116px;
+          color: var(--White, #fff);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 32px; /* 133.333% */
+        }
+      }
+    }
+
+    .iconQuit {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      aspect-ratio: 1/1;
+      border-radius: 40px;
+      background: #fff;
+      cursor: pointer;
+
+      &:active {
+        background: #fffccd;
+        border: 2px solid red;
+      }
+    }
+  }
+
+  .boxFlash {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+    align-items: flex-start;
+    align-content: space-between;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 16px;
+    border: 2px solid #fff;
+    background: #fbe3b9;
+    width: 100%;
+
+    .contentBox {
+      flex: 1 1 calc((100% - 4 * 20px) / 4);
+      max-width: calc((100% - 4 * 20px) / 4);
+      display: flex;
+      width: 220px;
+      height: 148px;
+      padding: 24px 32px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      border: 1px solid var(--Gray-100, #ddd);
+      border-bottom: 4px solid var(--Gray-100, #ddd);
+      background: var(--Gray-25, #fafafa);
+      cursor: pointer;
+
+      &:active {
+        border: 1px solid var(--Gray-100, #ddd);
+        border-bottom: 4px solid var(--Gray-100, #ddd); /* Keep border-bottom consistent */
+      }
+
+      .text {
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'SF Pro Display';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 150% */
+      }
+    }
+
+    .matched {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .selected {
+      border-radius: 8px;
+      border: 1px solid var(--Blue-light-500, #0ba5ec);
+      background: var(--Blue-light-50, #f0f9ff);
+      box-shadow: 0px 4px 0px 0px #0ba5ec;
+      border-bottom: 4px solid var(--Blue-light-500, #0ba5ec); /* Consistent with active */
+    }
+
+    .wrong {
+      border-radius: 8px;
+      border: 1px solid var(--Error-500, #f04438);
+      background: var(--Error-50, #fef3f2);
+      box-shadow: 0px 4px 0px 0px #f04438;
+      border-bottom: 4px solid var(--Error-500, #f04438); /* Consistent with active */
+    }
+  }
+}
+
+.boxModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  .contentModal {
+    display: flex;
+    width: 400px;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .modalWarning {
+      display: flex;
+      padding: 12px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      border: 8px solid var(--Warning-50, #fffaeb);
+      background: var(--Warning-100, #fef0c7);
+    }
+
+    .boxTitle {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .title {
+        color: var(--Gray-900, #2d2c2c);
+        text-align: center;
+        font-family: 'SF Pro Display';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px; /* 155.556% */
+      }
+
+      .text {
+        color: var(--Gray-600, #848484);
+        text-align: center;
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+      }
+    }
+  }
+
+  .boxButton {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+
+    .btnExit {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      border-radius: 16px;
+      border: 1px solid var(--Gray-300, #b5b5b5);
+      border-bottom: 4px solid var(--Gray-300, #b5b5b5);
+      background: var(--White, #fff);
+      box-shadow: 0px 1px 2px 0px #b5b5b5;
+      cursor: pointer;
+
+      &:active {
+        border: 1px solid var(--Gray-300, #b5b5b5);
+        border-bottom: 4px solid var(--Gray-300, #b5b5b5); /* Keep border-bottom consistent */
+        background: var(--White, #e2e2e2);
+      }
+
+      .text {
+        color: var(--Gray-300, #b5b5b5);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+      }
+    }
+
+    .btnDone {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex: 1 0 0;
+      border-radius: 16px;
+      border: 1px solid var(--Orange-400, #f58d68);
+      border-bottom: 4px solid var(--Orange-400, #f58d68);
+      background: var(--White, #fff);
+      cursor: pointer;
+      box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+
+      &:active {
+        border: 1px solid var(--Orange-400, #f58d68);
+        border-bottom: 4px solid var(--Orange-400, #f58d68); /* Keep border-bottom consistent */
+        background: var(--White, #fff0ea);
+      }
+
+      .text {
+        color: #f37142;
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+      }
+    }
+  }
+}
+
+.modalBox {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-bottom: 30px;
+
+  .modalTitle {
+    color: var(--Yellow-400, #f5b64a);
+    font-family: 'FS PF BeauSans Pro';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+  }
+
+  .contentBox {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+
+    .modalContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+
+      .modalPoint {
+        display: flex;
+        width: 108px;
+        height: 85px;
+        padding: 2px;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        border-radius: 8px;
+        background: var(--Success-400, #32d583);
+
+        .modalText {
+          color: var(--White, #fff);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 18px;
+        }
+
+        .modalExp {
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-radius: 6px;
+          background: #fff;
+
+          .modalStar {
+            color: var(--Yellow-400, #f5b64a);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 21.6px;
+          }
+        }
+
+        .modalNumber {
+          display: flex;
+          padding: 8px;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-radius: 6px;
+          background: #fff;
+          color: var(--Success-400, #32d583);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 21.6px;
+        }
+      }
+
+      &:nth-child(2) .modalPoint {
+        background: var(--Yellow-400, #f5b64a);
+      }
+    }
+  }
+}
+
+.modalBtn {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 64px;
+  border-top: 1px solid var(--Gray-100, #ddd);
+  background: #fff;
+
+  .btnContent {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    min-width: 120px;
+    padding: 12px 20px;
+    border: 1px solid var(--Gray-300, #a8741b);
+    border-bottom: 4px solid var(--Gray-300, #946c26);
+    background: var(--White, #fff);
+    cursor: pointer;
+    user-select: none;
+    background: var(--Yellow-400, #f5b64a);
+    color: white;
+    &:active {
+      border: 1px solid var(--Gray-300, #b5b5b5);
+      border-bottom: 4px solid var(--Gray-300, #b5b5b5); /* Keep border-bottom consistent */
+    }
+
+    .textContent {
+      color: var(--Gray-300, #fff);
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px; /* 150% */
+    }
+
+    &:nth-child(2) {
+      border: 1px solid var(--Yellow-400, #a8741b);
+      border-bottom: 3px solid var(--Gray-300, #946c26);
+      background: var(--Yellow-400, #f5b64a);
+      background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+      background-position: 40%;
+      background-size: 76%;
+      background-repeat: no-repeat;
+      user-select: none;
+
+      &:active {
+        border: 1px solid var(--Yellow-400, #a8741b);
+        border-bottom: 4px solid var(--Gray-300, #946c26); /* Keep border-bottom consistent */
+      }
+
+      .textContent {
+        color: var(--White, #fff);
+      }
+    }
+  }
+}
+
+// Tablet-specific media query
+@media screen and (max-width: 1024px) {
+  .formFlashCard {
+    margin: 12px;
+    padding: 24px;
+    gap: 16px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .boxTimeExam {
+    padding: 0 8px;
+
+    .boxTime {
+      gap: 6px;
+
+      .title {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      .content {
+        padding: 4px 12px;
+
+        .text {
+          width: 100px;
+          font-size: 20px;
+          line-height: 28px;
+        }
+      }
+    }
+
+    .iconQuit {
+      width: 36px;
+      height: 36px;
+      border-radius: 36px;
+    }
+  }
+
+  .boxFlash {
+    padding: 12px;
+    gap: 16px;
+    max-width: 90vw;
+    border-radius: 12px;
+
+    .contentBox {
+      flex: 1 1 calc((100% - 2 * 16px) / 3);
+      max-width: calc((100% - 2 * 16px) / 3);
+      min-width: 120px;
+      height: 120px;
+      padding: 16px 24px;
+      border-bottom: 3px solid var(--Gray-100, #ddd);
+
+      &:active {
+        border: 1px solid var(--Gray-100, #ddd);
+        border-bottom: 3px solid var(--Gray-100, #ddd); /* Keep border-bottom consistent */
+      }
+
+      .text {
+        font-size: 14px;
+        line-height: 20px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: center;
+      }
+    }
+
+    .selected {
+      border-bottom: 3px solid var(--Blue-light-500, #0ba5ec); /* Consistent with active */
+      box-shadow: 0px 3px 0px 0px #0ba5ec;
+    }
+
+    .wrong {
+      border-bottom: 3px solid var(--Error-500, #f04438); /* Consistent with active */
+      box-shadow: 0px 3px 0px 0px #f04438;
+    }
+  }
+
+  .boxModal {
+    gap: 24px;
+
+    .contentModal {
+      width: 100%;
+      max-width: 360px;
+      padding: 16px;
+      gap: 16px;
+
+      .modalWarning {
+        padding: 10px;
+        border: 6px solid var(--Warning-50, #fffaeb);
+      }
+
+      .boxTitle {
+        gap: 6px;
+
+        .title {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .text {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .boxButton {
+      gap: 10px;
+
+      .btnExit {
+        padding: 10px 16px;
+        border-radius: 12px;
+        border-bottom: 3px solid var(--Gray-300, #b5b5b5);
+
+        &:active {
+          border-bottom: 3px solid var(--Gray-300, #b5b5b5); /* Keep border-bottom consistent */
+        }
+
+        .text {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+
+      .btnDone {
+        padding: 10px 16px;
+        border-radius: 12px;
+        border-bottom: 3px solid var(--Orange-400, #f58d68);
+
+        &:active {
+          border-bottom: 3px solid var(--Orange-400, #f58d68); /* Keep border-bottom consistent */
+        }
+
+        .text {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .modalBox {
+    margin-top: 48px;
+    margin-bottom: 20px;
+    gap: 12px;
+
+    .modalImg {
+      img {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    .modalTitle {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    .contentBox {
+      gap: 16px;
+
+      .modalContent {
+        gap: 12px;
+
+        .modalPoint {
+          width: 90px;
+          height: 70px;
+          border-radius: 6px;
+
+          .modalText {
+            font-size: 10px;
+            line-height: 16px;
+          }
+
+          .modalExp,
+          .modalNumber {
+            padding: 6px;
+
+            .modalStar,
+            & {
+              font-size: 16px;
+              line-height: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modalBtn {
+    padding: 24px 32px;
+
+    .btnContent {
+      padding: 10px 16px;
+      width: 90px;
+      color: white;
+      border-radius: 12px;
+      border-bottom: 3px solid var(--Gray-300, #946c26);
+
+      &:active {
+        border-bottom: 3px solid var(--Gray-300, #946c26); /* Keep border-bottom consistent */
+      }
+
+      .textContent {
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--Gray-300, #fff);
+      }
+
+      // &:nth-child(2) {
+      //   border-bottom: 3px solid var(--Gray-300, #946c26);
+
+      //   &:active {
+      //     border-bottom: 3px solid var(--Gray-300, #946c26); /* Keep border-bottom consistent */
+      //   }
+      // }
+    }
+  }
+}
+
+// Mobile-specific media query
+@media screen and (max-width: 767px) {
+  .formFlashCard {
+    margin: 0;
+    padding: 16px;
+    gap: 12px;
+    background-size: 420% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    .boxTimeExam {
+      padding: 0 4px;
+
+      .boxTime {
+        gap: 4px;
+
+        .title {
+          font-size: 18px;
+          line-height: 24px;
+        }
+
+        .content {
+          padding: 4px 10px;
+          margin-bottom: 12px;
+
+          .text {
+            font-size: 18px;
+            line-height: 24px;
+          }
+        }
+      }
+
+      .iconQuit {
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+      }
+    }
+
+    .boxFlash {
+      padding: 8px;
+      gap: 12px;
+      max-width: 100%;
+      border-radius: 8px;
+
+      .contentBox {
+        flex: 1 1 calc((100% - 1 * 12px) / 2);
+        max-width: calc((100% - 1 * 12px) / 2);
+        min-width: 100px;
+        height: 100px;
+        padding: 12px 16px;
+        border-bottom: 2px solid var(--Gray-100, #ddd);
+
+        &:active {
+          border: 1px solid var(--Gray-100, #ddd);
+          border-bottom: 2px solid var(--Gray-100, #ddd); /* Keep border-bottom consistent */
+        }
+
+        .text {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+
+      .selected {
+        border-bottom: 2px solid var(--Blue-light-500, #0ba5ec); /* Consistent with active */
+        box-shadow: 0px 2px 0px 0px #0ba5ec;
+      }
+
+      .wrong {
+        border-bottom: 2px solid var(--Error-500, #f04438); /* Consistent with active */
+        box-shadow: 0px 2px 0px 0px #f04438;
+      }
+    }
+  }
+
+  .boxModal {
+    gap: 16px;
+
+    .contentModal {
+      width: 100%;
+      max-width: 100%;
+      padding: 12px;
+      gap: 12px;
+
+      .modalWarning {
+        padding: 8px;
+        border: 4px solid var(--Warning-50, #fffaeb);
+      }
+
+      .boxTitle {
+        gap: 4px;
+
+        .title {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        .text {
+          font-size: 10px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    .boxButton {
+      gap: 8px;
+
+      .btnExit {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border-bottom: 2px solid var(--Gray-300, #b5b5b5);
+
+        &:active {
+          border-bottom: 2px solid var(--Gray-300, #b5b5b5); /* Keep border-bottom consistent */
+        }
+
+        .text {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+
+      .btnDone {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border-bottom: 2px solid var(--Orange-400, #f58d68);
+
+        &:active {
+          border-bottom: 2px solid var(--Orange-400, #f58d68); /* Keep border-bottom consistent */
+        }
+
+        .text {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  .modalBox {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    gap: 8px;
+    padding: 12px;
+
+    .modalImg {
+      img {
+        width: 100%;
+        max-width: 120px;
+      }
+    }
+
+    .modalTitle {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .contentBox {
+      gap: 12px;
+      .modalContent {
+        gap: 8px;
+
+        .modalPoint {
+          width: 100%;
+          min-width: 80px;
+          max-width: 80px;
+          height: 60px;
+          padding: 2px;
+          border-radius: 4px;
+
+          .modalText {
+            font-size: 8px;
+            line-height: 12px;
+          }
+
+          .modalExp,
+          .modalNumber {
+            padding: 4px;
+
+            .modalStar,
+            & {
+              font-size: 14px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modalBtn {
+    padding: 16px;
+    gap: 8px;
+
+    .btnContent {
+      // width: 100%;
+      // width: 90px;
+      min-width: unset;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--Gray-300, #946c26);
+
+      &:active {
+        border-bottom: 3px solid var(--Gray-300, #946c26); /* Keep border-bottom consistent */
+      }
+
+      .textContent {
+        font-size: 10px;
+        color: var(--Gray-300, #fff);
+        line-height: 18px;
+      }
+
+      // &:nth-child(2) {
+      //   border-bottom: 2px solid var(--Gray-300, #946c26);
+
+      //   &:active {
+      //     border-bottom: 2px solid var(--Gray-300, #946c26); /* Keep border-bottom consistent */
+      //   }
+      // }
+    }
+  }
+}

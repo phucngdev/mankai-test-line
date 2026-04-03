@@ -1,0 +1,439 @@
+{
+  "survey": {
+    "title": "Khảo sát",
+    "description": "Feedback nhẹ nhàng thôi nè, trả lời xong thì ‘Tiếp tục’ nhaaa ✨",
+    "prev": "Quay lại",
+    "next": "Tiếp tục",
+    "submit": "Gửi khảo sát"
+  },
+  "floatButton": {
+    "tooltipButton": "Hỗ trợ",
+    "titleModal": "Trung tâm hỗ trợ",
+    "subTitleModal": "Bạn cần hỗ trợ gì?",
+    "system": {
+      "title": "Hỗ trợ kỹ thuật",
+      "subTitle": "Lỗi phần mềm, kết nối, tài khoản"
+    },
+    "content": {
+      "title": "Hỗ trợ nội dung",
+      "subTitle": "Chỉnh sửa bài viết, dữ liệu, hình ảnh"
+    },
+    "advise": {
+      "title": "Tư vấn khoá học",
+      "subTitle": "Tư vấn về khoá học, đăng ký, lộ trình"
+    }
+  },
+  "message": {
+    "warning": {
+      "exam": {
+        "essay": {
+          "emptyFile": "Vui lòng thêm tài liệu hoặc nhập liên kết tệp",
+          "linkExists": "Liên kết đã tồn tại trong danh sách file"
+        }
+      }
+    },
+    "error": {
+      "exam": {
+        "essay": {
+          "upload": "Tải lên thất bại"
+        }
+      }
+    },
+    "confirm": {
+      "exam": {
+        "essay": {
+          "contentDeleteFile": "Bạn có chắc chắn muốn xóa file đã nộp?",
+          "okTextDeleteFile": "Xoá",
+          "cancelTextDeleteFile": "Huỷ",
+          "titleDeleteFile": "Xác nhận xoá"
+        }
+      }
+    }
+  },
+  "header": {
+    "logoAlt": "logo",
+    "nav": {
+      "dailyTest": "Thi thử mỗi ngày",
+      "topics": "Chủ đề",
+      "learning": "Học tập",
+      "forum": "Diễn đàn",
+      "myClass": "Lớp học của tôi"
+    },
+    "language": {
+      "vi": "VI"
+    },
+    "login": "Đăng nhập",
+    "profile": "Thông tin cá nhân",
+    "class": "Lớp học của tôi",
+    "list-exam": "Lịch sử thi thử",
+    "logout": "Đăng xuất",
+    "notifications": "Thông báo",
+    "markAllAsRead": "Đánh dấu tất cả đã đọc",
+    "viewAll": "Xem tất cả",
+    "viewMore": "Xem thêm",
+    "notificationPopup": "Bạn nhận được thông báo mới"
+  },
+  "teacher": {
+    "ceremony": "Khai Giảng",
+    "end": "Kết thúc",
+    "sensei": "Giảng viên"
+  },
+  "class": {
+    "room": "Lịch học",
+    "result": "Kết quả học tập",
+    "session": "Buổi",
+    "date": "Ngày",
+    "status": "Trạng thái",
+    "completedLate": "Hoàn thành muộn",
+    "doneTask": "Hoàn thành",
+    "late": "Trễ",
+    "notDone": "Chưa hoàn thành",
+    "noLesson": "Chưa có bài học",
+    "noResult": "Chưa có dữ liệu kết quả"
+  },
+  "banner": {
+    "homeText": "Trang chủ",
+    "courseText": "Khóa học online",
+    "streaks": "Streaks",
+    "ranking": "Bảng xếp hạng",
+    "experiencePoints": "Điểm kinh nghiệm",
+    "userName": "Nguyễn C",
+    "userEmail": "Hoangbaohs22@gmail.com",
+    "userLocation": "Đông Anh, Hà Nội",
+    "course": "Các khóa học",
+    "topic": "Tiếng Nhật theo chủ đề",
+    "mocktest": "Thi thử cùng Mankai",
+    "examTest": "Đề thi",
+    "loading": "Đang tải",
+    "btnSub": "Nộp bài",
+    "dateExam": "Ngày thi",
+    "point": "Điểm",
+    "part": "Phần",
+    "audio": "Trình duyệt của bạn không hỗ trợ phát audio."
+  },
+  "mocktest": {
+    "exam": "Bài thi",
+    "examTest": "đề thi",
+    "participants": "người tham gia",
+    "btnSub": "Tham gia ngay",
+    "time": "phút",
+    "btnTestExam": "Vào thi ngay",
+    "structure": "Cấu trúc bài thi",
+    "timeTitle": "Thời gian",
+    "numberQuestion": "Số câu hỏi",
+    "number": "câu",
+    "back": "Quay lại",
+    "btnSubmitNow": "Vào bài thi",
+    "contentQuestion": "Nội dung nhóm câu hỏi",
+    "groupQuestion": "Nhóm câu hỏi ",
+    "listQuestion": "Danh sách câu hỏi",
+    "noneExplain": "Ân giải thích",
+    "showExplain": "Xem giải thích",
+    "explain": "Giải thích",
+    "timer": "Thời gian còn lại",
+    "timeRunningOut": "Bạn sắp hết thời gian làm bài",
+    "exit": "Thoát",
+    "btnExit": "Hủy",
+    "btnDone": "Xác nhận",
+    "next": "Làm tiếp",
+    "view": "Xem lại",
+    "home": "Về trang chủ",
+    "point": "Số điểm bạn đạt được",
+    "backNavigate": "Tiếp tục thi",
+    "changeNext": "Chuyển phần",
+    "titleWaringNext": "Bạn xác nhận chuyển phần?",
+    "textMess": "Hãy đảm bảo bạn đã hoàn thành toàn bộ phần thi để đạt được kết quả tốt nhất!",
+    "titleWaringExam": "Bạn xác nhận thoát bài thi?",
+    "textMessExam": "Kết quả bài thi của bạn sẽ được tự động lưu lại trong hệ thống.",
+    "titleWaringSub": "Bạn xác nhận nộp bài?",
+    "textMessSub": "Hãy đảm bảo bạn đã hoàn thành toàn bộ phần thi để đạt được kết quả tốt nhất!",
+    "resetMatchingPairs": "Đặt lại",
+    "essayYourAnswer": "Bài làm của bạn",
+    "essayPlaceholder": "Nhập nội dung bài làm...",
+    "essayAttachFile": "Đính kèm tệp",
+    "essayRemoveFile": "Gỡ tệp",
+    "essayFileHint": "Hỗ trợ ảnh, PDF, Word (.doc, .docx), Excel (.xls, .xlsx). Chưa tải lên máy chủ — chỉ xem trước trên trình duyệt của bạn.",
+    "essaySubmitQuestion": "Nộp câu này",
+    "essaySubmitOk": "Đã ghi nhận câu trả lời tự luận.",
+    "essaySubmittedNote": "Bạn đã nộp câu hỏi này.",
+    "essayNeedContent": "Vui lòng nhập nội dung hoặc chọn ít nhất một tệp.",
+    "essayInvalidFile": "Định dạng tệp không được hỗ trợ.",
+    "essayOfficePreviewHint": "Word/Excel không xem trước trực tiếp trong trình duyệt — tệp chỉ được chọn cục bộ.",
+    "essayAttachedLabel": "Đã đính kèm",
+    "recordingInstructions": "Nhấn Ghi âm để thu âm trả lời. Dừng lại để nghe lại và nộp bài.",
+    "recordingStart": "Ghi âm",
+    "recordingStop": "Dừng ghi",
+    "recordingInProgress": "Đang ghi…",
+    "recordingDuration": "Thời lượng",
+    "recordingPlayback": "Nghe lại",
+    "recordingClear": "Ghi lại từ đầu",
+    "recordingSubmitQuestion": "Nộp câu này",
+    "recordingSubmitOk": "Đã ghi nhận bài ghi âm.",
+    "recordingSubmittedNote": "Bạn đã nộp câu ghi âm này.",
+    "recordingLocalHint": "Hãy ấn nộp bài trước khi thoát để lưu trả lời. Việc tải lại trình duyệt khi chưa nộp bài sẽ bị mất câu trả lời",
+    "recordingMicDenied": "Không thể truy cập micro. Vui lòng cấp quyền trong trình duyệt.",
+    "recordingNotSupported": "Trình duyệt không hỗ trợ ghi âm.",
+    "recordingNeedAudio": "Hãy ghi âm ít nhất khoảng vài giây rồi dừng lại trước khi nộp.",
+    "recordingReviewNote": "Đã nộp bài ghi âm. File không lưu trên server nên không có bản nghe lại khi xem lại.",
+    "confirmCancel": "Hủy",
+    "confirmSubmit": "Xác nhận nộp",
+    "submittedLabel": "Đã nộp",
+    "essayConfirmTitle": "Xác nhận nộp tự luận",
+    "essayConfirmBody": "Bạn chắc chắn muốn nộp câu tự luận này? Sau khi nộp sẽ không thể chỉnh sửa.",
+    "essayUploadFail": "Nộp tự luận thất bại, vui lòng thử lại.",
+    "essaySubmittedFiles": "File đã nộp",
+    "essayNoFile": "Không có file đính kèm",
+    "recordConfirmTitle": "Xác nhận nộp ghi âm",
+    "recordConfirmBody": "Bạn chắc chắn muốn nộp câu ghi âm này? Sau khi nộp sẽ không thể chỉnh sửa.",
+    "recordUploadFail": "Nộp ghi âm thất bại, vui lòng thử lại.",
+    "recordSubmittedAudio": "Bài ghi âm đã nộp",
+    "dropdownPlaceholder": "Chọn",
+    "dropdownNoBlanks": "Câu hỏi chưa cấu hình ô chọn.",
+    "handwritingExamHint": "Giống bài học: nét xanh khi xong, nét đứt xanh nhạt là nét đang làm. Vẫn bám median; thứ tự nét tùy ý.",
+    "handwritingUndo": "Hoàn tác nét",
+    "handwritingClear": "Xóa hết",
+    "handwritingKindHiragana": "Hiragana",
+    "handwritingKindKatakana": "Katakana",
+    "handwritingKindKanji": "Kanji",
+    "handwritingNoTarget": "Chưa cấu hình ký tự mẫu.",
+    "handwritingNetLabel": "Net {{current}}/{{total}}",
+    "handwritingGuideHint": "Chạm điểm xanh rồi kéo theo nét đứt →",
+    "handwritingFeedbackGreat": "Tuyệt vời!",
+    "handwritingNoData": "chưa có dữ liệu nét",
+    "noSelection": "—",
+    "questionType": {
+      "MULTIPLE_CHOICE": "Trắc nghiệm",
+      "SORTING": "Sắp xếp",
+      "MATCHING": "Ghép đôi",
+      "MULTIPLE_CHOICE_HORIZONTAL": "Trắc nghiệm (ngang)",
+      "FILL_IN_BLANK": "Điền từ",
+      "CHOOSE_ANSWER_IN_BLANK": "Chọn đáp án vào chỗ trống",
+      "DROP_DOWN_ANSWER": "Chọn trong danh sách (dropdown)",
+      "ESSAY": "Tự luận",
+      "RECORD": "Ghi âm",
+      "HANDWRITING": "Viết tay"
+    }
+  },
+  "courses": {
+    "title": "Khóa học của bạn",
+    "viewAll": "Xem tất cả",
+    "titleCourse": "Các khóa học"
+  },
+  "historyExam": {
+    "titleHistoryExam": "Lịch sử thi",
+    "numberExam": "Câu",
+    "answer": "Đáp án của bạn:",
+    "answerDone": "Đáp án đúng:",
+    "titleHistory": "Lịch sử bài làm",
+    "noTitleHistory": "Chưa có lịch sử bài làm",
+    "noAnswer": "Không trả lời",
+    "point": "điểm"
+  },
+  "footer": {
+    "title": "HỌC VIỆN ĐÀO TẠO VÀ PHÁT TRIỂN TIẾNG NHẬT THỰC CHIẾN",
+    "contactInfo": {
+      "title": "THÔNG TIN LIÊN HỆ",
+      "address": "Địa chỉ:",
+      "addressText": "Tòa nhà Sông Đà, Đường Phạm Hùng, Mỹ Đình, Nam Từ Liêm, Hà Nội",
+      "hotline": "Hotline:",
+      "hotlineText": "0835 662 538",
+      "email": "Email:",
+      "emailText": "support@mankai.edu.vn"
+    },
+    "quickLinks": {
+      "title": "LIÊN KẾT NHANH",
+      "links": [
+        "Giới thiệu",
+        "JLPT",
+        "Kaiwa",
+        "Sơ cấp",
+        "IT Talk",
+        "Tokutei",
+        "Đào tạo Doanh ngiệp",
+        "Bảng vàng Mankai",
+        "Tin tức",
+        "Liên hệ"
+      ]
+    },
+    "followUs": {
+      "title": "THEO DÕI CHÚNG TÔI TẠI",
+      "socialMedia": ["Facebook", "Youtube"]
+    },
+    "copyright": {
+      "text": "Copyright 2024 By Mankai Academy - All rights reserved"
+    }
+  },
+  "coursesSlider": {
+    "title": "Khóa học của bạn",
+    "viewAll": "Xem tất cả",
+    "status": "Hoàn thành",
+    "nextLesson": "Bài tiếp theo",
+    "courseDetails": {
+      "textCourse": "bài học",
+      "name": "Khóa học",
+      "progress": "Hoàn thành",
+      "lessonStatus": "Còn 16 bài chưa học",
+      "contentOne": "Còn",
+      "contentTwo": "bài chưa học"
+    },
+    "button": {
+      "continue": "Tiếp tục học"
+    },
+    "slider": {
+      "dots": {
+        "inactive": "#D0D5DD",
+        "active": "#F37142"
+      }
+    }
+  },
+  "specialRanking": {
+    "title": "Học cùng Mankai",
+    "kaiwa": "Kaiwa AI",
+    "minna": "Học từ vựng Minna",
+    "testMankai": "Thi thử cùng Mankai",
+    "kanji": "Kanji Mnemonic",
+    "button": "Khám phá ngay",
+    "listDesc": {
+      "kaiwa": "Luyện tập hội thoại Tiếng Nhật mọi lúc mọi nơi với AI",
+      "minna": "Học Tiếng Nhật theo chủ đề đa dạng, từ giao tiếp hàng ngày đến chuyên ngành",
+      "testMankai": "Kiểm tra trình độ Tiếng Nhật của bạn với các bài thi thử mô phỏng thực tế",
+      "kanji": "Phương pháp ghi nhớ chữ Hán (Kanji) mẹo nhớ từ"
+    },
+    "description": "Khám phá các khóa học Tiếng Nhật đa cấp độ, từ cơ bản đến nâng cao",
+
+    "ranking": {
+      "title": "Bảng xếp hạng",
+      "imageAlt": "cup",
+      "text": "Bảng xếp hạng",
+      "crownAlt": "Vương miện",
+      "avatarAlt": "Ảnh",
+      "starAlt": "Ngôi sao"
+    }
+  },
+  "startJourney": {
+    "title": "Khởi động hành trình của bạn",
+    "description": "Hãy bước vào hành trình mới để khám phá tiềm năng và chinh phục những mục tiêu của bạn ngay hôm nay.",
+    "contact": "Liên hệ",
+    "sales": {
+      "text": "Nhận tư vấn",
+      "iconAlt": "ArrowUpRight"
+    }
+  },
+  "streak": {
+    "text": "Streaks",
+    "textDate": "Tháng 4, 2025",
+    "week": "Tuần 3/4",
+    "fireAlt": "Lửa Streaks"
+  },
+  "profile": {
+    "textAccount": "Thông tin tài khoản",
+    "contentAccount": "Bạn có thể chỉnh sửa thông tin cá nhân tại đây",
+    "filterProfile": "Thông tin cá nhân",
+    "changePass": "Thay đổi mật khẩu",
+    "btnSubmit": "Lưu thông tin"
+  },
+  "weekDays": {
+    "T2": "T2",
+    "T3": "T3",
+    "T4": "T4",
+    "T5": "T5",
+    "T6": "T6",
+    "T7": "T7",
+    "CN": "CN"
+  },
+  "topic": {
+    "title": "Chủ đề",
+    "vocabulary": "từ vựng",
+    "resultVoice": "Kết quả giọng nói:",
+    "voiceRun": "Đang nghe bạn nói...",
+    "voiceFasle": "Không nghe được.",
+    "titleVocabulary": "Từ vựng",
+    "retry": "Thử lại"
+  },
+  "detailCourse": {
+    "nameCourse": "Khóa học",
+    "list": "Danh sách bài",
+    "listEle": "Danh sách bài học",
+    "video": "videos",
+    "time": "phút",
+    "session": "bài Test",
+    "complete": "Hoàn thành"
+  },
+  "vocabulary": {
+    "placeholderComment": "Bạn muốn thảo luận vấn đề gì?",
+    "comment": "bình luận",
+    "feedback": "Phản hồi",
+    "filter": {
+      "describe": "Mô tả",
+      "document": "Tài liệu",
+      "discuss": "Thảo luận"
+    },
+    "formVideo": {
+      "textTitle": "Bài giảng chuẩn hóa bởi chuyên gia hàng đầu.",
+      "textSession": "Bài tiếp theo",
+      "textTitleWarring": "Bạn không thể tua nhanh video !",
+      "textPing": "Bạn cần hoàn thành toàn việc xem bài giảng ở lần đầu tiên.",
+      "btnSession": "Thoát",
+      "btnSessionNext": "Xem tiếp",
+      "progress": "Tiến trình"
+    }
+  },
+  "titleVocabulary": {
+    "descriptionFl": "Vừa nghe vừa đọc - học dễ hơn, nhớ lâu hơn.",
+    "descriptionPdf": "Chậm rãi đọc, từ tốn hiểu - nắm chắc kiến thức theo cách của bạn.",
+    "descriptionExam": "Vừa nghe vừa đọc - học dễ hơn, nhớ lâu hơn.",
+    "descriptionVideo": "Bài giảng chuẩn hóa bởi chuyên gia hàng đầu.",
+    "booknew": "Học từ mới",
+    "game": "Trò chơi ôn tập",
+    "cardmerge": "Trò chơi ghép thẻ",
+    "examNew": "Kiểm tra từ mới",
+    "errorVideo": "Đã xảy ra lỗi khi tải video. Vui lòng kiểm tra đăng nhập tại YouTube."
+  },
+  "exam": {
+    "contentTitle": "Nội dung đề bài",
+    "trueLabel": "Đúng",
+    "falseLabel": "Sai",
+    "contentTitleAudio": "Chọn từ vào ô trống",
+    "reload": "Làm lại",
+    "previous": "Câu trước",
+    "check": "Kiểm tra",
+    "textSuccess": "Chính xác! Làm tốt lắm",
+    "contentSuccess": "Hãy tiếp tục phát huy",
+    "continue": "Tiếp tục",
+    "textSuccessFasle": "Chưa chính xác!",
+    "modalTitle": "Hoàn thành bài học!",
+    "modalText": "Số câu đúng",
+    "continueStudying": "Học tiếp",
+    "essay": {
+      "submitted": "Đã nộp",
+      "comment": "Nhận xét",
+      "tooltipSubmit": "Nộp bài",
+      "tooltipSubmiting": "Đang nộp ..."
+    }
+  },
+  "flashCard": {
+    "cardMergeTitle": "Thời gian kiểm tra",
+    "second": "giây"
+  },
+  "file": {
+    "upload": "Tải File xuống",
+    "btnUpload": "Nộp bài tập",
+    "timeUpload": "Thời gian nộp",
+    "uploadDone": "Đã nộp",
+    "addUpload": "Thêm tài liệu",
+    "clickUpload": "Nhấp để tải lên",
+    "textUpload": "thêm và chỉnh sửa tại đây.",
+    "textUploadLink": "Nhập liên kết tệp",
+    "note": "Lưu ý:",
+    "textNote": "Việc cập nhật tệp sẽ làm mất tệp cũ.",
+    "viewFile": "Xem file"
+  },
+  "dictionary": {
+    "kanjiLookupLabel": "Tra cứu Kanji",
+    "searchLabel": "Tìm kiếm",
+    "vocabularySearchLabel": "Tìm kiếm từ vựng",
+    "meaningLabel": "Ý nghĩa",
+    "suggestionLabel": "Gợi ý",
+    "vocabularyLabel": "Từ vựng"
+  }
+}

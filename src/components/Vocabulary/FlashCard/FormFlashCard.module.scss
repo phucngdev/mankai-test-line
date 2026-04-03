@@ -1,0 +1,496 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxContent {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+
+  .formFlashCard {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 96px;
+    background-image: url('/src/assets/images/GlobalVocabulary/bgFlashCard.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 16px;
+    padding: 64px 0px 64px 0px;
+
+    .boxFlash {
+      display: flex;
+      padding: 24px;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      border-radius: 32px;
+      border: 2px solid var(--Yellow-700, #ad7415);
+      background: linear-gradient(180deg, #f9d597 0%, #ad7415 157.13%);
+      box-shadow: 0px 4px 0px 0px #ad7415;
+
+      .boxPage {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+
+        :global {
+          .ant-pagination {
+            .ant-pagination-simple-pager {
+              color: var(--White, #fff) !important;
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 24px !important;
+              font-style: normal !important;
+              font-weight: 700 !important;
+              line-height: 120% !important;
+              /* 28.8px */
+            }
+
+            .ant-pagination-prev,
+            .ant-pagination-next {
+              display: flex !important;
+              justify-content: center !important;
+              align-items: center !important;
+
+              .ant-pagination-item-link {
+                width: 40px !important;
+                height: 40px !important;
+                border-radius: 50% !important;
+                border-radius: 40px;
+                background: #fff !important;
+                box-shadow: 0px 4px 0px 0px #ad7415;
+
+                &:active {
+                  box-shadow: none;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .contentProgress {
+        width: 300px;
+      }
+
+      .contentFlash {
+        position: relative;
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        border-radius: 24px;
+        background: linear-gradient(180deg, #ad7415 0%, #f9d597 124.03%),
+          linear-gradient(180deg, #004263 0%, #0086c9 100%);
+
+        .flashcard {
+          width: 704px;
+          height: 332px;
+          perspective: 1000px;
+          cursor: pointer;
+          position: relative;
+
+          .inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+
+            &.flipped {
+              transform: rotateY(180deg);
+            }
+          }
+
+          .front,
+          .back {
+            user-select: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'PF BeauSans Pro';
+            line-height: 1.25;
+            cursor: grab;
+
+            &:active {
+              cursor: grabbing;
+            }
+
+            padding: 36px;
+            overflow: hidden;
+            word-break: break-word;
+            font-size: clamp(24px, 3vw, 56px);
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            font-weight: 700;
+            scrollbar-color: #ccc transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            &::before,
+            &::after {
+              content: '';
+              flex: 1;
+              min-height: 0;
+            }
+
+            &::-webkit-scrollbar {
+              width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: #c7c7c7;
+              border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            &[data-length='long'] {
+              font-size: clamp(9px, 1.1vw, 18px);
+            }
+
+            &[data-length='very-long'] {
+              font-size: clamp(8px, 1.2vw, 12px);
+            }
+          }
+
+          .front {
+            z-index: 2;
+            transform: rotateY(0deg);
+          }
+
+          .back {
+            transform: rotateY(180deg);
+          }
+        }
+
+        .voiceDefault {
+          position: absolute;
+          bottom: 28px;
+          right: 24px;
+          display: flex;
+          width: 48px;
+          height: 48px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          aspect-ratio: 1/1;
+          border-radius: 24px;
+          background: var(--Blue-light-50, #f0f9ff);
+          border: 2px solid #4eb5fa;
+          color: #0ba5ec;
+          cursor: pointer;
+
+          &.activeListen {
+            cursor: pointer;
+            display: flex;
+            width: 32px;
+            height: 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            aspect-ratio: 1/1;
+            border-radius: 24px;
+            animation: borderVoice 1s infinite;
+            background: var(--Blue-light-50, #4eb5fa);
+            color: #ffffff;
+          }
+
+          &:hover {
+            border: 2px solid #ad7415;
+            color: #ad7415;
+          }
+
+          &:active {
+            border: 2px solid rgb(255, 137, 137);
+            color: rgb(255, 137, 137);
+          }
+        }
+
+        .voiceDefaultSlow {
+          position: absolute;
+          bottom: 28px;
+          left: 24px;
+          display: flex;
+          width: 48px;
+          height: 48px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          aspect-ratio: 1/1;
+          border-radius: 24px;
+          background: var(--Blue-light-50, #f0f9ff);
+          border: 2px solid #4eb5fa;
+          color: #0ba5ec;
+          cursor: pointer;
+
+          &.activeListen {
+            cursor: pointer;
+            display: flex;
+            width: 32px;
+            height: 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            aspect-ratio: 1/1;
+            border-radius: 24px;
+            animation: borderVoice 1s infinite;
+            background: var(--Blue-light-50, #4eb5fa);
+            color: #ffffff;
+          }
+
+          &:hover {
+            border: 2px solid #ad7415;
+            color: #ad7415;
+          }
+
+          &:active {
+            border: 2px solid rgb(255, 137, 137);
+            color: rgb(255, 137, 137);
+          }
+        }
+      }
+    }
+  }
+
+  .tabWrapper {
+    display: flex;
+    width: 766px;
+    padding: 96px 24px 24px 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-radius: 16px;
+    border: 2px solid var(--White, #fff);
+    background: #fbe3b9;
+    position: relative;
+
+    .tabLeft {
+      position: absolute;
+      top: -20px;
+      left: 193px;
+    }
+
+    .tabRight {
+      position: absolute;
+      top: -20px;
+      right: 193px;
+    }
+
+    .tabPlayGame {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+
+      .boxPlay {
+        display: flex;
+        width: 224px;
+        padding: 16px;
+        height: 128px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        border-radius: 16px;
+        border: 2px solid var(--Yellow-600, #dd951a);
+        border-bottom: 6px solid var(--Yellow-600, #dd951a);
+        background: var(--Yellow-50, #fef6e8);
+        user-select: none;
+
+        &:active {
+          border: 2px solid var(--Yellow-600, #dd951a);
+        }
+
+        cursor: pointer;
+
+        .text {
+          color: var(--Yellow-600, #dd951a);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 28px;
+          /* 155.556% */
+        }
+      }
+    }
+
+    .tabLabel {
+      position: absolute;
+      top: -20px;
+      width: 359px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 71.806px;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      transform: perspective(300px) rotateX(-15deg);
+      transform-origin: top;
+      background: linear-gradient(86deg, #ad7415 -17.93%, #f9d597 84.76%);
+      border: 2px solid var(--Yellow-700, #ad7415);
+      filter: drop-shadow(0px 4px 0px #ad7415);
+
+      .text {
+        color: var(--White, #fff);
+        /* Text 2xl/Bold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px;
+        /* 133.333% */
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .boxContent {
+    .formFlashCard {
+      padding: 16px;
+
+      .boxFlash {
+        width: 100%;
+        padding: 16px;
+        gap: 24px;
+
+        .contentFlash {
+          .flashcard {
+            width: 100%;
+            height: 260px; // hoặc 240px tùy bạn chỉnh
+            position: relative;
+
+            .front,
+            .back {
+              font-size: clamp(20px, 6vw, 64px);
+              line-height: 1.2;
+              padding: 12px;
+              display: flex;
+            }
+          }
+
+          .voiceDefault {
+            width: 40px;
+            height: 40px;
+            right: 16px;
+            bottom: 16px;
+          }
+
+          .voiceDefaultSlow {
+            width: 40px;
+            height: 40px;
+            left: 16px;
+            bottom: 16px;
+          }
+        }
+
+        .contentProgress {
+          width: 90%;
+        }
+
+        .boxPage {
+          :global {
+            .ant-pagination {
+              .ant-pagination-simple-pager {
+                font-size: 20px !important;
+              }
+            }
+          }
+        }
+      }
+
+      .tabWrapper {
+        width: 100%;
+        padding: 48px 16px 16px 16px;
+        gap: 16px;
+
+        .tabLeft {
+          left: 59px;
+        }
+
+        .tabRight {
+          right: 59px;
+        }
+
+        .tabPlayGame {
+          align-items: center;
+
+          .boxPlay {
+            max-width: 200px;
+            height: auto;
+            padding: 12px;
+
+            .text {
+              font-size: 16px;
+              text-align: center;
+            }
+          }
+        }
+
+        .tabLabel {
+          width: 80%;
+          height: 60px;
+
+          .text {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .boxContent {
+    .formFlashCard {
+      margin: 0;
+      /* Remove margin for mobile */
+      gap: 56px;
+      /* Set gap to 56px for mobile */
+      padding: 16px;
+      border-radius: 0;
+
+      .tabWrapper {
+        width: 100%;
+        padding: 48px 16px 16px 16px;
+        gap: 16px;
+
+        .tabLeft {
+          left: 24px;
+        }
+
+        .tabRight {
+          right: 24px;
+        }
+
+        .tabPlayGame {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

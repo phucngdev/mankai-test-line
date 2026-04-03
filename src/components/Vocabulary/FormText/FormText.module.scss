@@ -1,0 +1,287 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxContent {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+  .content {
+    padding: 16px;
+    border-bottom: 1px solid var(--Gray-100, #ddd);
+    display: flex;
+    gap: 16px;
+    .btnSession {
+      display: flex;
+      padding: 12px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 16px;
+      box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      .textSession {
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+
+      .iconSession {
+        display: flex;
+        align-items: center;
+      }
+
+      &.disabledBtn {
+        border: 1px solid var(--Gray-100, #ddd);
+        background: var(--White, #fff);
+        cursor: not-allowed;
+
+        .textSession {
+          color: var(--Gray-100, #ddd);
+        }
+
+        .iconSession {
+          color: #dddddd;
+        }
+      }
+
+      &.activeBtn {
+        border-radius: 16px;
+        border: 1px solid var(--Orange-700, #f58d68);
+        border-bottom: 4px solid var(--Orange-700, #f58d68);
+        border-radius: 16px;
+        box-shadow: 0px 2px 0px 0px #f58d68;
+
+        .textSession {
+          color: #f37142;
+        }
+
+        .iconSession {
+          color: #f37142;
+        }
+      }
+    }
+    .iconText {
+      display: flex;
+      width: 56px;
+      height: 56px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: var(--Orange-25, #fff7f4);
+    }
+    .contentText {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      flex: 1 0 0;
+      .nameTitle {
+        color: var(--Gray-800, #3d3d3d);
+        align-self: stretch;
+        /* Display xs/ Semibold */
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 32px; /* 133.333% */
+      }
+      .textTitle {
+        color: var(--Gray-700, #676767);
+
+        /* Text sm/Regular */
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+      }
+    }
+  }
+  .formText {
+    padding: 16px;
+    min-height: 500px;
+    width: 100%;
+    .boxText {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      position: relative;
+      width: 100%;
+      .headerText {
+        color: var(--Black, #111);
+        border-collapse: collapse;
+        /* Text xl/Semibold */
+        font-family: 'SF Pro Display';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px; /* 150% */
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
+        width: 100%;
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          margin: 12px 0;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+        table {
+          width: 100% !important;
+        }
+        strong {
+          font-weight: 700 !important;
+        }
+        i,
+        em {
+          font-style: italic !important;
+        }
+      }
+      .btnSession {
+        display: flex;
+        padding: 12px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 16px;
+        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+        user-select: none;
+        cursor: pointer;
+
+        .textSession {
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 24px;
+        }
+
+        &.disabledBtn {
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--White, #fff);
+          cursor: not-allowed;
+
+          .textSession {
+            color: var(--Gray-100, #ddd);
+          }
+        }
+
+        &.activeBtn {
+          border-radius: 16px;
+          border: 1px solid var(--Orange-700, #039855);
+          border-bottom: 4px solid var(--Orange-700, #039855);
+          background: #26ca80;
+
+          .textSession {
+            color: #fff;
+          }
+
+          &:active {
+            border: 1px solid #039855;
+            background: #26ca80;
+          }
+        }
+      }
+      .contentText {
+        margin-bottom: 24px;
+        .textTitle {
+          margin-left: 20px;
+          margin-bottom: 20px;
+        }
+        .textTitle li {
+          list-style-type: decimal;
+          color: var(--Gray-900, #2d2c2c);
+
+          /* Text md/Bold */
+          font-family: 'SF Pro Display';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px; /* 150% */
+        }
+
+        .text {
+          margin-left: 25px;
+        }
+        .text li {
+          list-style-type: disc;
+          color: var(--Gray-800, #3d3d3d);
+          /* Text md/Regular */
+          font-family: 'SF Pro Display';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+  .contentTitle {
+    position: relative;
+    z-index: 10;
+    box-shadow: 0px -10px 20.5px 0px rgba(0, 0, 0, 0.05);
+    will-change: transform;
+
+    .dropDown {
+      display: flex;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 24px;
+      background: var(--White, #fff);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+      position: absolute;
+      top: -16px; // nằm trên Filter chút
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .filterWrapper {
+      padding: 16px;
+      background: var(--White, #fff);
+      border-radius: 24px;
+    }
+  }
+  .scrollContent {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; // hoặc center nếu muốn theo chiều dọc
+    background-color: #fff;
+    padding: 16px 0;
+
+    & > div {
+      transform-origin: top center;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,567 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.specialRanking {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  // Mobile (375px)
+  @include m.respond(xs) {
+    flex-direction: column;
+    padding: 0 0.5rem;
+  }
+
+  // Tablet (768px)
+  @include m.respond(md) {
+    flex-direction: column;
+  }
+
+  // Laptop (1440px)
+  @include m.respond(lg) {
+    flex-direction: row;
+  }
+
+  .left {
+    width: 100%;
+    max-width: 100%;
+
+    @include m.respond(lg) {
+      width: 65%;
+      max-width: 65%;
+    }
+
+    .top {
+      display: flex;
+      padding: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      align-self: stretch;
+      border-radius: 12px;
+      border: 1px solid var(--Gray-100, #ddd);
+      background: var(--White, #fff);
+
+      @include m.respond(md) {
+        padding: 20px;
+        gap: 20px;
+        border-radius: 14px;
+      }
+
+      @include m.respond(lg) {
+        padding: 24px;
+        gap: 24px;
+        border-radius: 16px;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        align-self: stretch;
+
+        .icon {
+          display: flex;
+          width: 40px;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          border-radius: 6px;
+          background: var(--Orange-25, #fff7f4);
+
+          @include m.respond(md) {
+            width: 48px;
+            height: 48px;
+          }
+
+          @include m.respond(lg) {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+          }
+        }
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .texttop {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 28px;
+
+            @include m.respond(md) {
+              font-size: 1.75rem;
+              line-height: 32px;
+            }
+
+            @include m.respond(lg) {
+              font-size: 2rem;
+              line-height: 40px;
+            }
+          }
+
+          p {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 20px;
+
+            @include m.respond(md) {
+              font-size: 0.9375rem;
+              line-height: 22px;
+            }
+
+            @include m.respond(lg) {
+              font-size: 1rem;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+
+      .list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+
+        @include m.respond(md) {
+          gap: 20px;
+        }
+
+        @include m.respond(lg) {
+          gap: 24px;
+        }
+
+        .item {
+          display: flex;
+          padding: 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          align-self: stretch;
+          border-radius: 6px;
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--White, #fff);
+          position: relative;
+
+          @include m.respond(md) {
+            padding: 20px;
+            border-radius: 7px;
+          }
+
+          @include m.respond(lg) {
+            padding: 24px;
+            border-radius: 8px;
+          }
+
+          .title {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            p {
+              color: var(--Orange-500, #f37142);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 16px;
+              font-weight: 700;
+              line-height: 24px;
+
+              @include m.respond(md) {
+                font-size: 18px;
+                line-height: 26px;
+              }
+
+              @include m.respond(lg) {
+                font-size: 20px;
+                line-height: 30px;
+              }
+            }
+          }
+
+          .description {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            z-index: 10;
+            @include m.respond(md) {
+              font-size: 13px;
+              line-height: 19px;
+            }
+
+            @include m.respond(lg) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+
+          .img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: auto;
+
+            @include m.respond(md) {
+              width: 100px;
+            }
+
+            @include m.respond(lg) {
+              width: 220px;
+            }
+          }
+
+          .button {
+            margin-top: 16px;
+            display: flex;
+            padding: 8px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            border-radius: 12px;
+            border: 1px solid var(--Orange-600, #ad502f);
+            background: #f37142;
+            border-bottom: 3px solid #ad502f;
+            box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+            background-image: url('/src/assets/images/specialRanking/bgbutton.png');
+            background-repeat: no-repeat;
+            background-size: 58%;
+            background-position: 27%;
+            cursor: pointer;
+
+            @include m.respond(md) {
+              margin-top: 20px;
+              padding: 10px 18px;
+              border-radius: 14px;
+              border-bottom: 3.5px solid #ad502f;
+            }
+
+            @include m.respond(lg) {
+              margin-top: 24px;
+              padding: 12px 20px;
+              border-radius: 16px;
+              border-bottom: 4px solid #ad502f;
+            }
+
+            &:hover {
+              transform: scale(1.05);
+              transition: transform 0.3s ease-in-out;
+            }
+
+            p {
+              color: var(--White, #fff);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 0.875rem;
+              font-weight: 700;
+              line-height: 20px;
+
+              @include m.respond(md) {
+                font-size: 0.9375rem;
+                line-height: 22px;
+              }
+
+              @include m.respond(lg) {
+                font-size: 1rem;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    display: none; // Ẩn trên mobile và tablet (< 1024px)
+
+    @include m.respond(lg) {
+      display: flex;
+      width: 31.6%;
+      max-width: 31.6%;
+      height: 1137px;
+      position: sticky;
+      top: 100px;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .rankKing {
+      padding: 24px;
+      background-color: #fff;
+      border: 1px solid #dddddd;
+      border-radius: 16px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .topBox {
+        height: 211px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 48px;
+
+        .titleRank {
+          display: flex;
+          gap: 4px;
+          justify-content: center;
+          align-items: center;
+          .cup {
+            width: 30.88px;
+            height: 26.583px;
+            aspect-ratio: 30.88/26.58;
+          }
+
+          .text {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+          }
+        }
+
+        .rankBox {
+          display: flex;
+
+          .rank {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 111px;
+            gap: 8px;
+
+            .contentRank {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 4px;
+
+              .content {
+                color: var(--Gray-800, #3d3d3d);
+                font-family: 'SF Pro Display';
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+                max-width: 100px;
+                overflow: hidden; // Ẩn phần vượt quá
+                text-overflow: ellipsis; // Hiển thị "..."
+                white-space: nowrap;
+              }
+
+              .starBox {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                .contentStar {
+                  color: var(--Gray-800, #3d3d3d);
+                  font-family: 'FS PF BeauSans Pro';
+                  font-size: 14px;
+                  font-weight: 700;
+                  line-height: 16.8px;
+                }
+              }
+            }
+
+            &:nth-child(2) {
+              margin-bottom: 8px;
+
+              .avatarRank {
+                display: flex;
+                position: relative;
+
+                .crown {
+                  position: absolute;
+                  left: -5.726px;
+                  top: -22.466px;
+                  width: 47px;
+                  height: 31px;
+                  transform: rotate(-10.644deg);
+                }
+
+                .avatar {
+                  width: 56px;
+                  height: 56px;
+                  aspect-ratio: 1/1;
+                  border-radius: 40px;
+                  border: 2px solid var(--Yellow-500, #f3a41d);
+                }
+
+                .text {
+                  display: flex;
+                  width: 16px;
+                  height: 16px;
+                  padding: 4px;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                  aspect-ratio: 1/1;
+                  border-radius: 51px;
+                  background: #f3a41d;
+                  position: absolute;
+                  left: 22px;
+                  top: 45px;
+
+                  .content {
+                    color: var(--White, #fff);
+                    font-family: 'FS PF BeauSans Pro';
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 18px;
+                  }
+                }
+              }
+            }
+
+            &:nth-child(1),
+            &:nth-child(3) {
+              margin-top: 24px;
+
+              .avatarRank {
+                display: flex;
+                position: relative;
+
+                .crown {
+                  width: 32.042px;
+                  height: 21.134px;
+                  transform: rotate(-10.644deg);
+                  position: absolute;
+                  left: -5.726px;
+                  top: -14.466px;
+                }
+
+                .avatar {
+                  width: 40px;
+                  height: 40px;
+                  aspect-ratio: 1/1;
+                  border-radius: 40px;
+                  border: 2px solid var(--Yellow-500, #f3a41d);
+                }
+
+                .text {
+                  display: flex;
+                  width: 16px;
+                  height: 16px;
+                  padding: 4px;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                  aspect-ratio: 1/1;
+                  border-radius: 51px;
+                  background: #f3a41d;
+                  position: absolute;
+                  left: 13px;
+                  top: 29px;
+
+                  .content {
+                    color: var(--White, #fff);
+                    font-family: 'FS PF BeauSans Pro';
+                    font-size: 12px;
+                    font-weight: 600;
+                    line-height: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mainBox {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .boxRank {
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+          padding: 20px 16px;
+          border: 1px solid #dddddd;
+          border-radius: 8px;
+          background: #fafafa;
+          .contentBox {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            .stt {
+              width: 28px;
+              height: 24px;
+              color: var(--Gray-800, #3d3d3d);
+              font-family: 'SF Pro Display';
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 24px;
+            }
+            .avatar {
+              width: 40px;
+              height: 40px;
+              aspect-ratio: 1/1;
+              border-radius: 40px;
+              border: 2px solid var(--Yellow-500, #f37142);
+            }
+            .name {
+              color: var(--Gray-800, #3d3d3d);
+              font-family: 'SF Pro Display';
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 24px;
+              width: 100%;
+              max-width: 80px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+          .starBox {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            .contentStar {
+              color: var(--Gray-800, #3d3d3d);
+              font-family: 'FS PF BeauSans Pro';
+              font-size: 14px;
+              font-weight: 700;
+              line-height: 16.8px;
+            }
+          }
+
+          &.active {
+            background-image: url('/src/assets/images/specialRanking/bgActiveRank.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 1px solid #ad7415;
+
+            .avatar {
+              border: 2px solid var(--Yellow-500, #fff);
+            }
+
+            .stt,
+            .name,
+            .contentStar {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

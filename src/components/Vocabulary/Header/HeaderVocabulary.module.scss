@@ -1,0 +1,76 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.header {
+  display: flex;
+  padding: 0px 16px;
+  justify-content: space-between;
+  align-items: center;
+  height: 88px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-bottom: 1px solid #ddd;
+  background: var(--White, #fff);
+  .leftContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .iconBtn {
+      cursor: pointer;
+    }
+    .text {
+      color: var(--Gray-800, #3d3d3d);
+
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 32px;
+    }
+  }
+  .rightContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .iconCup {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 24px;
+      border: 2px solid var(--Orange-500, #f37142);
+      background: var(--Orange-50, #fef1ec);
+    }
+    .text {
+      color: var(--Gray-800, #3d3d3d);
+
+      /* Text md/Medium */
+      font-family: 'FS PF BeauSans Pro';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px; /* 150% */
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 10px;
+    display: flex;
+    gap: 12px;
+    .leftContent {
+      .text {
+        color: var(--Gray-800, #3d3d3d);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 16px;
+      }
+    }
+  }
+  .rightContent {
+    .text {
+      display: none;
+    }
+  }
+}

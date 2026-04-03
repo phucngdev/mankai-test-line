@@ -1,0 +1,104 @@
+@use '../../styles/abstracts/variables' as v;
+@use '../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.leftSideBar {
+    position: sticky;
+    top: 105px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .leftSideBar_list {
+        padding: 16px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 16px;
+        border: 1px solid rgba(226, 232, 240, 1);
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(15, 23, 42, 1);
+            line-height: 24px;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        .leftSideBar_list_item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .leftSideBar_list_item_category {
+                padding: 8px;
+                padding-right: 0;
+                cursor: pointer;
+                border-radius: 8px;
+                transition: background-color 0.2s ease;
+
+                p {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: rgba(71, 85, 105, 1);
+                    line-height: 24px;
+                }
+
+                &.active {
+                    background-color: rgba(255, 237, 224, 1);
+
+                    p {
+                        color: rgba(243, 112, 33, 1);
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .leftSideBar_achievements {
+        padding: 24px;
+        background: linear-gradient(135deg, #F37021 0%, #EA580C 100%);
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            line-height: 24px;
+        }
+
+        .leftSideBar_streaks_experience {
+            display: flex;
+            justify-content: space-between;
+
+            .leftSideBar_streaks_exp {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p {
+                    &:first-child {
+                        font-size: 24px;
+                        font-weight: 700;
+                        color: rgba(255, 255, 255, 1);
+                        line-height: 32px;
+                    }
+
+                    &:last-child {
+                        font-size: 10px;
+                        font-weight: 400;
+                        color: rgba(255, 255, 255, 1);
+                        line-height: 15px;
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+
+    }
+}

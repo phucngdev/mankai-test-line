@@ -1,0 +1,8 @@
+@import '../../styles/main.module.scss';
+
+.card {
+  background-color: map-get($colors, light);
+  @include respond(md) {
+    display: flex;
+  }
+}

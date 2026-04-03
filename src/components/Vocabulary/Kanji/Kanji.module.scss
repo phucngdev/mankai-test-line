@@ -1,0 +1,296 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxMain {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+  padding: 16px;
+  gap: 16px;
+  
+  .boxContentMain {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    
+    .boxLeft {
+      border-radius: 8px;
+      border: 1px solid var(--Gray-100, #ddd);
+      background: var(--Gray-25, #fafafa);
+      display: flex;
+      flex: 1;
+      align-self: stretch;
+      justify-content: center;
+      position: relative;
+      
+      .iconRepeat {
+        position: absolute;
+        cursor: pointer;
+        top: 16px;
+        right: 16px;
+        display: flex;
+        width: 28px;
+        height: 28px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        aspect-ratio: 1/1;
+        border-radius: 6px;
+        border: 1px solid var(--Orange-500, #f37142);
+        background: var(--Orange-50, #fef1ec);
+        user-select: none;
+      }
+    }
+    
+    .boxRight {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+
+      .contentVocabulary {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .contentTitle {
+          display: flex;
+          flex-direction: column;
+          
+          .titleTopic {
+            color: var(--Gray-700, #676767);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+          }
+          
+          .imgHand {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+            
+            img {
+              width: 100%;
+              max-width: 120px;
+              height: auto;
+              object-fit: cover;
+            }
+            
+            .text {
+              color: var(--Gray-700, #676767);
+              font-family: 'SF Pro Display';
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 18px;
+            }
+          }
+          
+          .contentTopic {
+            color: var(--Gray-700, #676767);
+            text-align: center;
+            width: 160px;
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 26px;
+          }
+        }
+      }
+      
+      .listBox {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+        .boxVocabulary {
+          display: flex;
+          min-height: 60px;
+          padding: 10px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--Gray-25, #fafafa);
+          
+          .title {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px;
+          }
+          
+          .text {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  .boxPage {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tablet and Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .boxMain {
+    margin-top: 10px;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 10px;
+    
+    .boxContentMain {
+      flex-direction: column;
+      gap: 12px;
+      
+      .boxLeft {
+        .iconRepeat {
+          top: 12px;
+          right: 12px;
+          width: 24px;
+          height: 24px;
+          border-radius: 5px;
+        }
+      }
+      
+      .boxRight {
+        .contentVocabulary {
+          .contentTitle {
+            .titleTopic {
+              font-size: 11px;
+              line-height: 16px;
+            }
+            
+            .imgHand {
+              gap: 6px;
+              
+              img {
+                max-width: 100px;
+              }
+              
+              .text {
+                font-size: 11px;
+                line-height: 16px;
+              }
+            }
+            
+            .contentTopic {
+              font-size: 16px;
+              line-height: 24px;
+              width: 140px;
+            }
+          }
+        }
+        
+        .listBox {
+          .boxVocabulary {
+            min-height: 50px;
+            padding: 8px;
+            
+            .title {
+              font-size: 11px;
+              line-height: 16px;
+            }
+            
+            .text {
+              font-size: 12px;
+              line-height: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .boxMain {
+    margin-top: 8px;
+    padding: 8px;
+    gap: 8px;
+    border-radius: 8px;
+    
+    .boxContentMain {
+      flex-direction: column;
+      gap: 8px;
+      
+      .boxLeft {
+        .iconRepeat {
+          top: 8px;
+          right: 8px;
+          width: 20px;
+          height: 20px;
+          border-radius: 4px;
+        }
+      }
+      
+      .boxRight {
+        .contentVocabulary {
+          .contentTitle {
+            .titleTopic {
+              font-size: 10px;
+              line-height: 14px;
+            }
+            
+            .imgHand {
+              gap: 4px;
+              
+              img {
+                max-width: 80px;
+              }
+              
+              .text {
+                font-size: 10px;
+                line-height: 14px;
+              }
+            }
+            
+            .contentTopic {
+              font-size: 14px;
+              line-height: 20px;
+              width: 120px;
+            }
+          }
+        }
+        
+        .listBox {
+          .boxVocabulary {
+            min-height: 40px;
+            padding: 6px;
+            
+            .title {
+              font-size: 10px;
+              line-height: 14px;
+            }
+            
+            .text {
+              font-size: 11px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1058 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+@use 'sass:map';
+
+.boxContent {
+  border-radius: 16px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+  
+  .formVideo {
+    padding: 0 16px 16px 16px;
+    
+    .frameVideo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 5px solid var(--Gray-800, #3d3d3d);
+      background: #3f3f3f;
+      z-index: 10;
+      position: relative;
+
+      .video {
+        width: 100%;
+        max-width: 789.735px;
+        height: auto;
+        aspect-ratio: 3/2;
+        flex-shrink: 0;
+      }
+    }
+    
+    .playVideo {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      padding: 0 16px;
+      align-items: center;
+      gap: 16px;
+      bottom: 0;
+      left: 0;
+      height: 76px;
+      background: rgba(255, 247, 244, 0.2);
+      border-radius: 0 0 2px 2px;
+      
+      .timeVideo {
+        display: flex;
+        gap: 4px;
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  .content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+    .btnSession {
+      display: flex;
+      padding: 10px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--Orange-600, #dd673c);
+      background: #f37142;
+      box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      .textSession {
+        color: var(--White, #fff);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+      }
+
+      .iconSession {
+        display: flex;
+        align-items: center;
+      }
+
+      &.disabledBtn {
+        border: 1px solid var(--Gray-100, #ddd);
+        background: var(--White, #fff);
+        cursor: not-allowed;
+
+        .textSession {
+          color: var(--Gray-100, #ddd);
+        }
+
+        .iconSession {
+          color: #dddddd;
+        }
+      }
+
+      &.activeBtn {
+        border-radius: 12px;
+        border: 1px solid var(--Orange-700, #ad502f);
+        border-bottom: 3px solid var(--Orange-700, #ad502f);
+        box-shadow: 0px 2px 0px 0px #ad502f;
+      }
+    }
+    
+    .iconVideo {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: var(--Orange-25, #fff7f4);
+    }
+    
+    .contentVideo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      flex: 1 0 0;
+      
+      .nameTitle {
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28px;
+      }
+      
+      .textTitle {
+        color: var(--Gray-700, #676767);
+        font-family: 'SF Pro Display';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+.boxMain {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--Gray-100, #ddd);
+  background: var(--White, #fff);
+  padding: 16px;
+  gap: 16px;
+  
+  .boxContentMain {
+    display: flex;
+    
+    gap: 16px;
+    
+    .boxLeft {
+      border-radius: 8px;
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      
+      img {
+        border-radius: 8px;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 4/3;
+      }
+    }
+    
+    .boxRight {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      
+      .contentVocabulary {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        
+        .textVocabulary {
+          display: flex;
+          height: auto;
+          align-items: flex-start;
+          gap: 8px;
+          flex-shrink: 0;
+          align-self: stretch;
+          
+          .text {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 28px;
+          }
+        }
+        
+        .contentTitle {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          .titleTopic {
+            color: var(--Gray-700, #676767);
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+          }
+          
+          .imgVoice {
+            display: flex;
+            gap: 8px;
+            height: 32px;
+            
+            .borderImg {
+              display: flex;
+              width: 28px;
+              height: 28px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              aspect-ratio: 1/1;
+              border-radius: 20px;
+              background: var(--Orange-50, #fef1ec);
+              
+              &:hover {
+                border: 1px solid #f37142;
+              }
+              
+              cursor: pointer;
+            }
+            
+            .voiceDefault {
+              display: flex;
+              width: 28px;
+              height: 28px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              aspect-ratio: 1/1;
+              border-radius: 20px;
+              background: var(--Blue-light-50, #f0f9ff);
+              color: #0ba5ec;
+              cursor: pointer;
+              
+              &.activeListen {
+                cursor: pointer;
+                width: 28px;
+                height: 28px;
+                border-radius: 20px;
+                animation: borderVoice 1s infinite;
+                background: var(--Blue-light-50, #4eb5fa);
+                color: #ffffff;
+              }
+              
+              &:hover {
+                border: 1px solid #4eb5fa;
+              }
+            }
+          }
+          
+          .contentTopic {
+            color: var(--Gray-700, #676767);
+            text-align: center;
+            width: 160px;
+            font-family: 'FS PF BeauSans Pro';
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 26px;
+          }
+        }
+      }
+      
+      .listBox {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+        .boxVocabulary {
+          display: flex;
+          min-height: 60px;
+          padding: 10px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+          align-self: stretch;
+          border-radius: 8px;
+          border: 1px solid var(--Gray-100, #ddd);
+          background: var(--Gray-25, #fafafa);
+          
+          .title {
+            color: var(--Gray-700, #676767);
+            font-family: 'SF Pro Display';
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+          }
+          
+          .text {
+            color: var(--Gray-800, #3d3d3d);
+            font-family: 'SF Pro Display';
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+  
+  .boxPage {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.topicContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 12px;
+
+  .textMic {
+    display: flex;
+    height: 80px;
+    padding: 10px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--Orange-500, #f37142);
+    background: var(--Orange-25, #fff7f4);
+    box-shadow: 0px 3px 0px 0px #f37142;
+    
+    .fontMic {
+      color: var(--Orange-500, #f37142);
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+  
+  .textMicComplete {
+    display: flex;
+    height: 100px;
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--Success-500, #12b76a);
+    background: var(--Success-25, #f6fef9);
+    box-shadow: 0px 3px 0px 0px #12b76a;
+    align-self: stretch;
+    
+    .resultMic {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      
+      .titleResult {
+        color: var(--Success-500, #12b76a);
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+      
+      .contentResult {
+        color: var(--Gray-800, #3d3d3d);
+        font-family: 'FS PF BeauSans Pro';
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
+    
+    .review {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+      
+      .starReview {
+        display: flex;
+        gap: 4px;
+      }
+      
+      .textReview {
+        color: var(--Warning-400, #fdb022);
+        font-family: 'SF Pro Display';
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+      }
+    }
+  }
+
+  .textMicError {
+    display: flex;
+    height: 80px;
+    padding: 10px 12px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--Orange-500, #f37142);
+    background: var(--Orange-25, #fff7f4);
+    box-shadow: 0px 3px 0px 0px #f37142;
+    
+    .colorMicError {
+      color: var(--Gray-800, #3d3d3d);
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      
+      &:nth-child(2) {
+        color: var(--Orange-500, #f37142);
+        font-family: 'SF Pro Display';
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        
+        &:hover {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+  
+  .topicText {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    .contentTitleBox {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      
+      .contentTitle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .titleTopic {
+          color: var(--Gray-700, #676767);
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+        }
+        
+        @keyframes borderAnimation {
+          0% {
+            box-shadow: 0 0 0 1px rgba(243, 113, 66, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 0 3px rgba(243, 113, 66, 0.3);
+          }
+          100% {
+            box-shadow: 0 0 0 1px rgba(243, 113, 66, 0.3);
+          }
+        }
+        
+        @keyframes borderVoice {
+          0% {
+            box-shadow: 0 0 0 1px rgba(44, 204, 253, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 0 3px rgba(44, 204, 253, 0.3);
+          }
+          100% {
+            box-shadow: 0 0 0 1px rgba(44, 204, 253, 0.3);
+          }
+        }
+        
+        .imgVoice {
+          display: flex;
+          gap: 8px;
+          height: 32px;
+          
+          .micDefault {
+            display: flex;
+            width: 28px;
+            height: 28px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            aspect-ratio: 1/1;
+            border-radius: 20px;
+            background: var(--Orange-50, #fef1ec);
+            color: #f37142;
+            cursor: pointer;
+            
+            &.activeMic {
+              width: 28px;
+              height: 28px;
+              border-radius: 20px;
+              background: var(--Orange-500, #f37142);
+              color: white;
+              animation: borderAnimation 1s infinite;
+            }
+            
+            &:hover {
+              border: 1px solid #f37142;
+            }
+          }
+
+          .voiceDefault {
+            display: flex;
+            width: 28px;
+            height: 28px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            aspect-ratio: 1/1;
+            border-radius: 20px;
+            background: var(--Blue-light-50, #f0f9ff);
+            color: #0ba5ec;
+            cursor: pointer;
+            
+            &.activeListen {
+              width: 28px;
+              height: 28px;
+              border-radius: 20px;
+              animation: borderVoice 1s infinite;
+              background: var(--Blue-light-50, #4eb5fa);
+              color: #ffffff;
+            }
+            
+            &:hover {
+              border: 1px solid #4eb5fa;
+            }
+          }
+        }
+        
+        .contentTopic {
+          color: var(--Gray-700, #676767);
+          text-align: center;
+          width: 160px;
+          font-family: 'FS PF BeauSans Pro';
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}
+
+.vocabulary {
+  height: auto;
+  color: var(--Gray-800, #3d3d3d);
+  font-family: 'FS PF BeauSans Pro';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.listBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  .boxVocabulary {
+    display: flex;
+    min-height: 60px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid var(--Gray-100, #ddd);
+    background: var(--Gray-25, #fafafa);
+    
+    .title {
+      color: var(--Gray-700, #676767);
+      font-family: 'SF Pro Display';
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+    
+    .text {
+      color: var(--Gray-800, #3d3d3d);
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+}
+
+/* Tablet (up to 768px) */
+@media (max-width: 768px) {
+  .boxContent {
+    .formVideo {
+      padding: 0 12px 12px 12px;
+      
+      .frameVideo {
+        border-width: 3px;
+        
+        .video {
+          max-width: 100%;
+          aspect-ratio: 16/9;
+        }
+      }
+      
+      .playVideo {
+        height: 60px;
+        padding: 0 12px;
+        
+        .timeVideo {
+          font-size: 12px;
+        }
+      }
+    }
+    
+    .content {
+      padding: 12px;
+      gap: 10px;
+      
+      .btnSession {
+        padding: 8px 14px;
+        border-radius: 10px;
+        
+        .textSession {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+      
+      .iconVideo {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .contentVideo {
+        .nameTitle {
+          font-size: 18px;
+          line-height: 24px;
+        }
+        
+        .textTitle {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+  
+  .boxMain {
+    padding: 12px;
+    gap: 12px;
+    margin-top: 10px;
+    
+    .boxContentMain {
+      gap: 12px;
+      flex-direction: column;
+      .boxLeft {
+        img {
+          max-width: 100%;
+          aspect-ratio: 4/3;
+        }
+      }
+      
+      .boxRight {
+        .contentVocabulary {
+          .textVocabulary {
+            .text {
+              font-size: 18px;
+              line-height: 24px;
+            }
+          }
+          
+          .contentTitle {
+            .titleTopic {
+              font-size: 11px;
+              line-height: 16px;
+            }
+            
+            .imgVoice {
+              height: 28px;
+              
+              .borderImg, .voiceDefault {
+                width: 24px;
+                height: 24px;
+                border-radius: 18px;
+              }
+              
+              .voiceDefault.activeListen {
+                width: 24px;
+                height: 24px;
+                border-radius: 18px;
+              }
+            }
+            
+            .contentTopic {
+              font-size: 16px;
+              line-height: 24px;
+              width: 140px;
+            }
+          }
+        }
+        
+        .listBox {
+          .boxVocabulary {
+            min-height: 50px;
+            padding: 8px;
+            
+            .title {
+              font-size: 11px;
+              line-height: 16px;
+            }
+            
+            .text {
+              font-size: 12px;
+              line-height: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .topicContent {
+    gap: 10px;
+    
+    .textMic, .textMicError {
+      height: 70px;
+      padding: 8px 10px;
+      
+      .fontMic, .colorMicError {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+    
+    .textMicComplete {
+      height: 90px;
+      padding: 8px 10px;
+      
+      .resultMic {
+        .titleResult {
+          font-size: 12px;
+          line-height: 18px;
+        }
+        
+        .contentResult {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+      
+      .review {
+        .textReview {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+    }
+    
+    .topicText {
+      .contentTitleBox {
+        .contentTitle {
+          .titleTopic {
+            font-size: 11px;
+            line-height: 16px;
+          }
+          
+          .imgVoice {
+            height: 28px;
+            
+            .micDefault, .voiceDefault {
+              width: 24px;
+              height: 24px;
+              border-radius: 18px;
+            }
+            
+            .micDefault.activeMic, .voiceDefault.activeListen {
+              width: 24px;
+              height: 24px;
+              border-radius: 18px;
+            }
+          }
+          
+          .contentTopic {
+            font-size: 16px;
+            line-height: 24px;
+            width: 140px;
+          }
+        }
+      }
+    }
+  }
+  
+  .vocabulary {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  .listBox {
+    .boxVocabulary {
+      min-height: 50px;
+      padding: 8px;
+      
+      .title {
+        font-size: 11px;
+        line-height: 16px;
+      }
+      
+      .text {
+        font-size: 12px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+/* Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .boxContent {
+    .formVideo {
+      padding: 0 8px 8px 8px;
+      
+      .frameVideo {
+        border-width: 2px;
+        
+        .video {
+          max-width: 100%;
+          aspect-ratio: 16/9;
+        }
+      }
+      
+      .playVideo {
+        height: 50px;
+        padding: 0 8px;
+        
+        .timeVideo {
+          font-size: 10px;
+        }
+      }
+    }
+    
+    .content {
+      padding: 8px;
+      gap: 8px;
+      
+      .btnSession {
+        padding: 6px 12px;
+        border-radius: 8px;
+        
+        .textSession {
+          font-size: 11px;
+          line-height: 16px;
+        }
+      }
+      
+      .iconVideo {
+        width: 36px;
+        height: 36px;
+      }
+      
+      .contentVideo {
+        .nameTitle {
+          font-size: 16px;
+          line-height: 22px;
+        }
+        
+        .textTitle {
+          font-size: 10px;
+          line-height: 14px;
+        }
+      }
+    }
+  }
+  
+  .boxMain {
+    padding: 8px;
+    gap: 8px;
+    margin-top: 8px;
+    
+    .boxContentMain {
+      gap: 8px;
+      
+      .boxLeft {
+        img {
+          max-width: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+      
+      .boxRight {
+        .contentVocabulary {
+          .textVocabulary {
+            .text {
+              font-size: 16px;
+              line-height: 22px;
+            }
+          }
+          
+          .contentTitle {
+            .titleTopic {
+              font-size: 10px;
+              line-height: 14px;
+            }
+            
+            .imgVoice {
+              height: 24px;
+              
+              .borderImg, .voiceDefault {
+                width: 20px;
+                height: 20px;
+                border-radius: 16px;
+              }
+              
+              .voiceDefault.activeListen {
+                width: 20px;
+                height: 20px;
+                border-radius: 16px;
+              }
+            }
+            
+            .contentTopic {
+              font-size: 14px;
+              line-height: 20px;
+              width: 120px;
+            }
+          }
+        }
+        
+        .listBox {
+          .boxVocabulary {
+            min-height: 40px;
+            padding: 6px;
+            
+            .title {
+              font-size: 10px;
+              line-height: 14px;
+            }
+            
+            .text {
+              font-size: 11px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .topicContent {
+    gap: 8px;
+    
+    .textMic, .textMicError {
+      height: 60px;
+      padding: 6px 8px;
+      
+      .fontMic, .colorMicError {
+        font-size: 11px;
+        line-height: 16px;
+      }
+    }
+    
+    .textMicComplete {
+      height: 80px;
+      padding: 6px 8px;
+      
+      .resultMic {
+        .titleResult {
+          font-size: 11px;
+          line-height: 16px;
+        }
+        
+        .contentResult {
+          font-size: 10px;
+          line-height: 14px;
+        }
+      }
+      
+      .review {
+        .textReview {
+          font-size: 10px;
+          line-height: 14px;
+        }
+      }
+    }
+    
+    .topicText {
+      .contentTitleBox {
+        .contentTitle {
+          .titleTopic {
+            font-size: 10px;
+            line-height: 14px;
+          }
+          
+          .imgVoice {
+            height: 24px;
+            
+            .micDefault, .voiceDefault {
+              width: 20px;
+              height: 20px;
+              border-radius: 16px;
+            }
+            
+            .micDefault.activeMic, .voiceDefault.activeListen {
+              width: 20px;
+              height: 20px;
+              border-radius: 16px;
+            }
+          }
+          
+          .contentTopic {
+            font-size: 14px;
+            line-height: 20px;
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+  
+  .vocabulary {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  
+  .listBox {
+    .boxVocabulary {
+      min-height: 40px;
+      padding: 6px;
+      
+      .title {
+        font-size: 10px;
+        line-height: 14px;
+      }
+      
+      .text {
+        font-size: 11px;
+        line-height: 16px;
+      }
+    }
+  }
+}

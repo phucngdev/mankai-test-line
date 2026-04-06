@@ -5,15 +5,13 @@ const FacebookCallBack = () => {
 
   useEffect(() => {
     try {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get('code');
-      const state = params.get('state'); // chính là deepLinkUri từ app
+      const hash = window.location.hash.substring(1);
+      const params = new URLSearchParams(hash);
+      const accessToken = params.get('access_token');
+      const state = params.get('state');
 
-      console.log('[LINE Callback] code:', code);
-      console.log('[LINE Callback] state (deepLinkUri):', state);
-
-      if (!code) {
-        setError('Không nhận được mã xác thực từ LINE.');
+      if (!accessToken) {
+        setError('Không nhận được access token từ Facebook.');
         return;
       }
 
@@ -22,12 +20,7 @@ const FacebookCallBack = () => {
         return;
       }
 
-      // state = exp://192.168.1.65:8081/--/line-callback (Expo Go)
-      // hoặc mankai-app-native-expo://line-callback (production)
-      const deepLink = `${state}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
-
-      console.log('[LINE Callback] deepLink:', deepLink);
-
+      const deepLink = `${decodeURIComponent(state)}?access_token=${encodeURIComponent(accessToken)}`;
       window.location.replace(deepLink);
     } catch (e) {
       setError('Đã xảy ra lỗi trong quá trình xử lý.');
@@ -35,11 +28,12 @@ const FacebookCallBack = () => {
   }, []);
 
   const handleManualOpen = () => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get('access_token');
     const state = params.get('state');
-    if (code && state) {
-      const deepLink = `${state}?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`;
+    if (accessToken && state) {
+      const deepLink = `${decodeURIComponent(state)}?access_token=${encodeURIComponent(accessToken)}`;
       window.location.replace(deepLink);
     }
   };
@@ -47,16 +41,12 @@ const FacebookCallBack = () => {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        {/* LINE Icon */}
+        {/* Facebook Icon */}
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-          <rect width="56" height="56" rx="16" fill="#06C755" />
+          <rect width="56" height="56" rx="16" fill="#1877F2" />
           <path
-            d="M46 26.3C46 18.4 38.3 12 28.8 12S11.6 18.4 11.6 26.3c0 7.1 6.3 13 14.8 14.1.6.1 1.4.4 1.6.9.2.4.1 1.1.1 1.1l-.3 1.6c-.1.4-.4 1.7 1.5.9s10-5.9 13.6-10.1C45 32.5 46 29.6 46 26.3z"
+            d="M38 28C38 22.477 33.523 18 28 18C22.477 18 18 22.477 18 28C18 32.991 21.657 37.128 26.438 37.878V30.891H23.898V28H26.438V25.797C26.438 23.291 27.932 21.906 30.215 21.906C31.309 21.906 32.453 22.102 32.453 22.102V24.562H31.193C29.95 24.562 29.563 25.333 29.563 26.125V28H32.336L31.893 30.891H29.563V37.878C34.343 37.128 38 32.991 38 28Z"
             fill="white"
-          />
-          <path
-            d="M24.2 22.8h-1.3c-.2 0-.4.2-.4.4v7.9c0 .2.2.4.4.4h1.3c.2 0 .4-.2.4-.4v-7.9c0-.2-.2-.4-.4-.4zM33.6 22.8h-1.3c-.2 0-.4.2-.4.4v4.7l-3.6-4.9-.1-.1H27c-.2 0-.4.2-.4.4v7.9c0 .2.2.4.4.4h1.3c.2 0 .4-.2.4-.4v-4.7l3.6 4.9.1.1h1.2c.2 0 .4-.2.4-.4v-7.9c0-.2-.2-.4-.4-.4zM21.4 29.4h-3.5v-6.2c0-.2-.2-.4-.4-.4h-1.3c-.2 0-.4.2-.4.4v7.9c0 .1 0 .2.1.3.1.1.2.1.3.1h5.2c.2 0 .4-.2.4-.4V29.8c0-.2-.2-.4-.4-.4zM39.8 24.9c.2 0 .4-.2.4-.4v-1.3c0-.2-.2-.4-.4-.4h-5.2c-.1 0-.2 0-.3.1-.1.1-.1.2-.1.3v7.9c0 .1 0 .2.1.3.1.1.2.1.3.1h5.2c.2 0 .4-.2.4-.4v-1.3c0-.2-.2-.4-.4-.4h-3.5v-1.3h3.5c.2 0 .4-.2.4-.4v-1.3c0-.2-.2-.4-.4-.4h-3.5v-1.3h3.5z"
-            fill="#06C755"
           />
         </svg>
 
@@ -94,7 +84,7 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100vh',
-    backgroundColor: '#f0faf4',
+    backgroundColor: '#e7f0fd',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     padding: 16,
   },
@@ -106,43 +96,27 @@ const styles: Record<string, React.CSSProperties> = {
     flexDirection: 'column',
     alignItems: 'center',
     gap: 12,
-    boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+    boxShadow: '0 4px 24px rgba(24,119,242,0.12)',
     maxWidth: 360,
     width: '100%',
     textAlign: 'center',
   },
-  spinnerWrapper: {
-    marginTop: 8,
-  },
+  spinnerWrapper: { marginTop: 8 },
   spinner: {
     width: 36,
     height: 36,
-    border: '3px solid #e0f5e9',
-    borderTop: '3px solid #06C755',
+    border: '3px solid #d0e4fd',
+    borderTop: '3px solid #1877F2',
     borderRadius: '50%',
     animation: 'spin 0.8s linear infinite',
   },
-  title: {
-    margin: 0,
-    fontSize: 17,
-    fontWeight: 600,
-    color: '#111',
-  },
-  errorTitle: {
-    margin: 0,
-    fontSize: 17,
-    fontWeight: 600,
-    color: '#e53e3e',
-  },
-  subtitle: {
-    margin: 0,
-    fontSize: 13,
-    color: '#888',
-  },
+  title: { margin: 0, fontSize: 17, fontWeight: 600, color: '#111' },
+  errorTitle: { margin: 0, fontSize: 17, fontWeight: 600, color: '#e53e3e' },
+  subtitle: { margin: 0, fontSize: 13, color: '#888' },
   button: {
     marginTop: 12,
     padding: '10px 24px',
-    backgroundColor: '#06C755',
+    backgroundColor: '#1877F2',
     color: '#fff',
     border: 'none',
     borderRadius: 24,
